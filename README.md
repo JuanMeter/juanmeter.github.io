@@ -1,33 +1,21 @@
-# MeterWise GitHub Pages website met intro animatie
+# MeterWise GitHub Pages website
 
-Deze versie bevat:
+Dit is een statische website voor GitHub Pages.
 
-- MW logo linksboven in plaats van alleen een M
-- Fullscreen intro met MW logo
-- Professionele scroll transitie
-- Content wordt pas zichtbaar na scroll, klik of enter
-- Responsive layout voor desktop en mobiel
-- Statische GitHub Pages setup zonder buildstap
+## Gebruik
 
-## Uploaden naar GitHub Pages
+1. Maak een repository aan op GitHub.
+2. Upload alle bestanden uit deze map naar de root van je repository.
+3. Ga naar `Settings`, daarna `Pages`.
+4. Kies `Deploy from a branch`.
+5. Kies branch `main` en map `/root`.
+6. Sla op.
 
-Upload deze bestanden direct in de root van je repository:
+De website gebruikt alleen HTML, CSS en JavaScript. Er is geen buildstap nodig.
 
-```text
-index.html
-styles.css
-script.js
-assets/
-README.md
-```
+## Aanpassen
 
-Daarna in GitHub:
-
-1. Ga naar `Settings`
-2. Ga naar `Pages`
-3. Kies `Deploy from a branch`
-4. Kies `main`
-5. Kies `/root`
-6. Sla op
-
-Na uploaden kan GitHub Pages een paar minuten nodig hebben. Open daarna de site in incognito of doe een harde refresh.
+- Teksten staan in `index.html`
+- Kleuren en styling staan in `styles.css`
+- Interactie staat in `script.js`
+- Afbeeldingen staan in de map `assets`
