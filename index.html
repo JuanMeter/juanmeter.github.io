@@ -1,19 +1,80 @@
 <!doctype html>
-<html lang="nl">
+<html lang="nl" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MeterWise, AI Governance & Strategy</title>
   <meta name="description" content="Professionele GitHub Pages website voor MeterWise.">
   <meta name="theme-color" content="#FF4F18">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="MeterWise">
+  <meta property="og:title" content="MeterWise, AI Governance & Strategy">
+  <meta property="og:description" content="Maak AI beheersbaar, betrouwbaar en klaar voor groei.">
+  <meta property="og:url" content="https://meterwise.nl/">
+  <meta property="og:image" content="https://meterwise.nl/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="mask-icon" href="assets/favicon.svg" color="#FF4F18">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.replace("no-js", "js");</script>
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Ga naar hoofdinhoud</a>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <div class="site-grain" aria-hidden="true"></div>
+
+  <section class="landing-intro" aria-label="MeterWise introductie" data-landing-intro>
+    <div class="landing-stage" data-landing-stage>
+      <div class="landing-glow" aria-hidden="true"></div>
+
+      <div class="landing-copy">
+        <p class="landing-kicker">MeterWise · AI governance & strategy</p>
+        <p class="landing-title" aria-label="Intelligentie met controle">
+          <span>Intelligentie.</span>
+          <span>Met controle.</span>
+        </p>
+        <p class="landing-lead">Strategische helderheid voor organisaties die verantwoord vooruit willen.</p>
+      </div>
+
+      <div class="landing-scene" aria-hidden="true" data-landing-scene>
+        <div class="landing-orbit orbit-one"></div>
+        <div class="landing-orbit orbit-two"></div>
+        <div class="landing-orbit orbit-three"></div>
+        <div class="landing-cube">
+          <span class="cube-face cube-front"><span class="cube-logo-plate"><img src="assets/favicon.svg" alt=""></span></span>
+          <span class="cube-face cube-back"><span class="cube-logo-plate"><img src="assets/favicon.svg" alt=""></span></span>
+          <span class="cube-face cube-right"><span class="cube-wordmark">Meter<span>Wise</span></span></span>
+          <span class="cube-face cube-left"></span>
+          <span class="cube-face cube-top"><span class="cube-wordmark">Meter<span>Wise</span></span></span>
+          <span class="cube-face cube-bottom"></span>
+        </div>
+        <span class="landing-particle particle-one"></span>
+        <span class="landing-particle particle-two"></span>
+        <span class="landing-particle particle-three"></span>
+      </div>
+
+      <div class="landing-index" aria-hidden="true">
+        <span>01</span>
+        <span>Strategy</span>
+        <span>Governance</span>
+        <span>Compliance</span>
+      </div>
+
+      <a class="landing-scroll" href="#top">
+        <span>Scroll om binnen te gaan</span>
+        <i aria-hidden="true"></i>
+      </a>
+    </div>
+  </section>
+
   <header class="site-header" id="top">
     <nav class="nav container" aria-label="Hoofdnavigatie">
       <a class="brand" href="#top" aria-label="MeterWise home">
@@ -31,12 +92,12 @@
         <a href="#aanpak">Aanpak</a>
         <a href="#cases">Cases</a>
         <a href="#contact">Contact</a>
-        <a class="nav-cta" href="#contact">Plan kennismaking</a>
+        <a class="nav-cta" href="/kennismaking/">Plan kennismaking</a>
       </div>
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero section">
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="container hero-grid">
@@ -65,7 +126,11 @@
             <span class="status-dot"></span>
             <span>Brand system</span>
           </div>
-          <img src="assets/meterwise-banner.png" alt="MeterWise banner" class="hero-logo">
+          <picture class="hero-picture">
+            <source srcset="assets/meterwise-banner.avif" type="image/avif">
+            <source srcset="assets/meterwise-banner.webp" type="image/webp">
+            <img src="assets/meterwise-banner.png" alt="MeterWise banner" class="hero-logo" width="1920" height="1080" decoding="async" fetchpriority="high">
+          </picture>
           <div class="metric-grid">
             <div>
               <strong>01</strong>
@@ -225,11 +290,39 @@
             <h2>Klaar om MeterWise professioneel neer te zetten?</h2>
             <p>Vervang deze tekst later door je echte contacttekst, formulier of Calendly link.</p>
           </div>
-          <a class="button primary dark" href="mailto:info@meterwise.nl">info@meterwise.nl</a>
+          <a class="button primary dark" href="mailto:info@meterwise.nl" data-contact-open>info@meterwise.nl</a>
         </div>
       </div>
     </section>
   </main>
+
+  <button class="back-to-top" type="button" aria-label="Terug naar boven" data-back-to-top>
+    <span aria-hidden="true">↑</span>
+  </button>
+
+  <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-dialog-title">
+    <form class="contact-form" method="dialog" data-contact-form>
+      <div class="dialog-heading">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-dialog-title">Neem contact op</h2>
+        </div>
+        <button class="dialog-close" type="button" aria-label="Contactvenster sluiten" data-contact-close>×</button>
+      </div>
+
+      <label for="contact-name">Naam</label>
+      <input id="contact-name" name="name" type="text" autocomplete="name" required>
+
+      <label for="contact-email">E-mailadres</label>
+      <input id="contact-email" name="email" type="email" autocomplete="email" required>
+
+      <label for="contact-message">Bericht</label>
+      <textarea id="contact-message" name="message" rows="5" required></textarea>
+
+      <p class="form-status" aria-live="polite" data-form-status></p>
+      <button class="button primary" type="submit">Open in e-mailprogramma</button>
+    </form>
+  </dialog>
 
   <footer class="site-footer">
     <div class="container footer-grid">
