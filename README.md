@@ -1,6 +1,6 @@
 # MeterWise
 
-Professionele, statische bedrijfswebsite voor **MeterWise** gericht op AI-strategie, governance, compliance en verantwoord gebruik van kunstmatige intelligentie.
+Professionele, statische bedrijfswebsite voor **MeterWise** — gericht op AI-strategie, governance, compliance en verantwoord gebruik van kunstmatige intelligentie.
 
 De website combineert een moderne 3D-intro met een toegankelijke informatiestructuur, responsieve interacties en een aparte kennismakingspagina. Het project draait volledig als statische website en is geschikt voor publicatie via GitHub Pages.
 
@@ -34,7 +34,7 @@ De website combineert een moderne 3D-intro met een toegankelijke informatiestruc
 - Compactere sticky navigatie zodra de bezoeker naar beneden scrolt.
 - Subtiele card-, knop-, tijdlijn- en cursorinteracties.
 - Scroll-progressindicator en contextuele terug-naar-bovenknop.
-- Contactvenster met validatie en e-mailfallback.
+- Contact-CTA die rechtstreeks naar de kennismakingspagina leidt.
 
 ### Kennismakingspagina
 

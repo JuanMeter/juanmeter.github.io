@@ -182,51 +182,6 @@ if (heroCard && finePointer.matches && !reducedMotion.matches) {
   });
 }
 
-const contactDialog = document.getElementById("contact-dialog");
-const contactOpeners = document.querySelectorAll("[data-contact-open]");
-const contactCloser = document.querySelector("[data-contact-close]");
-const contactForm = document.querySelector("[data-contact-form]");
-const formStatus = document.querySelector("[data-form-status]");
-
-if (contactDialog && typeof contactDialog.showModal === "function") {
-  contactOpeners.forEach((opener) => {
-    opener.addEventListener("click", (event) => {
-      event.preventDefault();
-      contactDialog.showModal();
-      contactDialog.querySelector("input")?.focus();
-    });
-  });
-
-  contactCloser?.addEventListener("click", () => contactDialog.close());
-
-  contactDialog.addEventListener("click", (event) => {
-    const bounds = contactDialog.getBoundingClientRect();
-    const clickedBackdrop =
-      event.clientX < bounds.left ||
-      event.clientX > bounds.right ||
-      event.clientY < bounds.top ||
-      event.clientY > bounds.bottom;
-
-    if (clickedBackdrop) contactDialog.close();
-  });
-}
-
-contactForm?.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  if (!contactForm.reportValidity()) return;
-
-  const formData = new FormData(contactForm);
-  const name = String(formData.get("name") || "").trim();
-  const email = String(formData.get("email") || "").trim();
-  const message = String(formData.get("message") || "").trim();
-  const subject = encodeURIComponent(`Kennismaking MeterWise – ${name}`);
-  const body = encodeURIComponent(`${message}\n\nNaam: ${name}\nE-mail: ${email}`);
-
-  if (formStatus) formStatus.textContent = "Je e-mailprogramma wordt geopend.";
-  window.location.href = `mailto:meterwise@outlook.com?subject=${subject}&body=${body}`;
-});
-
 const landingIntro = document.querySelector("[data-landing-intro]");
 const landingStage = document.querySelector("[data-landing-stage]");
 
