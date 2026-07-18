@@ -683,3 +683,45 @@ h3 {
     padding: 28px;
   }
 }
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255, 79, 24, 0.18), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgba(0, 29, 63, 0.14), transparent 30%),
+    radial-gradient(circle at 62% 82%, rgba(255, 122, 34, 0.12), transparent 32%),
+    radial-gradient(circle at 20% 78%, rgba(216, 224, 237, 0.38), transparent 30%);
+  filter: blur(18px);
+  animation: meterwiseBackgroundFlow 24s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(0, 16, 31, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 16, 31, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.38), transparent 70%);
+  opacity: 0.45;
+}
+
+@keyframes meterwiseBackgroundFlow {
+  0% {
+    transform: translate3d(-2%, -1%, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(2%, 1.5%, 0) scale(1.04);
+  }
+
+  100% {
+    transform: translate3d(-1%, 2%, 0) scale(1.08);
+  }
+}
