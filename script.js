@@ -224,7 +224,7 @@ contactForm?.addEventListener("submit", (event) => {
   const body = encodeURIComponent(`${message}\n\nNaam: ${name}\nE-mail: ${email}`);
 
   if (formStatus) formStatus.textContent = "Je e-mailprogramma wordt geopend.";
-  window.location.href = `mailto:info@meterwise.nl?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:meterwise@outlook.com?subject=${subject}&body=${body}`;
 });
 
 const landingIntro = document.querySelector("[data-landing-intro]");

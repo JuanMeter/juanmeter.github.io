@@ -229,10 +229,10 @@ form.addEventListener("submit", async (event) => {
 
     showSuccess("Je e-mailprogramma wordt geopend met de aanvraag alvast voor je ingevuld.");
     window.setTimeout(() => {
-      window.location.href = `mailto:info@meterwise.nl?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:meterwise@outlook.com?subject=${subject}&body=${body}`;
     }, 250);
   } catch (error) {
-    showAlert(error.message || "Er ging iets mis. Probeer het opnieuw of mail naar info@meterwise.nl.");
+    showAlert(error.message || "Er ging iets mis. Probeer het opnieuw of mail naar meterwise@outlook.com.");
     submitButton.disabled = false;
     submitButton.innerHTML = originalLabel;
   }

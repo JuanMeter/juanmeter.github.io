@@ -125,7 +125,7 @@ Open de URL die in de terminal wordt getoond.
 Zonder externe formulierdienst opent het formulier het standaard e-mailprogramma van de bezoeker. De ingevulde aanvraag wordt automatisch verwerkt in het onderwerp en de inhoud van een e-mail aan:
 
 ```text
-info@meterwise.nl
+meterwise@outlook.com
 ```
 
 ### Rechtstreeks verzenden met Formspree
@@ -298,7 +298,7 @@ Houd nieuwe beweging subtiel en bied altijd een rustige fallback via `prefers-re
 ## Contact
 
 Website: [meterwise.nl](https://meterwise.nl/)  
-E-mail: [info@meterwise.nl](mailto:info@meterwise.nl)
+E-mail: [meterwise@outlook.com](mailto:meterwise@outlook.com)
 
 ---
 
