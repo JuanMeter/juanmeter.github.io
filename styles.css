@@ -1268,8 +1268,15 @@ body.nav-open {
 
 .landing-stage {
   --landing-progress: 0;
+  --landing-exit: 0;
   --landing-pointer-x: 0;
   --landing-pointer-y: 0;
+  --mark-assembly: 0;
+  --mark-reveal: 0;
+  --mark-lock: 0;
+  --mark-start-x: -56vw;
+  --mark-top-y: -25vh;
+  --mark-bottom-y: 25vh;
   position: sticky;
   top: 0;
   height: 100vh;
@@ -1279,7 +1286,7 @@ body.nav-open {
   background:
     radial-gradient(circle at 72% 45%, rgba(255, 79, 24, 0.09), transparent 29rem),
     linear-gradient(145deg, #020304 0%, #080a0d 56%, #020304 100%);
-  opacity: calc(1 - var(--landing-progress) * 0.82);
+  opacity: calc(1 - var(--landing-exit) * 0.9);
 }
 
 .landing-stage::before {
@@ -1381,13 +1388,13 @@ body.nav-open {
   transform:
     translate3d(
       calc(var(--landing-pointer-x) * 22px),
-      calc(-50% + var(--landing-pointer-y) * 18px + var(--landing-progress) * 72px),
+      calc(-50% + var(--landing-pointer-y) * 18px + var(--landing-exit) * 72px),
       0
     )
-    rotateZ(calc(var(--landing-progress) * 7deg))
-    scale(calc(1 - var(--landing-progress) * 0.13));
+    rotateZ(calc(var(--landing-exit) * 7deg))
+    scale(calc(1 - var(--landing-exit) * 0.13));
   transform-style: preserve-3d;
-  opacity: calc(1 - var(--landing-progress) * 0.48);
+  opacity: calc(1 - var(--landing-exit) * 0.58);
 }
 
 .landing-orbit {
@@ -1396,6 +1403,7 @@ body.nav-open {
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 50%;
   transform-style: preserve-3d;
+  opacity: calc(0.08 + var(--mark-assembly) * 0.48);
 }
 
 .landing-orbit::before {
@@ -1426,68 +1434,145 @@ body.nav-open {
   animation: landingOrbitThree 8s linear infinite;
 }
 
-.landing-cube {
-  --cube-size: clamp(132px, 15vw, 230px);
+.landing-mark {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: var(--cube-size);
-  height: var(--cube-size);
+  width: clamp(178px, 21vw, 330px);
+  aspect-ratio: 930 / 952;
   transform:
     translate3d(-50%, -50%, 0)
-    rotateX(calc(-19deg + var(--landing-pointer-y) * 4deg))
-    rotateY(calc(31deg + var(--landing-pointer-x) * 5deg));
+    rotateX(calc(var(--landing-pointer-y) * -3deg))
+    rotateY(calc(var(--landing-pointer-x) * 6deg));
   transform-style: preserve-3d;
-  animation: landingCubeFloat 7s ease-in-out infinite;
+  filter: drop-shadow(0 28px 35px rgba(0, 0, 0, 0.5));
 }
 
-.cube-face {
+.landing-mark::before,
+.landing-mark::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.landing-mark::before {
+  width: 122%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  transform: translate(-50%, -50%) scale(calc(0.88 + var(--mark-assembly) * 0.12));
+  opacity: calc(var(--mark-assembly) * 0.72);
+}
+
+.landing-mark::after {
+  width: 78%;
+  aspect-ratio: 1;
+  background: rgba(255, 79, 24, 0.22);
+  filter: blur(58px);
+  transform: translate(-50%, -50%) scale(calc(0.7 + var(--mark-assembly) * 0.3));
+  opacity: calc(var(--mark-assembly) * 0.88);
+}
+
+.landing-mark-aura {
+  position: absolute;
+  inset: -18%;
+  z-index: -1;
+  border: 1px solid rgba(255, 79, 24, 0.22);
+  border-radius: 50%;
+  opacity: calc(var(--mark-assembly) * 0.6);
+  transform: scale(calc(0.76 + var(--mark-assembly) * 0.24));
+  animation: landingMarkAura 4.5s ease-in-out infinite;
+}
+
+.landing-mark-half,
+.landing-mark-eyes {
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(0, 16, 31, 0.1);
-  background: var(--white);
-  color: rgba(255, 255, 255, 0.92);
-  font-size: clamp(2.5rem, 7vw, 6rem);
-  font-weight: 800;
-  letter-spacing: -0.09em;
-  box-shadow: inset 0 0 30px rgba(0, 16, 31, 0.035);
+  display: block;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
 }
 
-.cube-logo-plate {
-  display: grid;
-  place-items: center;
-  width: 82%;
-  height: 82%;
-}
-
-.cube-logo-plate img {
+.landing-mark-half img,
+.landing-mark-eyes img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: none;
 }
 
-.cube-wordmark {
-  display: inline-flex;
-  color: var(--black);
-  font-size: clamp(0.86rem, 1.9vw, 1.7rem);
-  font-weight: 800;
-  letter-spacing: -0.055em;
+.landing-mark-half img {
+  filter:
+    drop-shadow(0 0 1px rgba(255, 255, 255, 0.18))
+    drop-shadow(0 18px 24px rgba(255, 79, 24, 0.16));
+}
+
+.landing-mark-top {
+  clip-path: inset(0 0 50% 0);
+  transform-origin: 50% 50%;
+  transform:
+    translate3d(
+      calc(var(--mark-start-x) * (1 - var(--mark-assembly))),
+      calc(var(--mark-top-y) * (1 - var(--mark-assembly))),
+      calc(72px * (1 - var(--mark-assembly)))
+    )
+    rotateX(calc(-12deg * (1 - var(--mark-assembly))))
+    rotateZ(calc(-4deg * (1 - var(--mark-assembly))));
+}
+
+.landing-mark-bottom {
+  clip-path: inset(50% 0 0 0);
+  transform-origin: 50% 50%;
+  transform:
+    translate3d(
+      calc(var(--mark-start-x) * (1 - var(--mark-assembly))),
+      calc(var(--mark-bottom-y) * (1 - var(--mark-assembly))),
+      calc(-46px * (1 - var(--mark-assembly)))
+    )
+    rotateX(calc(12deg * (1 - var(--mark-assembly))))
+    rotateZ(calc(4deg * (1 - var(--mark-assembly))));
+}
+
+.landing-mark-eyes {
+  z-index: 3;
+  opacity: var(--mark-reveal);
+  transform:
+    translateZ(12px)
+    scale(calc(0.64 + var(--mark-reveal) * 0.36));
+  filter:
+    blur(calc(8px - var(--mark-reveal) * 8px))
+    drop-shadow(0 0 18px rgba(255, 255, 255, 0.2));
+}
+
+.landing-mark-lock {
+  position: absolute;
+  left: -15%;
+  top: 50%;
+  z-index: 4;
+  width: 130%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.92), var(--orange), rgba(255, 255, 255, 0.92), transparent);
+  box-shadow: 0 0 18px rgba(255, 79, 24, 0.88);
+  opacity: var(--mark-lock);
+  transform: scaleX(calc(0.35 + var(--mark-lock) * 0.65));
+}
+
+.landing-mark-status {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 28px);
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   white-space: nowrap;
+  opacity: calc(var(--mark-reveal) * 0.82);
+  transform: translateX(-50%) translateY(calc(10px - var(--mark-reveal) * 10px));
 }
-
-.cube-wordmark > span {
-  color: var(--orange);
-}
-
-.cube-front { transform: translateZ(calc(var(--cube-size) / 2)); }
-.cube-back { transform: rotateY(180deg) translateZ(calc(var(--cube-size) / 2)); }
-.cube-right { transform: rotateY(90deg) translateZ(calc(var(--cube-size) / 2)); }
-.cube-left { transform: rotateY(-90deg) translateZ(calc(var(--cube-size) / 2)); }
-.cube-top { transform: rotateX(90deg) translateZ(calc(var(--cube-size) / 2)); }
-.cube-bottom { transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2)); }
 
 .landing-particle {
   position: absolute;
@@ -1568,9 +1653,9 @@ body.nav-open {
   to { transform: rotateX(54deg) rotateY(32deg) rotateZ(360deg); }
 }
 
-@keyframes landingCubeFloat {
-  0%, 100% { margin-top: -7px; }
-  50% { margin-top: 8px; }
+@keyframes landingMarkAura {
+  0%, 100% { box-shadow: 0 0 0 rgba(255, 79, 24, 0); }
+  50% { box-shadow: 0 0 42px rgba(255, 79, 24, 0.12); }
 }
 
 @keyframes landingParticle {
@@ -1596,7 +1681,7 @@ body.nav-open {
   .landing-scene {
     right: -10%;
     width: min(70vw, 520px);
-    opacity: calc(0.52 - var(--landing-progress) * 0.3);
+    opacity: calc(0.78 - var(--landing-exit) * 0.48);
   }
 
   .landing-index span:not(:first-child) {
@@ -1626,10 +1711,22 @@ body.nav-open {
   }
 
   .landing-scene {
-    right: -32%;
-    top: 28%;
-    width: 92vw;
-    opacity: calc(0.32 - var(--landing-progress) * 0.18);
+    right: -22%;
+    top: 11%;
+    width: 88vw;
+    transform:
+      translate3d(
+        calc(var(--landing-pointer-x) * 8px),
+        calc(-50% + var(--landing-pointer-y) * 8px + 60px - var(--mark-assembly) * 60px + var(--landing-exit) * 72px),
+        0
+      )
+      rotateZ(calc(var(--landing-exit) * 7deg))
+      scale(calc(1 - var(--landing-exit) * 0.13));
+    opacity: calc(0.54 - var(--landing-exit) * 0.3);
+  }
+
+  .landing-mark {
+    width: 160px;
   }
 
   .landing-index {
@@ -1645,10 +1742,30 @@ body.nav-open {
 
 @media (prefers-reduced-motion: reduce) {
   .landing-orbit,
-  .landing-cube,
+  .landing-mark-aura,
   .landing-particle,
   .landing-scroll i::after {
     animation: none !important;
+  }
+
+  .landing-mark-top,
+  .landing-mark-bottom {
+    transform: none;
+  }
+
+  .landing-mark-eyes {
+    opacity: 1;
+    filter: none;
+    transform: translateZ(0) scale(1);
+  }
+
+  .landing-mark-lock {
+    display: none;
+  }
+
+  .landing-mark-status {
+    opacity: 0.7;
+    transform: translateX(-50%);
   }
 
   .landing-stage,

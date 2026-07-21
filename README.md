@@ -2,7 +2,7 @@
 
 Professionele, statische bedrijfswebsite voor **MeterWise** — gericht op AI-strategie, governance, compliance en verantwoord gebruik van kunstmatige intelligentie.
 
-De website combineert een moderne 3D-intro met een toegankelijke informatiestructuur, responsieve interacties en een aparte kennismakingspagina. Het project draait volledig als statische website en is geschikt voor publicatie via GitHub Pages.
+De website combineert een moderne, interactieve split-logo-intro met een toegankelijke informatiestructuur, responsieve interacties en een aparte kennismakingspagina. Het project draait volledig als statische website en is geschikt voor publicatie via GitHub Pages.
 
 ![MeterWise social preview](assets/og-image.jpg)
 
@@ -25,8 +25,11 @@ De website combineert een moderne 3D-intro met een toegankelijke informatiestruc
 
 ### Hoofdpagina
 
-- Schermvullende zwarte 3D-intro vóór de bestaande website.
-- Geanimeerde ringen, een driedimensionale merkkubus en cursorparallax.
+- Schermvullende zwarte 2.5D-intro vóór de bestaande website.
+- De losse M en W kaderen in de beginsituatie het volledige introductietekstblok aan de boven- en onderkant in.
+- Tijdens het scrollen bewegen beide helften naar rechts en sluiten ze daar tot het volledige MW-beeldmerk.
+- De donkere oogvormen en een korte lichtnaad verschijnen precies op het sluitmoment.
+- Geanimeerde ringen, subtiele diepte en cursorparallax.
 - Scrollgestuurde overgang van de intro naar de reguliere website.
 - Grote, responsieve hero met duidelijke primaire en secundaire acties.
 - Secties voor diensten, aanpak, huisstijl, cases en contact.
@@ -77,6 +80,8 @@ Dit houdt de website snel, transparant en eenvoudig te onderhouden.
 ├── README.md                  # Projectdocumentatie
 ├── assets/
 │   ├── favicon.svg            # Vectorlogo en favicon
+│   ├── landing-mark-body.svg  # Oranje M/W-vorm voor de landingintro
+│   ├── landing-mark-eyes.svg  # Donkere oogvormen voor het sluitmoment
 │   ├── meterwise-banner.png   # Originele bannerfallback
 │   ├── meterwise-banner.webp  # Geoptimaliseerde WebP-banner
 │   ├── meterwise-banner.avif  # Geoptimaliseerde AVIF-banner
@@ -280,7 +285,7 @@ De knop op de hoofdpagina hoort naar deze nette route te verwijzen:
 
 ### Beweging
 
-De 3D-intro en cursorinteracties staan in:
+De split-logo-intro en cursorinteracties staan in:
 
 - de sectie `Cinematic 3D landing experience` in `styles.css`;
 - het blok met `data-landing-intro` in `script.js`.
