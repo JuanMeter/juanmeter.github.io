@@ -1118,23 +1118,6 @@ body::after {
   will-change: transform;
 }
 
-.landing-title::after {
-  content: "";
-  position: absolute;
-  left: var(--title-pointer-x);
-  top: var(--title-pointer-y);
-  z-index: -1;
-  width: clamp(150px, 22vw, 320px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 79, 24, 0.2), rgba(255, 79, 24, 0.055) 42%, transparent 72%);
-  filter: blur(9px);
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0.72);
-  transition: opacity 0.32s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-  pointer-events: none;
-}
-
 .landing-title span {
   transform-style: preserve-3d;
   transition: transform 0.38s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.3s ease;
@@ -1149,9 +1132,9 @@ body::after {
   background:
     radial-gradient(
       circle 230px at var(--title-pointer-x) var(--title-pointer-y),
-      rgba(255, 122, 34, 0.98) 0%,
-      rgba(255, 255, 255, 0.24) 30%,
-      transparent 68%
+      rgba(255, 122, 34, 0.4) 0%,
+      rgba(255, 255, 255, 0.12) 28%,
+      transparent 62%
     );
   background-clip: text;
   -webkit-background-clip: text;
@@ -1160,11 +1143,6 @@ body::after {
 
 .landing-title.is-interacting {
   transition-duration: 0.1s;
-}
-
-.landing-title.is-interacting::after {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
 }
 
 .landing-title.is-interacting span {
@@ -1318,7 +1296,7 @@ body::after {
     transform: none !important;
   }
 
-  .landing-title::after,
+  .landing-pointer-aura,
   .brand-panel::before,
   .brand-panel::after,
   .palette > [data-brand-swatch]::before {
@@ -1500,6 +1478,8 @@ body.nav-open {
   --landing-exit: 0;
   --landing-pointer-x: 0;
   --landing-pointer-y: 0;
+  --landing-cursor-x: 50%;
+  --landing-cursor-y: 50%;
   --mark-pointer-x: 0;
   --mark-pointer-y: 0;
   --mark-assembly: 0;
@@ -1556,6 +1536,40 @@ body.nav-open {
     )
     scale(calc(1 + var(--landing-progress) * 0.16));
   pointer-events: none;
+}
+
+.landing-pointer-aura {
+  position: absolute;
+  left: var(--landing-cursor-x);
+  top: var(--landing-cursor-y);
+  z-index: 1;
+  width: clamp(170px, 18vw, 280px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(216, 224, 237, 0.035);
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(216, 224, 237, 0.09) 0%,
+      rgba(255, 255, 255, 0.035) 32%,
+      rgba(255, 79, 24, 0.014) 52%,
+      transparent 72%
+    );
+  filter: blur(8px);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.86);
+  transition:
+    left 0.16s cubic-bezier(0.2, 0.7, 0.2, 1),
+    top 0.16s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.28s ease,
+    transform 0.3s ease;
+  pointer-events: none;
+  will-change: left, top, transform;
+}
+
+.landing-stage.is-pointer-active .landing-pointer-aura {
+  opacity: 0.72;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .landing-copy {

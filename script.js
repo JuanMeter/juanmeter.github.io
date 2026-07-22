@@ -241,10 +241,28 @@ if (landingIntro && landingStage) {
   let markPointerResponse = 0;
 
   const updateLandingPointer = () => {
+    const cursorX = (landingPointerX + 1) * 50;
+    const cursorY = (landingPointerY + 1) * 50;
+    const relativeX = landingPointerX * 0.5;
+    const relativeY = landingPointerY * 0.5;
+
     landingStage.style.setProperty("--landing-pointer-x", landingPointerX.toFixed(3));
     landingStage.style.setProperty("--landing-pointer-y", landingPointerY.toFixed(3));
+    landingStage.style.setProperty("--landing-cursor-x", `${cursorX.toFixed(2)}%`);
+    landingStage.style.setProperty("--landing-cursor-y", `${cursorY.toFixed(2)}%`);
     landingStage.style.setProperty("--mark-pointer-x", (landingPointerX * markPointerResponse).toFixed(3));
     landingStage.style.setProperty("--mark-pointer-y", (landingPointerY * markPointerResponse).toFixed(3));
+
+    if (landingTitle) {
+      landingTitle.style.setProperty("--title-pointer-x", `${cursorX.toFixed(2)}%`);
+      landingTitle.style.setProperty("--title-pointer-y", `${cursorY.toFixed(2)}%`);
+      landingTitle.style.setProperty("--title-rotate-x", `${(-relativeY * 2.2).toFixed(2)}deg`);
+      landingTitle.style.setProperty("--title-rotate-y", `${(relativeX * 2.8).toFixed(2)}deg`);
+      landingTitle.style.setProperty("--title-line-one-x", `${(relativeX * 5).toFixed(2)}px`);
+      landingTitle.style.setProperty("--title-line-one-y", `${(relativeY * 3).toFixed(2)}px`);
+      landingTitle.style.setProperty("--title-line-two-x", `${(-relativeX * 4).toFixed(2)}px`);
+      landingTitle.style.setProperty("--title-line-two-y", `${(-relativeY * 2).toFixed(2)}px`);
+    }
   };
 
   const updateLandingGeometry = () => {
@@ -300,49 +318,10 @@ if (landingIntro && landingStage) {
   document.fonts?.ready.then(updateLandingGeometry);
 
   if (finePointer.matches && !reducedMotion.matches) {
-    if (landingTitle) {
-      let titleFrame = 0;
-
-      const resetLandingTitle = () => {
-        if (titleFrame) window.cancelAnimationFrame(titleFrame);
-        titleFrame = 0;
-        landingTitle.classList.remove("is-interacting");
-        landingTitle.style.setProperty("--title-pointer-x", "50%");
-        landingTitle.style.setProperty("--title-pointer-y", "50%");
-        landingTitle.style.setProperty("--title-rotate-x", "0deg");
-        landingTitle.style.setProperty("--title-rotate-y", "0deg");
-        landingTitle.style.setProperty("--title-line-one-x", "0px");
-        landingTitle.style.setProperty("--title-line-one-y", "0px");
-        landingTitle.style.setProperty("--title-line-two-x", "0px");
-        landingTitle.style.setProperty("--title-line-two-y", "0px");
-      };
-
-      landingTitle.addEventListener("pointerenter", () => landingTitle.classList.add("is-interacting"));
-
-      landingTitle.addEventListener("pointermove", (event) => {
-        if (titleFrame) return;
-
-        titleFrame = window.requestAnimationFrame(() => {
-          const bounds = landingTitle.getBoundingClientRect();
-          const pointerX = Math.min(1, Math.max(0, (event.clientX - bounds.left) / bounds.width));
-          const pointerY = Math.min(1, Math.max(0, (event.clientY - bounds.top) / bounds.height));
-          const relativeX = pointerX - 0.5;
-          const relativeY = pointerY - 0.5;
-
-          landingTitle.style.setProperty("--title-pointer-x", `${(pointerX * 100).toFixed(2)}%`);
-          landingTitle.style.setProperty("--title-pointer-y", `${(pointerY * 100).toFixed(2)}%`);
-          landingTitle.style.setProperty("--title-rotate-x", `${(-relativeY * 2.2).toFixed(2)}deg`);
-          landingTitle.style.setProperty("--title-rotate-y", `${(relativeX * 2.8).toFixed(2)}deg`);
-          landingTitle.style.setProperty("--title-line-one-x", `${(relativeX * 5).toFixed(2)}px`);
-          landingTitle.style.setProperty("--title-line-one-y", `${(relativeY * 3).toFixed(2)}px`);
-          landingTitle.style.setProperty("--title-line-two-x", `${(-relativeX * 4).toFixed(2)}px`);
-          landingTitle.style.setProperty("--title-line-two-y", `${(-relativeY * 2).toFixed(2)}px`);
-          titleFrame = 0;
-        });
-      });
-
-      landingTitle.addEventListener("pointerleave", resetLandingTitle);
-    }
+    landingStage.addEventListener("pointerenter", () => {
+      landingStage.classList.add("is-pointer-active");
+      landingTitle?.classList.add("is-interacting");
+    });
 
     landingStage.addEventListener("pointermove", (event) => {
       const bounds = landingStage.getBoundingClientRect();
@@ -354,6 +333,8 @@ if (landingIntro && landingStage) {
     landingStage.addEventListener("pointerleave", () => {
       landingPointerX = 0;
       landingPointerY = 0;
+      landingStage.classList.remove("is-pointer-active");
+      landingTitle?.classList.remove("is-interacting");
       updateLandingPointer();
     });
   }
