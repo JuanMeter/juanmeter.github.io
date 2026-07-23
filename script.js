@@ -182,88 +182,13 @@ if (heroCard && finePointer.matches && !reducedMotion.matches) {
   });
 }
 
-const brandPanel = document.querySelector("[data-brand-panel]");
-const brandSwatches = document.querySelectorAll("[data-brand-swatch]");
-
-if (finePointer.matches && !reducedMotion.matches) {
-  const bindPointerSurface = (surface, options = {}) => {
-    if (!surface) return;
-
-    const maxTilt = options.maxTilt ?? 2.8;
-    const prefix = options.prefix ?? "surface";
-    let surfaceFrame = 0;
-    let pointerX = 0.5;
-    let pointerY = 0.5;
-
-    const renderSurface = () => {
-      const relativeX = pointerX - 0.5;
-      const relativeY = pointerY - 0.5;
-
-      surface.style.setProperty(`--${prefix}-pointer-x`, `${(pointerX * 100).toFixed(2)}%`);
-      surface.style.setProperty(`--${prefix}-pointer-y`, `${(pointerY * 100).toFixed(2)}%`);
-      surface.style.setProperty(`--${prefix}-rotate-x`, `${(-relativeY * maxTilt).toFixed(2)}deg`);
-      surface.style.setProperty(`--${prefix}-rotate-y`, `${(relativeX * maxTilt).toFixed(2)}deg`);
-      surfaceFrame = 0;
-    };
-
-    surface.addEventListener("pointerenter", () => surface.classList.add("is-interacting"));
-
-    surface.addEventListener("pointermove", (event) => {
-      const bounds = surface.getBoundingClientRect();
-      pointerX = Math.min(1, Math.max(0, (event.clientX - bounds.left) / bounds.width));
-      pointerY = Math.min(1, Math.max(0, (event.clientY - bounds.top) / bounds.height));
-
-      if (!surfaceFrame) surfaceFrame = window.requestAnimationFrame(renderSurface);
-    });
-
-    surface.addEventListener("pointerleave", () => {
-      pointerX = 0.5;
-      pointerY = 0.5;
-      surface.classList.remove("is-interacting");
-      renderSurface();
-    });
-  };
-
-  bindPointerSurface(brandPanel, { prefix: "brand", maxTilt: 3.2 });
-  brandSwatches.forEach((swatch) => bindPointerSurface(swatch, { prefix: "swatch", maxTilt: 7 }));
-}
-
 const landingIntro = document.querySelector("[data-landing-intro]");
 const landingStage = document.querySelector("[data-landing-stage]");
 
 if (landingIntro && landingStage) {
   const landingCopy = landingStage.querySelector(".landing-copy");
   const landingMark = landingStage.querySelector("[data-landing-mark]");
-  const landingTitle = landingStage.querySelector("[data-landing-title]");
   let landingFrame = 0;
-  let landingPointerX = 0;
-  let landingPointerY = 0;
-  let markPointerResponse = 0;
-
-  const updateLandingPointer = () => {
-    const cursorX = (landingPointerX + 1) * 50;
-    const cursorY = (landingPointerY + 1) * 50;
-    const relativeX = landingPointerX * 0.5;
-    const relativeY = landingPointerY * 0.5;
-
-    landingStage.style.setProperty("--landing-pointer-x", landingPointerX.toFixed(3));
-    landingStage.style.setProperty("--landing-pointer-y", landingPointerY.toFixed(3));
-    landingStage.style.setProperty("--landing-cursor-x", `${cursorX.toFixed(2)}%`);
-    landingStage.style.setProperty("--landing-cursor-y", `${cursorY.toFixed(2)}%`);
-    landingStage.style.setProperty("--mark-pointer-x", (landingPointerX * markPointerResponse).toFixed(3));
-    landingStage.style.setProperty("--mark-pointer-y", (landingPointerY * markPointerResponse).toFixed(3));
-
-    if (landingTitle) {
-      landingTitle.style.setProperty("--title-pointer-x", `${cursorX.toFixed(2)}%`);
-      landingTitle.style.setProperty("--title-pointer-y", `${cursorY.toFixed(2)}%`);
-      landingTitle.style.setProperty("--title-rotate-x", `${(-relativeY * 2.2).toFixed(2)}deg`);
-      landingTitle.style.setProperty("--title-rotate-y", `${(relativeX * 2.8).toFixed(2)}deg`);
-      landingTitle.style.setProperty("--title-line-one-x", `${(relativeX * 5).toFixed(2)}px`);
-      landingTitle.style.setProperty("--title-line-one-y", `${(relativeY * 3).toFixed(2)}px`);
-      landingTitle.style.setProperty("--title-line-two-x", `${(-relativeX * 4).toFixed(2)}px`);
-      landingTitle.style.setProperty("--title-line-two-y", `${(-relativeY * 2).toFixed(2)}px`);
-    }
-  };
 
   const updateLandingGeometry = () => {
     if (!landingCopy || !landingMark) return;
@@ -289,15 +214,12 @@ if (landingIntro && landingStage) {
     const reveal = revealRaw * revealRaw * (3 - 2 * revealRaw);
     const exit = Math.min(1, Math.max(0, (progress - 0.84) / 0.16));
     const lock = Math.max(0, 1 - Math.abs(progress - 0.72) / 0.085);
-    const pointerResponseRaw = Math.min(1, Math.max(0, (progress - 0.7) / 0.08));
-    markPointerResponse = pointerResponseRaw * pointerResponseRaw * (3 - 2 * pointerResponseRaw);
 
     landingStage.style.setProperty("--landing-progress", progress.toFixed(4));
     landingStage.style.setProperty("--landing-exit", exit.toFixed(4));
     landingStage.style.setProperty("--mark-assembly", assembly.toFixed(4));
     landingStage.style.setProperty("--mark-reveal", reveal.toFixed(4));
     landingStage.style.setProperty("--mark-lock", lock.toFixed(4));
-    updateLandingPointer();
     landingFrame = 0;
   };
 
@@ -318,24 +240,18 @@ if (landingIntro && landingStage) {
   document.fonts?.ready.then(updateLandingGeometry);
 
   if (finePointer.matches && !reducedMotion.matches) {
-    landingStage.addEventListener("pointerenter", () => {
-      landingStage.classList.add("is-pointer-active");
-      landingTitle?.classList.add("is-interacting");
-    });
-
     landingStage.addEventListener("pointermove", (event) => {
       const bounds = landingStage.getBoundingClientRect();
-      landingPointerX = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
-      landingPointerY = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
-      updateLandingPointer();
+      const pointerX = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
+      const pointerY = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
+
+      landingStage.style.setProperty("--landing-pointer-x", pointerX.toFixed(3));
+      landingStage.style.setProperty("--landing-pointer-y", pointerY.toFixed(3));
     });
 
     landingStage.addEventListener("pointerleave", () => {
-      landingPointerX = 0;
-      landingPointerY = 0;
-      landingStage.classList.remove("is-pointer-active");
-      landingTitle?.classList.remove("is-interacting");
-      updateLandingPointer();
+      landingStage.style.setProperty("--landing-pointer-x", "0");
+      landingStage.style.setProperty("--landing-pointer-y", "0");
     });
   }
 }

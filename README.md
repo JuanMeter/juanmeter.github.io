@@ -17,6 +17,7 @@ De website combineert een moderne, interactieve split-logo-intro met een toegank
 - [Werken met branches](#werken-met-branches)
 - [Toegankelijkheid](#toegankelijkheid)
 - [Performance en SEO](#performance-en-seo)
+- [Inhoud beheren](#inhoud-beheren)
 - [Aanpassen](#aanpassen)
 - [Bekende beperkingen](#bekende-beperkingen)
 - [Contact](#contact)
@@ -32,7 +33,7 @@ De website combineert een moderne, interactieve split-logo-intro met een toegank
 - Geanimeerde ringen, subtiele diepte en cursorparallax.
 - Scrollgestuurde overgang van de intro naar de reguliere website.
 - Grote, responsieve hero met duidelijke primaire en secundaire acties.
-- Secties voor diensten, aanpak, huisstijl, cases en contact.
+- Secties voor diensten, scanwerkwijze, concrete output, doelgroepen en contact.
 - Actieve navigatiestatus tijdens het scrollen.
 - Compactere sticky navigatie zodra de bezoeker naar beneden scrolt.
 - Subtiele card-, knop-, tijdlijn- en cursorinteracties.
@@ -256,6 +257,54 @@ De pagina’s bevatten:
 - Een SVG-favicon en aanvullende iconmetadata.
 
 Pas metadata aan wanneer de positionering, dienstverlening of pagina-inhoud verandert.
+
+## Inhoud beheren
+
+De publieke teksten zijn gebaseerd op het interne koersdocument van MeterWise. De website vertaalt dat document bewust naar een compacte commerciële klantreis:
+
+```text
+herkenning → aanbod → werkwijze → concrete output → doelgroep → kennismaking
+```
+
+### Inhoudskaart hoofdpagina
+
+| Onderdeel op de website | Waar aanpassen | Wat staat hier |
+|---|---|---|
+| Zwarte landingintro | `index.html` → `.landing-copy` | Merkbelofte en de korte regel onder `Intelligentie. Met controle.` |
+| Navigatie | `index.html` → `.nav-links` en `.footer-links` | Links naar diensten, aanpak, doelgroepen en contact |
+| Hoofdpropositie | `index.html` → `section.hero` | Vaste hoofdkop, kernbelofte, primaire CTA en drie vertrouwenspunten |
+| Waarom MeterWise | `index.html` → `section.intro` | Het probleem: AI-gebruik groeit sneller dan governance en bestuurlijke beheersing |
+| Diensten | `index.html` → `#diensten` | AI QuickScan, AI Governance Scan en implementatie/ISO-readiness |
+| Werkwijze | `index.html` → `#aanpak` | Inventariseren, onderzoeken, prioriteren en activeren |
+| Output Governance Scan | `index.html` → `.scan-output` | AI-register, governance-score, toprisico's, roadmap, readiness-advies en managementbesluit |
+| Doelgroepen | `index.html` → `#voor-wie` | Software & IT, data- en mensintensieve toepassingen en kritieke processen |
+| Contactblok | `index.html` → `#contact` | Commerciële slotvraag en link naar de kennismakingspagina |
+| SEO en social media | `index.html` → `<head>` | Paginatitel, description en Open Graph-teksten |
+
+### Inhoudskaart kennismakingspagina
+
+| Onderdeel | Waar aanpassen | Wat staat hier |
+|---|---|---|
+| Introductie | `kennismaking/index.html` → `.meeting-intro` | Verwachting van het gesprek en drie concrete voordelen |
+| Keuze gespreksonderwerp | `kennismaking/index.html` → eerste `.form-step` | De vier actuele routes: QuickScan, Governance Scan, implementatie en ISO-readiness |
+| Organisatievragen | `kennismaking/index.html` → tweede `.form-step` | Organisatienaam, omvang, startmoment en inhoudelijke context |
+| Contactgegevens | `kennismaking/index.html` → derde `.form-step` | Naam, functie, e-mail, telefoon en toestemming |
+| Formulierbestemming | `kennismaking/index.html` → `data-endpoint` | Optioneel Formspree-endpoint |
+| E-mailfallback | `kennismaking/kennismaking.js` → `mailto:meterwise@outlook.com` | Ontvanger wanneer geen formulierendpoint is ingesteld |
+| SEO en social media | `kennismaking/index.html` → `<head>` | Titel, description en Open Graph-teksten van deze pagina |
+
+### Bewuste redactionele keuzes
+
+Niet alle informatie uit het interne koersdocument hoort op de publieke website.
+
+- Prijsbanden staan in het koersdocument als hypotheses en zijn daarom niet gepubliceerd.
+- Verkoopquota, pilotdoelen, succescriteria en de twaalfmaandenplanning blijven intern.
+- Er worden geen fictieve cases, testimonials of klantresultaten getoond.
+- ISO/IEC 42001 wordt gepresenteerd als referentiekader en readiness-route, niet als certificeringsgarantie.
+- MeterWise positioneert zich niet als certificerende instelling.
+- De publieke belofte richt zich op overzicht, beheersing en aantoonbaarheid; certificering is alleen relevant wanneer dat zakelijk passend is.
+
+Voeg een case of testimonial pas toe wanneer toestemming, context en het behaalde resultaat aantoonbaar zijn. Vervang de doelgroepkaarten in `#voor-wie` dan niet automatisch: een aparte casesectie houdt doelgroep en bewijs duidelijk van elkaar gescheiden.
 
 ## Aanpassen
 
