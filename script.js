@@ -48,7 +48,8 @@ const updateHeader = () => {
 updateHeader();
 window.addEventListener("scroll", updateHeader, { passive: true });
 
-document.getElementById("year").textContent = new Date().getFullYear();
+const yearElement = document.getElementById("year");
+if (yearElement) yearElement.textContent = new Date().getFullYear();
 
 const revealElements = document.querySelectorAll(".reveal");
 
@@ -186,24 +187,8 @@ const landingIntro = document.querySelector("[data-landing-intro]");
 const landingStage = document.querySelector("[data-landing-stage]");
 
 if (landingIntro && landingStage) {
-  const landingCopy = landingStage.querySelector(".landing-copy");
-  const landingMark = landingStage.querySelector("[data-landing-mark]");
+  const landingTitle = landingStage.querySelector(".landing-title");
   let landingFrame = 0;
-
-  const updateLandingGeometry = () => {
-    if (!landingCopy || !landingMark) return;
-
-    const copyBounds = landingCopy.getBoundingClientRect();
-    const markBounds = landingMark.getBoundingClientRect();
-    const gap = window.innerWidth <= 640 ? 10 : 18;
-    const startX = copyBounds.left - markBounds.left;
-    const topY = copyBounds.top - gap - markBounds.height * 0.5 - markBounds.top;
-    const bottomY = copyBounds.bottom + gap - (markBounds.top + markBounds.height * 0.5);
-
-    landingStage.style.setProperty("--mark-start-x", `${startX.toFixed(2)}px`);
-    landingStage.style.setProperty("--mark-top-y", `${topY.toFixed(2)}px`);
-    landingStage.style.setProperty("--mark-bottom-y", `${bottomY.toFixed(2)}px`);
-  };
 
   const updateLandingProgress = () => {
     const transitionDistance = Math.max(1, landingIntro.offsetHeight - window.innerHeight);
@@ -229,19 +214,12 @@ if (landingIntro && landingStage) {
   };
 
   updateLandingProgress();
-  updateLandingGeometry();
   window.addEventListener("scroll", requestLandingUpdate, { passive: true });
-  window.addEventListener("resize", () => {
-    updateLandingGeometry();
-    requestLandingUpdate();
-  });
+  window.addEventListener("resize", requestLandingUpdate);
 
-  window.addEventListener("load", updateLandingGeometry, { once: true });
-  document.fonts?.ready.then(updateLandingGeometry);
-
-  if (finePointer.matches && !reducedMotion.matches) {
-    landingStage.addEventListener("pointermove", (event) => {
-      const bounds = landingStage.getBoundingClientRect();
+  if (landingTitle && finePointer.matches && !reducedMotion.matches) {
+    landingTitle.addEventListener("pointermove", (event) => {
+      const bounds = landingTitle.getBoundingClientRect();
       const pointerX = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
       const pointerY = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
 
@@ -249,7 +227,7 @@ if (landingIntro && landingStage) {
       landingStage.style.setProperty("--landing-pointer-y", pointerY.toFixed(3));
     });
 
-    landingStage.addEventListener("pointerleave", () => {
+    landingTitle.addEventListener("pointerleave", () => {
       landingStage.style.setProperty("--landing-pointer-x", "0");
       landingStage.style.setProperty("--landing-pointer-y", "0");
     });
