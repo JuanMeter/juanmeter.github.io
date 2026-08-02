@@ -296,6 +296,49 @@ h3 {
   margin-bottom: 18px;
 }
 
+.pulse-date {
+  margin-left: auto;
+  color: var(--orange);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pulse-focus {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  margin: -2px 2px 16px;
+  padding: 12px 15px;
+  border: 1px solid rgba(0, 16, 31, 0.08);
+  border-radius: 16px;
+  background: rgba(244, 245, 249, 0.82);
+}
+
+.pulse-focus span {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pulse-focus strong {
+  color: var(--black);
+  font-size: 0.88rem;
+  text-align: right;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.pulse-focus.is-switching strong {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
 .status-dot {
   width: 10px;
   height: 10px;
@@ -738,6 +781,36 @@ h3 {
   .metric-grid,
   .palette {
     grid-template-columns: 1fr;
+  }
+
+  .hero-card .metric-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .hero-card .metric-grid div {
+    padding: 13px 10px;
+    border-radius: 16px;
+  }
+
+  .hero-card .metric-grid strong {
+    font-size: 1.3rem;
+  }
+
+  .hero-card .metric-grid span {
+    font-size: 0.68rem;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  .pulse-focus {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .pulse-focus strong {
+    text-align: left;
   }
 
   .timeline-item {
@@ -1619,20 +1692,6 @@ body.nav-open {
   transform: scaleX(calc(0.35 + var(--mark-lock) * 0.65));
 }
 
-.landing-mark-status {
-  position: absolute;
-  left: 50%;
-  top: calc(100% + 28px);
-  color: rgba(255, 255, 255, 0.48);
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  opacity: calc(var(--mark-reveal) * 0.82);
-  transform: translateX(-50%) translateY(calc(10px - var(--mark-reveal) * 10px));
-}
-
 .landing-particle {
   position: absolute;
   width: 5px;
@@ -1841,11 +1900,6 @@ body.nav-open {
 
   .landing-mark-lock {
     display: none;
-  }
-
-  .landing-mark-status {
-    opacity: 0.7;
-    transform: translateX(-50%);
   }
 
   .landing-stage,

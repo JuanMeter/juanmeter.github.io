@@ -213,7 +213,7 @@ form.addEventListener("submit", async (event) => {
     }
 
     const values = formValues();
-    const subject = encodeURIComponent(`Kennismaking MeterWise – ${values.organisatie}`);
+    const subject = encodeURIComponent(`Kennismaking Meterwise – ${values.organisatie}`);
     const body = encodeURIComponent([
       `Onderwerp: ${values.onderwerp}`,
       `Organisatie: ${values.organisatie}`,

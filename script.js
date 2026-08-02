@@ -51,6 +51,42 @@ window.addEventListener("scroll", updateHeader, { passive: true });
 const yearElement = document.getElementById("year");
 if (yearElement) yearElement.textContent = new Date().getFullYear();
 
+const currentDateElement = document.querySelector("[data-current-date]");
+
+if (currentDateElement) {
+  const today = new Date();
+  currentDateElement.dateTime = today.toISOString().slice(0, 10);
+  currentDateElement.textContent = today.toLocaleDateString("nl-NL", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric"
+  });
+}
+
+const governanceFocus = document.querySelector("[data-governance-focus]");
+
+if (governanceFocus && !reducedMotion.matches) {
+  const focusItems = [
+    "AI-inventaris",
+    "Risico & impact",
+    "Menselijk toezicht",
+    "Leveranciers & lifecycle",
+    "Beleid & bewijs"
+  ];
+  const focusPanel = governanceFocus.closest(".pulse-focus");
+  let focusIndex = 0;
+
+  window.setInterval(() => {
+    focusPanel?.classList.add("is-switching");
+
+    window.setTimeout(() => {
+      focusIndex = (focusIndex + 1) % focusItems.length;
+      governanceFocus.textContent = focusItems[focusIndex];
+      focusPanel?.classList.remove("is-switching");
+    }, 180);
+  }, 4200);
+}
+
 const revealElements = document.querySelectorAll(".reveal");
 
 if (reducedMotion.matches || !("IntersectionObserver" in window)) {

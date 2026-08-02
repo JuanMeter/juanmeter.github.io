@@ -1,6 +1,6 @@
-# MeterWise website
+# Meterwise website
 
-Statische, responsieve bedrijfswebsite voor **MeterWise**. De website positioneert MeterWise rond AI-strategie, AI-governance, risicobeheersing en ISO/IEC 42001-readiness.
+Statische, responsieve bedrijfswebsite voor **Meterwise**. De website positioneert Meterwise rond AI-strategie, AI-governance, risicobeheersing en ISO/IEC 42001-readiness.
 
 De publieke inhoud vertaalt het interne koersdocument naar een commerciële klantreis, zonder interne prijs- en verkoophypotheses, fictieve cases of certificeringsgaranties te publiceren.
 
@@ -8,13 +8,13 @@ De publieke inhoud vertaalt het interne koersdocument naar een commerciële klan
 
 | Route | Functie |
 |---|---|
-| `/` | **Over MeterWise**: brede hoofdpagina met merkintro, kernpropositie, samenvattingen en doorverwijzingen |
+| `/` | **Over Meterwise**: brede hoofdpagina met merkintro, kernpropositie, samenvattingen en doorverwijzingen |
 | `/diensten/` | Verdieping van de QuickScan, Governance Scan, implementatie, ISO-readiness en continuïteit |
 | `/aanpak/` | Werkwijze, zeven beoordelingsdomeinen, vier bewijsniveaus en 30/60/90-dagenroadmap |
 | `/voor-wie/` | Koopsignalen, relevante sectoren, fitcriteria en een korte zelfcheck |
 | `/kennismaking/` | Interactief formulier in drie stappen voor een vrijblijvende kennismaking |
 
-De hoofdnavigatie is op alle inhoudspagina’s gelijk. “Over MeterWise” verwijst naar `/`, waardoor de hoofdpagina niet onnodig op een tweede URL wordt gedupliceerd.
+De hoofdnavigatie is op alle inhoudspagina’s gelijk. “Over Meterwise” verwijst naar `/`, waardoor de hoofdpagina niet onnodig op een tweede URL wordt gedupliceerd.
 
 ## Belangrijkste functionaliteit
 
@@ -26,12 +26,14 @@ De hoofdnavigatie is op alle inhoudspagina’s gelijk. “Over MeterWise” verw
 - Alleen de tekst **“Intelligentie. Met controle.”** reageert subtiel op een fijne muisaanwijzer.
 - Op touchapparaten worden de zwaarste decoratieve animaties uitgeschakeld.
 - De oogvormen en korte sluitlijn verschijnen wanneer het MW-logo compleet is.
+- De technische prototype-labels zijn verwijderd; rechtsboven staan nu relevante vakgebieden.
 - `prefers-reduced-motion` krijgt een rustige, volledig gevormde variant.
 
 ### Algemene website
 
 - Responsive sticky navigatie met mobiel menu.
 - Duidelijke primaire en secundaire acties.
+- Het hoofdvenster heet **AI Governance Pulse** en toont de actuele datum, een wisselende governancefocus en drie controleerbare servicemetrics.
 - Scroll-progressindicator en terug-naar-bovenknop.
 - Toegankelijke reveal-animaties met reduced-motionfallback.
 - Unieke titels, descriptions en Open Graph-metadata per route.
@@ -58,8 +60,6 @@ Zonder externe formulierdienst opent de website een voorbereide e-mail aan `mete
 │   ├── favicon.svg
 │   ├── landing-mark-body.svg
 │   ├── landing-mark-eyes.svg
-│   ├── meterwise-banner.avif
-│   ├── meterwise-banner.webp
 │   ├── meterwise-banner.png
 │   └── og-image.jpg
 ├── diensten/
@@ -94,13 +94,14 @@ Gebruik bij voorkeur geen `file://`, omdat absolute routes dan niet hetzelfde we
 
 ## Inhoud beheren
 
-### Over MeterWise — `index.html`
+### Over Meterwise — `index.html`
 
 | Onderdeel | HTML-locatie | Inhoud |
 |---|---|---|
 | Landingintro | `.landing-copy` | Merkregel, grote introductietekst en korte belofte |
 | Hoofdpropositie | `section.hero` | Hoofdkop, uitleg, CTA’s en drie vertrouwenspunten |
-| Waarom MeterWise | `section.intro` | Het probleem dat AI sneller groeit dan de beheersing |
+| AI Governance Pulse | `.hero-card` | Actuele datum, wisselende governancefocus, 10 werkdagen, 7 domeinen en 90-dagenactieroute |
+| Waarom Meterwise | `section.intro` | Het probleem dat AI sneller groeit dan de beheersing |
 | Dienstenoverzicht | `#diensten` | Korte samenvatting van de drie belangrijkste routes |
 | Aanpakoverzicht | `#aanpak` | Vier stappen van inventarisatie tot activatie |
 | Concrete output | `.scan-output` | Zes resultaten van de Governance Scan |
@@ -227,7 +228,7 @@ feature branch → preview → pull request → merge → GitHub Pages
 - Geen interne prijsbanden, verkooptargets of pilotquota.
 - Geen fictieve cases, testimonials of resultaten.
 - Geen garantie op ISO/IEC 42001-certificering.
-- MeterWise wordt niet als certificerende instelling gepositioneerd.
+- Meterwise wordt niet als certificerende instelling gepositioneerd.
 - ISO/IEC 42001 is een managementsysteemkader en mogelijke readiness-route wanneer dat zakelijk relevant is.
 
 ## Contact
@@ -235,4 +236,4 @@ feature branch → preview → pull request → merge → GitHub Pages
 - Website: [meterwise.nl](https://meterwise.nl/)
 - E-mail: [meterwise@outlook.com](mailto:meterwise@outlook.com)
 
-© MeterWise. Alle rechten voorbehouden.
+© Meterwise. Alle rechten voorbehouden.
