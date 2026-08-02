@@ -352,6 +352,21 @@
   margin-top: 30px;
 }
 
+.service-list-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 28px;
+}
+
+.service-list-columns h3 {
+  margin-bottom: 0;
+}
+
+.service-list-columns .check-list {
+  margin-top: 18px;
+}
+
 .dark-section {
   color: var(--white);
   background:
@@ -683,6 +698,11 @@
     padding: 28px;
   }
 
+  .service-list-columns {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
   .step-detail {
     grid-template-columns: 54px 1fr;
     gap: 18px;
@@ -696,6 +716,93 @@
   }
 
   .question-panel {
+    padding: 28px;
+  }
+}
+
+/* AI Act page */
+.ai-timeline .step-detail {
+  align-items: center;
+}
+
+.ai-timeline .step-detail h3 {
+  margin-bottom: 5px;
+}
+
+.timeline-label {
+  color: var(--orange) !important;
+  font-size: 0.75rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sources-section {
+  padding-top: 32px;
+}
+
+.source-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 52px;
+  align-items: center;
+  padding: 44px;
+  border: 1px solid rgba(255, 79, 24, 0.18);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 92% 18%, rgba(255, 79, 24, 0.13), transparent 18rem),
+    rgba(255, 255, 255, 0.92);
+  box-shadow: 0 20px 62px rgba(0, 16, 31, 0.07);
+}
+
+.source-panel h2 {
+  font-size: clamp(2.1rem, 3.6vw, 3.8rem);
+}
+
+.source-panel p:not(.eyebrow) {
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.source-links {
+  display: grid;
+  gap: 12px;
+}
+
+.source-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  color: var(--black);
+  background: var(--white);
+  font-weight: 800;
+  line-height: 1.4;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.source-links a:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 79, 24, 0.35);
+}
+
+.source-links span {
+  color: var(--orange);
+}
+
+@media (max-width: 940px) {
+  .source-panel {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .source-panel {
     padding: 28px;
   }
 }

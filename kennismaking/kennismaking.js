@@ -148,6 +148,26 @@ const restoreDraft = () => {
   }
 };
 
+const applySubjectFromQuery = () => {
+  const requestedSubject = new URLSearchParams(window.location.search).get("onderwerp");
+  const subjectMap = {
+    "governance-scan": "AI Governance Scan",
+    quickscan: "AI QuickScan",
+    implementatie: "Governance implementatie",
+    "iso-readiness": "ISO/IEC 42001-readiness"
+  };
+  const subject = subjectMap[requestedSubject];
+  if (!subject) return;
+
+  const matchingRadio = [...form.querySelectorAll('input[name="onderwerp"]')]
+    .find((field) => field.value === subject);
+
+  if (matchingRadio) {
+    matchingRadio.checked = true;
+    currentStep = 0;
+  }
+};
+
 const showSuccess = (message) => {
   steps.forEach((step) => { step.hidden = true; });
   document.querySelector(".form-progress").hidden = true;
@@ -239,5 +259,6 @@ form.addEventListener("submit", async (event) => {
 });
 
 restoreDraft();
+applySubjectFromQuery();
 showStep(currentStep, false);
 updateSummary();

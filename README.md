@@ -1,6 +1,6 @@
 # Meterwise website
 
-Statische, responsieve bedrijfswebsite voor **Meterwise**. De website positioneert Meterwise rond AI-strategie, AI-governance, risicobeheersing en ISO/IEC 42001-readiness.
+Statische, responsieve bedrijfswebsite voor **Meterwise**. De website begint bij het herkenbare klantprobleem — groeiend AI-gebruik zonder volledig overzicht — en positioneert de AI Governance Scan als centrale eerste stap.
 
 De publieke inhoud vertaalt het interne koersdocument naar een commerciële klantreis, zonder interne prijs- en verkoophypotheses, fictieve cases of certificeringsgaranties te publiceren.
 
@@ -12,6 +12,7 @@ De publieke inhoud vertaalt het interne koersdocument naar een commerciële klan
 | `/diensten/` | Verdieping van de QuickScan, Governance Scan, implementatie, ISO-readiness en continuïteit |
 | `/aanpak/` | Werkwijze, zeven beoordelingsdomeinen, vier bewijsniveaus en 30/60/90-dagenroadmap |
 | `/voor-wie/` | Koopsignalen, relevante sectoren, fitcriteria en een korte zelfcheck |
+| `/ai-act/` | Praktische uitleg, actuele hoofdtijdlijn, eerste maatregelen en de relatie met ISO/IEC 42001 |
 | `/kennismaking/` | Interactief formulier in drie stappen voor een vrijblijvende kennismaking |
 
 De hoofdnavigatie is op alle inhoudspagina’s gelijk. “Over Meterwise” verwijst naar `/`, waardoor de hoofdpagina niet onnodig op een tweede URL wordt gedupliceerd.
@@ -34,6 +35,9 @@ De hoofdnavigatie is op alle inhoudspagina’s gelijk. “Over Meterwise” verw
 - Responsive sticky navigatie met mobiel menu.
 - Duidelijke primaire en secundaire acties.
 - Het hoofdvenster heet **AI Governance Pulse** en toont de actuele datum, een wisselende governancefocus en drie controleerbare servicemetrics.
+- De homepage bevat een herkenningsblok, een eenvoudige AI Act-uitleg, drie redenen om nu te beginnen, een persoonlijk Meterwise-profiel en veelgestelde vragen.
+- De AI Governance Scan is zichtbaar het kernproduct; QuickScan, implementatie en readiness zijn aanvullende routes.
+- De aparte AI Act-pagina verwijst voor actuele termijnen naar officiële bronnen van de Europese Commissie en Autoriteit Persoonsgegevens.
 - Scroll-progressindicator en terug-naar-bovenknop.
 - Toegankelijke reveal-animaties met reduced-motionfallback.
 - Unieke titels, descriptions en Open Graph-metadata per route.
@@ -46,6 +50,8 @@ De hoofdnavigatie is op alle inhoudspagina’s gelijk. “Over Meterwise” verw
 3. Contactgegevens, toestemming en verzending.
 
 Zonder externe formulierdienst opent de website een voorbereide e-mail aan `meterwise@outlook.com`. Met een geldig Formspree-endpoint kan het formulier rechtstreeks verzenden.
+
+CTA's kunnen het gespreksonderwerp vooraf selecteren met `?onderwerp=governance-scan`, `quickscan`, `implementatie` of `iso-readiness`.
 
 ## Projectstructuur
 
@@ -68,6 +74,8 @@ Zonder externe formulierdienst opent de website een voorbereide e-mail aan `mete
 │   └── index.html
 ├── voor-wie/
 │   └── index.html
+├── ai-act/
+│   └── index.html
 └── kennismaking/
     ├── index.html
     ├── kennismaking.css
@@ -88,6 +96,7 @@ Open vervolgens:
 - [http://localhost:8000/diensten/](http://localhost:8000/diensten/)
 - [http://localhost:8000/aanpak/](http://localhost:8000/aanpak/)
 - [http://localhost:8000/voor-wie/](http://localhost:8000/voor-wie/)
+- [http://localhost:8000/ai-act/](http://localhost:8000/ai-act/)
 - [http://localhost:8000/kennismaking/](http://localhost:8000/kennismaking/)
 
 Gebruik bij voorkeur geen `file://`, omdat absolute routes dan niet hetzelfde werken als op GitHub Pages.
@@ -101,11 +110,15 @@ Gebruik bij voorkeur geen `file://`, omdat absolute routes dan niet hetzelfde we
 | Landingintro | `.landing-copy` | Merkregel, grote introductietekst en korte belofte |
 | Hoofdpropositie | `section.hero` | Hoofdkop, uitleg, CTA’s en drie vertrouwenspunten |
 | AI Governance Pulse | `.hero-card` | Actuele datum, wisselende governancefocus, 10 werkdagen, 7 domeinen en 90-dagenactieroute |
-| Waarom Meterwise | `section.intro` | Het probleem dat AI sneller groeit dan de beheersing |
+| Herkenbare situaties | `#herkenbaar` | Zes signalen van AI-gebruik zonder volledig overzicht of duidelijke afspraken |
+| Waarom nu | `#waarom-nu` | Eenvoudige AI Act-uitleg en drie redenen om tijdig te beginnen |
 | Dienstenoverzicht | `#diensten` | Korte samenvatting van de drie belangrijkste routes |
-| Aanpakoverzicht | `#aanpak` | Vier stappen van inventarisatie tot activatie |
+| Aanpakoverzicht | `#aanpak` | Drie stappen: inzicht, beoordeling en inrichting |
+| Risico en ISO | `.governance-context` | Zakelijke gevolgen van onbeheerst gebruik en de afbakening van ISO/IEC 42001 |
 | Concrete output | `.scan-output` | Zes resultaten van de Governance Scan |
 | Doelgroepenoverzicht | `#voor-wie` | Drie brede toepassingsomgevingen |
+| Over Juan en Groningen | `#over-meterwise` | Oorsprong, werkwijze en vier kenmerken van de samenwerking |
+| Veelgestelde vragen | `#veelgestelde-vragen` | Vier korte antwoorden over scan, AI Act en ISO |
 | Slot-CTA | `#contact` | Vraag, toelichting en knop naar kennismaking |
 
 De kaarten op de hoofdpagina zijn bewust compact. Verdiepende uitleg hoort op de subpagina’s.
@@ -120,6 +133,16 @@ De kaarten op de hoofdpagina zijn bewust compact. Verdiepende uitleg hoort op de
 | `#implementatie` | Inrichting van rollen, beleid, processen en bewijs |
 | ISO/IEC 42001-blok | Readinesspositie en afbakening ten opzichte van certificering |
 | `#continuiteit` | Periodieke herbeoordeling en onderhoud |
+
+### AI Act — `ai-act/index.html`
+
+| Anker | Inhoud |
+|---|---|
+| `#relevantie` | Rollen rond ontwikkelen, aanbieden en gebruiken van AI |
+| `#tijdlijn` | Hoofdmomenten vanaf augustus 2024 en genuanceerde verdere fasering |
+| `#praktijk` | Zes maatregelen waarmee een organisatie direct kan beginnen |
+| `#iso` | Verschil en samenhang tussen de AI Act en ISO/IEC 42001 |
+| `#bronnen` | Officiële, actuele bronnen en juridische afbakening |
 
 ### Aanpak — `aanpak/index.html`
 
@@ -155,6 +178,7 @@ De kaarten op de hoofdpagina zijn bewust compact. Verdiepende uitleg hoort op de
 
 - Globale kleuren, typografie, homepage en landingintro: `styles.css`.
 - Gedeelde vormgeving van Diensten, Aanpak en Voor wie: `pages.css`.
+- De AI Act-pagina gebruikt eveneens `pages.css`; de bron- en tijdlijncomponenten staan onder `/* AI Act page */`.
 - Scroll-, navigatie-, reveal- en landinglogica: `script.js`.
 - Kennismakingspagina: `kennismaking/kennismaking.css` en `kennismaking/kennismaking.js`.
 
@@ -220,7 +244,7 @@ feature branch → preview → pull request → merge → GitHub Pages
 - `prefers-reduced-motion` voor bezoekers die minder beweging kiezen.
 - Geen cursorlisteners op touchapparaten.
 - Decoratieve mobiele landinganimaties zijn beperkt.
-- AVIF en WebP met PNG-fallback voor de hoofdbanner.
+- De hoofdbanner gebruikt uitsluitend de originele PNG uit de repository.
 - Geen zware externe JavaScriptbibliotheek.
 
 ## Bewuste inhoudelijke grenzen
@@ -230,6 +254,8 @@ feature branch → preview → pull request → merge → GitHub Pages
 - Geen garantie op ISO/IEC 42001-certificering.
 - Meterwise wordt niet als certificerende instelling gepositioneerd.
 - ISO/IEC 42001 is een managementsysteemkader en mogelijke readiness-route wanneer dat zakelijk relevant is.
+- De AI Act-pagina biedt praktische oriëntatie en is expliciet geen juridisch advies.
+- Wettelijke termijnen worden alleen met links naar officiële bronnen gepubliceerd en moeten periodiek opnieuw worden gecontroleerd.
 
 ## Contact
 
