@@ -151,8 +151,8 @@ const restoreDraft = () => {
 const applySubjectFromQuery = () => {
   const requestedSubject = new URLSearchParams(window.location.search).get("onderwerp");
   const subjectMap = {
-    "governance-scan": "AI Governance Scan",
-    quickscan: "AI QuickScan",
+    "governance-scan": "Ai Governance Scan",
+    quickscan: "Ai QuickScan",
     implementatie: "Governance implementatie",
     "iso-readiness": "ISO/IEC 42001-readiness"
   };

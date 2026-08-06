@@ -51,42 +51,6 @@ window.addEventListener("scroll", updateHeader, { passive: true });
 const yearElement = document.getElementById("year");
 if (yearElement) yearElement.textContent = new Date().getFullYear();
 
-const currentDateElement = document.querySelector("[data-current-date]");
-
-if (currentDateElement) {
-  const today = new Date();
-  currentDateElement.dateTime = today.toISOString().slice(0, 10);
-  currentDateElement.textContent = today.toLocaleDateString("nl-NL", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric"
-  });
-}
-
-const governanceFocus = document.querySelector("[data-governance-focus]");
-
-if (governanceFocus && !reducedMotion.matches) {
-  const focusItems = [
-    "AI-inventaris",
-    "Risico & impact",
-    "Menselijk toezicht",
-    "Leveranciers & lifecycle",
-    "Beleid & bewijs"
-  ];
-  const focusPanel = governanceFocus.closest(".pulse-focus");
-  let focusIndex = 0;
-
-  window.setInterval(() => {
-    focusPanel?.classList.add("is-switching");
-
-    window.setTimeout(() => {
-      focusIndex = (focusIndex + 1) % focusItems.length;
-      governanceFocus.textContent = focusItems[focusIndex];
-      focusPanel?.classList.remove("is-switching");
-    }, 180);
-  }, 4200);
-}
-
 const revealElements = document.querySelectorAll(".reveal");
 
 if (reducedMotion.matches || !("IntersectionObserver" in window)) {
@@ -190,34 +154,6 @@ window.addEventListener("resize", updateScrollUtilities);
 backToTop?.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: reducedMotion.matches ? "auto" : "smooth" });
 });
-
-const heroCard = document.querySelector(".hero-card");
-
-if (heroCard && finePointer.matches && !reducedMotion.matches) {
-  let tiltFrame = 0;
-
-  heroCard.addEventListener("pointerenter", () => heroCard.classList.add("is-tilting"));
-
-  heroCard.addEventListener("pointermove", (event) => {
-    if (tiltFrame) return;
-
-    tiltFrame = window.requestAnimationFrame(() => {
-      const bounds = heroCard.getBoundingClientRect();
-      const relativeX = (event.clientX - bounds.left) / bounds.width - 0.5;
-      const relativeY = (event.clientY - bounds.top) / bounds.height - 0.5;
-
-      heroCard.style.setProperty("--tilt-x", `${(-relativeY * 2.4).toFixed(2)}deg`);
-      heroCard.style.setProperty("--tilt-y", `${(relativeX * 2.4).toFixed(2)}deg`);
-      tiltFrame = 0;
-    });
-  });
-
-  heroCard.addEventListener("pointerleave", () => {
-    heroCard.classList.remove("is-tilting");
-    heroCard.style.setProperty("--tilt-x", "0deg");
-    heroCard.style.setProperty("--tilt-y", "0deg");
-  });
-}
 
 const landingIntro = document.querySelector("[data-landing-intro]");
 const landingStage = document.querySelector("[data-landing-stage]");
