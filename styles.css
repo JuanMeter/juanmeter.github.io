@@ -931,11 +931,13 @@ body::after {
   transition: transform 0.25s ease;
 }
 
-.nav-links a[aria-current="true"] {
+.nav-links a[aria-current="true"],
+.nav-links a[aria-current="page"] {
   color: var(--orange);
 }
 
-.nav-links a[aria-current="true"]::after {
+.nav-links a[aria-current="true"]::after,
+.nav-links a[aria-current="page"]::after {
   transform: scaleX(1);
 }
 
@@ -1622,6 +1624,85 @@ body::after {
 .landing-kicker,
 .landing-index {
   letter-spacing: 0.08em;
+}
+
+/* Fully connected governance map */
+.snapshot-connections {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.snapshot-connections line {
+  stroke: rgba(255, 79, 24, 0.45);
+  stroke-width: 1.15;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.snapshot-ring {
+  z-index: 1;
+}
+
+.snapshot-core {
+  z-index: 3;
+}
+
+.snapshot-node-use {
+  left: 5%;
+  top: 20%;
+  right: auto;
+  bottom: auto;
+}
+
+.snapshot-node-data {
+  left: 5%;
+  bottom: 19%;
+}
+
+.snapshot-node-risk {
+  right: 5%;
+  top: 20%;
+  left: auto;
+  bottom: auto;
+}
+
+.snapshot-node-supplier {
+  right: 3%;
+  bottom: 19%;
+}
+
+.snapshot-node-owner {
+  left: 50%;
+  right: auto;
+  bottom: 4%;
+  transform: translateX(-50%);
+}
+
+.snapshot-node-supervision {
+  left: 50%;
+  top: 4%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 640px) {
+  .snapshot-node {
+    padding: 7px 9px;
+    font-size: 0.61rem;
+  }
+
+  .snapshot-node-use,
+  .snapshot-node-risk {
+    top: 21%;
+  }
+
+  .snapshot-node-data,
+  .snapshot-node-supplier {
+    bottom: 20%;
+  }
 }
 
 /* Customer-led positioning and Ai Act content */

@@ -13,7 +13,8 @@ De publieke inhoud vertaalt het interne koersdocument naar een commerciële klan
 | `/aanpak/` | Werkwijze, zeven beoordelingsdomeinen, vier bewijsniveaus en 30/60/90-dagenroadmap |
 | `/voor-wie/` | Koopsignalen, relevante sectoren, fitcriteria en een korte zelfcheck |
 | `/ai-act/` | Praktische uitleg, actuele hoofdtijdlijn, eerste maatregelen en de relatie met ISO/IEC 42001 |
-| `/kennismaking/` | Interactief formulier in drie stappen voor een vrijblijvende kennismaking |
+| `/contact/` | Rechtstreekse contactgegevens voor korte en concrete vragen |
+| `/kennismaking/` | Afzonderlijke intake in drie stappen voor een inhoudelijke kennismaking |
 
 De hoofdnavigatie is op alle inhoudspagina’s gelijk. “Over Meterwise” verwijst naar `/`, waardoor de hoofdpagina niet onnodig op een tweede URL wordt gedupliceerd.
 
@@ -34,6 +35,7 @@ De hoofdnavigatie is op alle inhoudspagina’s gelijk. “Over Meterwise” verw
 
 - Responsive sticky navigatie met mobiel menu.
 - Duidelijke primaire en secundaire acties.
+- Contact en kennismaking zijn twee afzonderlijke routes: direct mailen voor een korte vraag, een gestructureerde intake voor een organisatievraagstuk.
 - Het hoofdvenster is een **Governance Snapshot**: een rustige, niet-bedienbare visualisatie van het Ai-landschap, de prioriteiten en de 30/60/90-dagenactieroute.
 - De homepage bevat een herkenningsblok, een eenvoudige Ai Act-uitleg, drie redenen om nu te beginnen, een persoonlijk Meterwise-profiel en veelgestelde vragen.
 - In het oprichtersblok staat de aangeleverde portretfoto van Juan Meter.
@@ -51,7 +53,7 @@ De hoofdnavigatie is op alle inhoudspagina’s gelijk. “Over Meterwise” verw
 2. Organisatiegegevens en gewenste start.
 3. Contactgegevens, toestemming en verzending.
 
-Zonder externe formulierdienst opent de website een voorbereide e-mail aan `meterwise@outlook.com`. Met een geldig Formspree-endpoint kan het formulier rechtstreeks verzenden.
+Met een geldig Formspree-endpoint verzendt het formulier met JavaScript rechtstreeks vanaf de website. De bezoeker blijft op de pagina en ziet daar de laad-, fout- en successtatus. Zonder endpoint wordt niets verstuurd en verschijnt een duidelijke melding met een link naar de contactpagina; er wordt geen e-mailprogramma meer geopend.
 
 CTA's kunnen het gespreksonderwerp vooraf selecteren met `?onderwerp=governance-scan`, `quickscan`, `implementatie` of `iso-readiness`.
 
@@ -79,6 +81,8 @@ CTA's kunnen het gespreksonderwerp vooraf selecteren met `?onderwerp=governance-
 │   └── index.html
 ├── ai-act/
 │   └── index.html
+├── contact/
+│   └── index.html
 └── kennismaking/
     ├── index.html
     ├── kennismaking.css
@@ -100,6 +104,7 @@ Open vervolgens:
 - [http://localhost:8000/aanpak/](http://localhost:8000/aanpak/)
 - [http://localhost:8000/voor-wie/](http://localhost:8000/voor-wie/)
 - [http://localhost:8000/ai-act/](http://localhost:8000/ai-act/)
+- [http://localhost:8000/contact/](http://localhost:8000/contact/)
 - [http://localhost:8000/kennismaking/](http://localhost:8000/kennismaking/)
 
 Gebruik bij voorkeur geen `file://`, omdat absolute routes dan niet hetzelfde werken als op GitHub Pages.
@@ -122,7 +127,7 @@ Gebruik bij voorkeur geen `file://`, omdat absolute routes dan niet hetzelfde we
 | Doelgroepenoverzicht | `#voor-wie` | Drie brede toepassingsomgevingen |
 | Over Juan en Groningen | `#over-meterwise` | Oorsprong, werkwijze en vier kenmerken van de samenwerking |
 | Veelgestelde vragen | `#veelgestelde-vragen` | Vier korte antwoorden over scan, Ai Act en ISO |
-| Slot-CTA | `#contact` | Vraag, toelichting en knop naar kennismaking |
+| Slot-CTA | `#contact` | Gescheiden knoppen naar direct contact en de kennismakingsintake |
 
 De kaarten op de hoofdpagina zijn bewust compact. Verdiepende uitleg hoort op de subpagina’s.
 
@@ -166,6 +171,15 @@ De kaarten op de hoofdpagina zijn bewust compact. Verdiepende uitleg hoort op de
 | `#fit` | Sterke fit en situaties waarin een andere eerste stap beter is |
 | `#vragen` | Vijf diagnostische vragen voor bezoekers |
 
+### Contact — `contact/index.html`
+
+| Onderdeel | Locatie |
+|---|---|
+| Introductie en primaire mailknop | `.contact-copy` |
+| Openbare contactgegevens | `.contact-card` |
+| Verschil tussen contact en kennismaking | `.contact-route-grid` |
+| Contact-e-mailadres | Alle links met `mailto:meterwise@outlook.com` |
+
 ### Kennismaking — `kennismaking/index.html`
 
 | Onderdeel | Locatie |
@@ -175,7 +189,7 @@ De kaarten op de hoofdpagina zijn bewust compact. Verdiepende uitleg hoort op de
 | Organisatievragen | Tweede `.form-step` |
 | Contactgegevens | Derde `.form-step` |
 | Formspree-endpoint | `data-endpoint` op het formulier |
-| E-mailfallback | `mailto:meterwise@outlook.com` in `kennismaking.js` |
+| In-page verzending en statussen | `kennismaking/kennismaking.js` |
 
 ## Vormgeving en interactie aanpassen
 
@@ -210,19 +224,29 @@ Beide waarden zijn negatief, zodat beide delen uitsluitend recht omlaag bewegen.
 
 De cursorreactie staat alleen op `.landing-title`. JavaScript luistert uitsluitend naar pointerbeweging boven die titel en alleen bij een fijne muisaanwijzer.
 
-## Formspree instellen
+## Formspree instellen voor verzenden vanaf GitHub Pages
 
-Vul in `kennismaking/index.html` het endpoint in:
+GitHub Pages levert alleen statische bestanden en kan zelf geen e-mail versturen. Formspree ontvangt de formuliergegevens en stuurt de melding door naar het gekoppelde e-mailadres, terwijl de bezoeker op `meterwise.nl` blijft.
+
+1. Maak op [formspree.io](https://formspree.io/) een account aan.
+2. Maak een nieuw formulier voor **Kennismakingsaanvragen Meterwise**.
+3. Koppel en bevestig `meterwise@outlook.com` als notificatieadres.
+4. Kopieer het endpoint dat lijkt op `https://formspree.io/f/abcxyzde`.
+5. Vul dit endpoint in bij `data-endpoint` in `kennismaking/index.html`. De huidige website is gekoppeld aan formulier `xqpzaaag`:
 
 ```html
 <form
   id="kennismaking-form"
   data-meeting-form
-  data-endpoint="https://formspree.io/f/JOUW-ID"
+  data-endpoint="https://formspree.io/f/xqpzaaag"
 >
 ```
 
-Test daarna de ontvangst, spambeveiliging en privacytekst. Zonder endpoint blijft de e-mailfallback actief.
+6. Beperk in Formspree, indien gewenst, toegestane inzendingen tot `meterwise.nl` en `www.meterwise.nl`.
+7. Publiceer de wijziging en verstuur zelf één volledige testaanvraag vanaf de live website.
+8. Controleer zowel Outlook als het Formspree-dashboard en markeer de eerste melding zo nodig als vertrouwd.
+
+Zet nooit het wachtwoord van Outlook, een mailserverwachtwoord of een geheime API-sleutel in HTML of JavaScript. Het Formspree-formulier-ID in het endpoint mag wel publiek in de pagina staan.
 
 ## Publiceren via GitHub Pages
 

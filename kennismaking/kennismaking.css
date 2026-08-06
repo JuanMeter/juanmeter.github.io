@@ -264,6 +264,11 @@ h1 {
   line-height: 1.55;
 }
 
+.privacy-note a {
+  color: var(--orange);
+  font-weight: 800;
+}
+
 .form-panel {
   overflow: hidden;
   border: 1px solid var(--border);
@@ -586,6 +591,12 @@ h1 {
   transform: translateY(-2px);
 }
 
+.button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+  transform: none;
+}
+
 .button-primary {
   background: var(--orange);
   color: var(--white);
@@ -639,6 +650,12 @@ h1 {
   font-weight: 700;
 }
 
+.form-alert a {
+  color: var(--black);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .success-state {
   min-height: 590px;
   display: flex;
@@ -674,6 +691,24 @@ h1 {
   margin-bottom: 28px;
   color: var(--muted);
   line-height: 1.7;
+}
+
+.success-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+}
+
+.success-contact-link {
+  color: var(--orange);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.success-contact-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .meeting-footer {
