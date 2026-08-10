@@ -14,9 +14,18 @@ let currentStep = 0;
 
 document.querySelector("[data-year]").textContent = new Date().getFullYear();
 
-const showAlert = (message) => {
+const showAlert = (message, actionHref = "", actionLabel = "") => {
   if (!formAlert) return;
-  formAlert.textContent = message;
+  formAlert.replaceChildren();
+  if (message) formAlert.append(document.createTextNode(message));
+
+  if (message && actionHref && actionLabel) {
+    const action = document.createElement("a");
+    action.href = actionHref;
+    action.textContent = actionLabel;
+    formAlert.append(document.createTextNode(" "), action);
+  }
+
   formAlert.hidden = !message;
 };
 
@@ -122,7 +131,8 @@ function saveDraft() {
   try {
     const values = formValues();
     delete values.toestemming;
-    delete values.website;
+    delete values._gotcha;
+    delete values._subject;
     sessionStorage.setItem(storageKey, JSON.stringify({ values, currentStep }));
   } catch {
     // The form remains fully usable when storage is unavailable.
@@ -145,6 +155,26 @@ const restoreDraft = () => {
     currentStep = Math.max(0, Math.min(Number(saved.currentStep) || 0, steps.length - 1));
   } catch {
     sessionStorage.removeItem(storageKey);
+  }
+};
+
+const applySubjectFromQuery = () => {
+  const requestedSubject = new URLSearchParams(window.location.search).get("onderwerp");
+  const subjectMap = {
+    "governance-scan": "Ai Governance Scan",
+    quickscan: "Ai QuickScan",
+    implementatie: "Governance implementatie",
+    "iso-readiness": "ISO/IEC 42001-readiness"
+  };
+  const subject = subjectMap[requestedSubject];
+  if (!subject) return;
+
+  const matchingRadio = [...form.querySelectorAll('input[name="onderwerp"]')]
+    .find((field) => field.value === subject);
+
+  if (matchingRadio) {
+    matchingRadio.checked = true;
+    currentStep = 0;
   }
 };
 
@@ -189,55 +219,55 @@ form.addEventListener("submit", async (event) => {
   if (!validateStep(steps[currentStep])) return;
 
   const data = new FormData(form);
-  if (data.get("website")) return;
+  if (data.get("_gotcha")) return;
 
   const submitButton = form.querySelector('button[type="submit"]');
   const originalLabel = submitButton.innerHTML;
   submitButton.disabled = true;
-  submitButton.textContent = "Aanvraag verwerken…";
+  submitButton.textContent = "Aanvraag verzenden…";
 
   const endpoint = form.dataset.endpoint?.trim();
+  const isConfigured = /^https:\/\/formspree\.io\/f\/[a-z0-9]+$/i.test(endpoint);
+
+  if (!isConfigured) {
+    showAlert(
+      "Online verzenden is nog niet gekoppeld. De aanvraag is niet verstuurd.",
+      "/contact/",
+      "Ga naar contact."
+    );
+    submitButton.disabled = false;
+    submitButton.innerHTML = originalLabel;
+    return;
+  }
 
   try {
-    if (endpoint) {
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: data
-      });
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      body: data
+    });
+    const result = await response.json().catch(() => ({}));
 
-      if (!response.ok) throw new Error("De formulierdienst kon de aanvraag niet verwerken.");
-
-      showSuccess("Je aanvraag is verzonden. We nemen zo snel mogelijk persoonlijk contact met je op.");
-      return;
+    if (!response.ok) {
+      const providerMessage = Array.isArray(result.errors)
+        ? result.errors.map((item) => item.message).filter(Boolean).join(" ")
+        : "";
+      throw new Error(providerMessage || "De formulierdienst kon de aanvraag niet verwerken.");
     }
 
-    const values = formValues();
-    const subject = encodeURIComponent(`Kennismaking MeterWise – ${values.organisatie}`);
-    const body = encodeURIComponent([
-      `Onderwerp: ${values.onderwerp}`,
-      `Organisatie: ${values.organisatie}`,
-      `Omvang: ${values.omvang}`,
-      `Gewenste start: ${values.startmoment}`,
-      `Toelichting: ${values.toelichting || "Niet ingevuld"}`,
-      "",
-      `Naam: ${values.naam}`,
-      `Functie: ${values.functie || "Niet ingevuld"}`,
-      `E-mail: ${values.email}`,
-      `Telefoon: ${values.telefoon || "Niet ingevuld"}`
-    ].join("\n"));
-
-    showSuccess("Je e-mailprogramma wordt geopend met de aanvraag alvast voor je ingevuld.");
-    window.setTimeout(() => {
-      window.location.href = `mailto:meterwise@outlook.com?subject=${subject}&body=${body}`;
-    }, 250);
+    showSuccess("Je aanvraag is via de website verzonden. We nemen persoonlijk contact met je op.");
   } catch (error) {
-    showAlert(error.message || "Er ging iets mis. Probeer het opnieuw of mail naar meterwise@outlook.com.");
+    showAlert(
+      error.message || "Er ging iets mis bij het verzenden. Probeer het opnieuw.",
+      "/contact/",
+      "Ga naar contact."
+    );
     submitButton.disabled = false;
     submitButton.innerHTML = originalLabel;
   }
 });
 
 restoreDraft();
+applySubjectFromQuery();
 showStep(currentStep, false);
 updateSummary();

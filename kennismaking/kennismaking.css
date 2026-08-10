@@ -19,6 +19,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -261,6 +262,11 @@ h1 {
   color: var(--muted);
   font-size: 0.78rem;
   line-height: 1.55;
+}
+
+.privacy-note a {
+  color: var(--orange);
+  font-weight: 800;
 }
 
 .form-panel {
@@ -585,6 +591,12 @@ h1 {
   transform: translateY(-2px);
 }
 
+.button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+  transform: none;
+}
+
 .button-primary {
   background: var(--orange);
   color: var(--white);
@@ -638,6 +650,12 @@ h1 {
   font-weight: 700;
 }
 
+.form-alert a {
+  color: var(--black);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .success-state {
   min-height: 590px;
   display: flex;
@@ -675,6 +693,24 @@ h1 {
   line-height: 1.7;
 }
 
+.success-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+}
+
+.success-contact-link {
+  color: var(--orange);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.success-contact-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .meeting-footer {
   padding: 28px 0;
   border-top: 1px solid var(--border);
@@ -687,7 +723,16 @@ h1 {
 .meeting-footer .meeting-shell {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
+}
+
+.meeting-footer .meeting-shell > span:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 7px;
 }
 
 .meeting-footer a:hover {
