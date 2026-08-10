@@ -1,91 +1,91 @@
-# MeterWise
+# Meterwise website
 
-Professionele, statische bedrijfswebsite voor **MeterWise** — gericht op AI-strategie, governance, compliance en verantwoord gebruik van kunstmatige intelligentie.
+Statische, responsieve bedrijfswebsite voor **Meterwise**. De website begint bij het herkenbare klantprobleem — groeiend Ai-gebruik zonder volledig overzicht — en positioneert de Ai Governance Scan als centrale eerste stap.
 
-De website combineert een moderne, interactieve split-logo-intro met een toegankelijke informatiestructuur, responsieve interacties en een aparte kennismakingspagina. Het project draait volledig als statische website en is geschikt voor publicatie via GitHub Pages.
+De publieke inhoud vertaalt het interne koersdocument naar een commerciële klantreis, zonder interne prijs- en verkoophypotheses, fictieve cases of certificeringsgaranties te publiceren.
 
-![MeterWise social preview](assets/og-image.jpg)
+## Paginastructuur
 
-## Inhoud
+| Route | Functie |
+|---|---|
+| `/` | **Over Meterwise**: brede hoofdpagina met merkintro, kernpropositie, samenvattingen en doorverwijzingen |
+| `/diensten/` | Verdieping van de QuickScan, Governance Scan, implementatie, ISO-readiness en continuïteit |
+| `/aanpak/` | Werkwijze, zeven beoordelingsdomeinen, vier bewijsniveaus en 30/60/90-dagenroadmap |
+| `/voor-wie/` | Koopsignalen, relevante sectoren, fitcriteria en een korte zelfcheck |
+| `/ai-act/` | Praktische uitleg, actuele hoofdtijdlijn, eerste maatregelen en de relatie met ISO/IEC 42001 |
+| `/contact/` | Rechtstreekse contactgegevens voor korte en concrete vragen |
+| `/kennismaking/` | Afzonderlijke intake in drie stappen voor een inhoudelijke kennismaking |
+| `/algemene-voorwaarden/` | Algemene voorwaarden voor zakelijke opdrachten en dienstverlening |
+| `/privacyverklaring/` | Uitleg over persoonsgegevens, bewaartermijnen, beveiliging en privacyrechten |
 
-- [Functionaliteit](#functionaliteit)
-- [Techniek](#techniek)
-- [Projectstructuur](#projectstructuur)
-- [Lokaal starten](#lokaal-starten)
-- [Kennismakingsformulier](#kennismakingsformulier)
-- [Publiceren met GitHub Pages](#publiceren-met-github-pages)
-- [Werken met branches](#werken-met-branches)
-- [Toegankelijkheid](#toegankelijkheid)
-- [Performance en SEO](#performance-en-seo)
-- [Aanpassen](#aanpassen)
-- [Bekende beperkingen](#bekende-beperkingen)
-- [Contact](#contact)
+De hoofdnavigatie is op alle inhoudspagina’s gelijk. “Over Meterwise” verwijst naar `/`, waardoor de hoofdpagina niet onnodig op een tweede URL wordt gedupliceerd.
 
-## Functionaliteit
+## Belangrijkste functionaliteit
 
-### Hoofdpagina
+### Landingintro
 
-- Schermvullende zwarte 2.5D-intro vóór de bestaande website.
-- De losse M en W kaderen in de beginsituatie het volledige introductietekstblok aan de boven- en onderkant in.
-- Tijdens het scrollen bewegen beide helften naar rechts en sluiten ze daar tot het volledige MW-beeldmerk.
-- De donkere oogvormen en een korte lichtnaad verschijnen precies op het sluitmoment.
-- Geanimeerde ringen, subtiele diepte en cursorparallax.
-- Scrollgestuurde overgang van de intro naar de reguliere website.
-- Grote, responsieve hero met duidelijke primaire en secundaire acties.
-- Secties voor diensten, aanpak, huisstijl, cases en contact.
-- Actieve navigatiestatus tijdens het scrollen.
-- Compactere sticky navigatie zodra de bezoeker naar beneden scrolt.
-- Subtiele card-, knop-, tijdlijn- en cursorinteracties.
-- Scroll-progressindicator en contextuele terug-naar-bovenknop.
-- Contact-CTA die rechtstreeks naar de kennismakingspagina leidt.
+- Schermvullende, futuristische merkintro met een bewegende 3D particle-grid.
+- De grid vormt een vloeiend landschap dat continu naar de bezoeker beweegt en tijdens het scrollen subtiel versnelt.
+- Witte, blauwe en oranje particles mengen de Meterwise-kleuren zonder de tekst te overheersen.
+- Het MW-logo zweeft als een helder signaalpunt boven de horizon, met rustige dataringen en een zachte gloed.
+- Er is geen cursorreactie op het logo, de particle-grid of de gloed.
+- Alleen de tekst **“Intelligentie. Met controle.”** reageert subtiel op een fijne muisaanwijzer.
+- Op mobiele apparaten worden minder punten en een lagere renderresolutie gebruikt voor een vloeiende ervaring.
+- De technische prototype-labels zijn verwijderd; rechtsboven staan nu relevante vakgebieden.
+- `prefers-reduced-motion` krijgt een statisch gerenderde particle-grid zonder doorlopende animaties.
 
-### Kennismakingspagina
+### Algemene website
 
-De route [`/kennismaking/`](kennismaking/) bevat een interactieve aanvraagflow in drie stappen:
+- Responsive sticky navigatie met mobiel menu.
+- Duidelijke primaire en secundaire acties.
+- Contact en kennismaking zijn twee afzonderlijke routes: direct mailen voor een korte vraag, een gestructureerde intake voor een organisatievraagstuk.
+- Het hoofdvenster is een **Governance Snapshot**: een rustige, niet-bedienbare visualisatie van het Ai-landschap, de prioriteiten en de 30/60/90-dagenactieroute.
+- De homepage bevat een herkenningsblok, een eenvoudige Ai Act-uitleg, drie redenen om nu te beginnen, een persoonlijk Meterwise-profiel en veelgestelde vragen.
+- In het oprichtersblok staat de aangeleverde portretfoto van Juan Meter.
+- De Ai Governance Scan is zichtbaar het kernproduct; QuickScan, implementatie en readiness zijn aanvullende routes.
+- De aparte Ai Act-pagina verwijst voor actuele termijnen naar officiële bronnen van de Europese Commissie en Autoriteit Persoonsgegevens.
+- Diensten, Aanpak, Voor wie en Ai Act hebben ieder een eigen kleurwereld en een eigen codegebouwde illustratie in de paginaheader.
+- Scroll-progressindicator en terug-naar-bovenknop.
+- Toegankelijke reveal-animaties met reduced-motionfallback.
+- Unieke titels, descriptions en Open Graph-metadata per route.
+- Frameworkvrij: HTML, CSS en vanilla JavaScript.
 
-1. Selectie van het gespreksonderwerp.
-2. Organisatiegegevens, omvang en gewenst startmoment.
+### Kennismakingsformulier
+
+1. Keuze van gespreksonderwerp.
+2. Organisatiegegevens en gewenste start.
 3. Contactgegevens, toestemming en verzending.
 
-Aanvullende functies:
+Met een geldig Formspree-endpoint verzendt het formulier met JavaScript rechtstreeks vanaf de website. De bezoeker blijft op de pagina en ziet daar de laad-, fout- en successtatus. Zonder endpoint wordt niets verstuurd en verschijnt een duidelijke melding met een link naar de contactpagina; er wordt geen e-mailprogramma meer geopend.
 
-- Live voortgangsindicator.
-- Validatie per stap.
-- Live samenvatting van de aanvraag.
-- Tijdelijk bewaren van ingevulde gegevens via `sessionStorage`.
-- Honeypotveld tegen eenvoudige formulierbots.
-- Formspree-ondersteuning met `mailto:` als fallback.
-- Eigen responsive styling en reduced-motion-ondersteuning.
-
-## Techniek
-
-Het project gebruikt bewust geen framework of buildstap.
-
-- Semantische HTML5.
-- Moderne CSS met custom properties, Grid, Flexbox en 3D-transforms.
-- Vanilla JavaScript.
-- Progressive enhancement.
-- GitHub Pages voor hosting.
-- Een eigen domein: [`meterwise.nl`](https://meterwise.nl/).
-
-Dit houdt de website snel, transparant en eenvoudig te onderhouden.
+CTA's kunnen het gespreksonderwerp vooraf selecteren met `?onderwerp=governance-scan`, `quickscan`, `implementatie` of `iso-readiness`.
 
 ## Projectstructuur
 
 ```text
 .
-├── index.html                  # Hoofdpagina
-├── styles.css                 # Algemene vormgeving en responsive gedrag
-├── script.js                  # Interacties op de hoofdpagina
-├── README.md                  # Projectdocumentatie
+├── index.html
+├── styles.css
+├── pages.css
+├── script.js
+├── README.md
 ├── assets/
-│   ├── favicon.svg            # Vectorlogo en favicon
-│   ├── landing-mark-body.svg  # Oranje M/W-vorm voor de landingintro
-│   ├── landing-mark-eyes.svg  # Donkere oogvormen voor het sluitmoment
-│   ├── meterwise-banner.png   # Originele bannerfallback
-│   ├── meterwise-banner.webp  # Geoptimaliseerde WebP-banner
-│   ├── meterwise-banner.avif  # Geoptimaliseerde AVIF-banner
-│   └── og-image.jpg           # Social-previewafbeelding
+│   ├── favicon.svg
+│   ├── landing-mark-body.svg
+│   ├── landing-mark-eyes.svg
+│   ├── meterwise-banner.png
+│   ├── juan-meter.png
+│   └── og-image.jpg
+├── diensten/
+│   └── index.html
+├── aanpak/
+│   └── index.html
+├── voor-wie/
+│   └── index.html
+├── ai-act/
+│   └── index.html
+├── contact/
+│   └── index.html
 └── kennismaking/
     ├── index.html
     ├── kennismaking.css
@@ -241,16 +241,11 @@ De belangrijkste globale variabelen staan bovenaan `styles.css`:
 
 ### Landinganimatie
 
-De verticale startafstand van de twee logodelen staat in `.landing-stage`:
+De particle-grid wordt zonder externe bibliotheken getekend op het canvas `[data-landing-wave]`. De perspectiefprojectie, golfvorm, kleurmenging, snelheid en mobiele puntdichtheid staan in het landinggedeelte van `script.js`.
 
-```css
---mark-top-offset: -96px;
---mark-bottom-offset: -28px;
-```
+De visuele compositie van tekst, horizon en het logo-signaal staat onder `/* 2026-08-10: flowing particle-grid landing */` in `styles.css`. De mobiele aanpassingen staan daar direct onder in de mediaqueries voor `940px` en `640px`.
 
-Beide waarden zijn negatief, zodat beide delen uitsluitend recht omlaag bewegen. De mobiele afstanden staan in de mediaquery voor maximaal `640px`.
-
-De cursorreactie staat alleen op `.landing-title`. JavaScript luistert uitsluitend naar pointerbeweging boven die titel en alleen bij een fijne muisaanwijzer.
+De cursorreactie blijft beperkt tot `.landing-title`. JavaScript luistert uitsluitend naar pointerbeweging boven die titel en alleen bij een fijne muisaanwijzer. De grid en het logo reageren niet op de cursor.
 
 ## Formspree instellen voor verzenden vanaf GitHub Pages
 
@@ -270,164 +265,53 @@ GitHub Pages levert alleen statische bestanden en kan zelf geen e-mail versturen
 >
 ```
 
-Wanneer een geldig endpoint is ingevuld:
+6. Beperk in Formspree, indien gewenst, toegestane inzendingen tot `meterwise.nl` en `www.meterwise.nl`.
+7. Publiceer de wijziging en verstuur zelf één volledige testaanvraag vanaf de live website.
+8. Controleer zowel Outlook als het Formspree-dashboard en markeer de eerste melding zo nodig als vertrouwd.
 
-- verstuurt JavaScript het formulier rechtstreeks naar Formspree;
-- blijft de bezoeker op de website;
-- verschijnt de ingebouwde succesmelding;
-- wordt de tijdelijk opgeslagen formulierdata verwijderd.
+Zet nooit het wachtwoord van Outlook, een mailserverwachtwoord of een geheime API-sleutel in HTML of JavaScript. Het Formspree-formulier-ID in het endpoint mag wel publiek in de pagina staan.
 
-Controleer na het configureren altijd:
+## Publiceren via GitHub Pages
 
-- of de aanvraag aankomt;
-- of het afzenderadres is geverifieerd;
-- of spambeveiliging is geactiveerd;
-- of de privacyverklaring past bij de gebruikte formulierdienst.
+1. Commit de gewijzigde bestanden op een featurebranch.
+2. Push de branch naar GitHub.
+3. Controleer de branch of open een pull request naar `main`.
+4. Merge naar de branch die onder **Settings → Pages** als publicatiebron staat.
+5. Laat de Pages-bron op `/ (root)` staan.
 
-## Publiceren met GitHub Pages
+Controleer dat een bestaand `CNAME`-bestand behouden blijft. DNS-records voor e-mail (`MX`, `SPF`, `DKIM`, `DMARC`) staan los van de websitebestanden.
 
-1. Open de repository op GitHub.
-2. Ga naar **Settings → Pages**.
-3. Kies onder **Build and deployment** voor **Deploy from a branch**.
-4. Selecteer de gewenste productiebranch, doorgaans `main`.
-5. Selecteer de map `/ (root)`.
-6. Sla de instellingen op.
-
-Na een commit op de geselecteerde branch start GitHub automatisch een nieuwe deployment. De verwerking duurt meestal enkele minuten.
-
-### Eigen domein
-
-Het domein `meterwise.nl` wordt via DNS aan GitHub Pages gekoppeld. Let bij wijzigingen op het volgende:
-
-- verwijder het eventuele `CNAME`-bestand niet;
-- wijzig bestaande `A`, `AAAA` en `CNAME`-records alleen bewust;
-- e-mailrecords zoals `MX`, `SPF`, `DKIM` en `DMARC` staan los van de websitehosting;
-- activeer **Enforce HTTPS** zodra GitHub het certificaat heeft uitgegeven.
-
-## Werken met branches
-
-Gebruik `main` als stabiele productiebranch en voer nieuwe ontwikkelingen uit in een aparte branch.
-
-Aanbevolen werkwijze:
+Aanbevolen workflow:
 
 ```text
-feature branch → pull request → controle → merge naar main
+feature branch → preview → pull request → merge → GitHub Pages
 ```
 
-Voorbeeld met Git:
+## Toegankelijkheid en performance
 
-```powershell
-git switch main
-git pull origin main
-git switch -c feature/naam-van-wijziging
-```
+- Semantische navigatie, koppen, secties en formulieren.
+- Skiplinks en zichtbare toetsenbordfocus.
+- Mobiel menu met `aria-expanded` en Escape-ondersteuning.
+- `prefers-reduced-motion` voor bezoekers die minder beweging kiezen.
+- Geen cursorlisteners op touchapparaten.
+- Decoratieve mobiele landinganimaties zijn beperkt.
+- De oprichtersfoto gebruikt het originele, door Juan aangeleverde PNG-bestand uit `assets/juan-meter.png`.
+- De nieuwe paginaillustraties zijn origineel en codegebouwd; er zijn geen externe stockfoto's of illustraties toegevoegd.
+- Geen zware externe JavaScriptbibliotheek.
 
-Na het ontwikkelen:
+## Bewuste inhoudelijke grenzen
 
-```powershell
-git add index.html styles.css script.js kennismaking assets
-git commit -m "Beschrijf de wijziging kort"
-git push -u origin feature/naam-van-wijziging
-```
-
-Open daarna een pull request naar `main`. Verwijder een featurebranch alleen wanneer je deze niet meer nodig hebt.
-
-Als GitHub Pages tijdelijk vanaf een ontwikkelbranch publiceert, controleer dan vóór het mergen welke branch onder **Settings → Pages** als bron staat ingesteld.
-
-## Toegankelijkheid
-
-In het project zijn onder andere opgenomen:
-
-- Semantische koppen, navigatie, formulieren en fieldsets.
-- Skiplinks naar de hoofdinhoud en het formulier.
-- Zichtbare toetsenbordfocus.
-- Labels en toegankelijke namen voor interactieve elementen.
-- `aria-live`-feedback bij validatie en verzending.
-- Toetsenbordbediening voor navigatie en dialoogvensters.
-- Ondersteuning voor `prefers-reduced-motion`.
-- Progressive-enhancementfallbacks wanneer JavaScript niet beschikbaar is.
-
-Blijf bij toekomstige wijzigingen controleren op kleurcontrast, logische tabvolgorde en begrijpelijke foutmeldingen.
-
-## Performance en SEO
-
-### Afbeeldingen
-
-De hero-banner gebruikt een `<picture>`-element met deze volgorde:
-
-1. AVIF.
-2. WebP.
-3. PNG-fallback.
-
-De browser kiest automatisch het beste ondersteunde formaat. De vaste breedte en hoogte voorkomen onnodige layoutverschuivingen.
-
-### Rendering
-
-- Belangrijke afbeeldingen worden gericht geladen.
-- Secties gebruiken waar mogelijk renderingoptimalisaties.
-- Animaties gebruiken hoofdzakelijk `transform` en `opacity`.
-- Zware externe JavaScriptbibliotheken zijn vermeden.
-
-### Metadata
-
-De pagina’s bevatten:
-
-- Een unieke paginatitel en description.
-- Open Graph-metadata.
-- Twitter Card-metadata op de hoofdpagina.
-- Een social-previewafbeelding van 1200 × 630 pixels.
-- Een SVG-favicon en aanvullende iconmetadata.
-
-Pas metadata aan wanneer de positionering, dienstverlening of pagina-inhoud verandert.
-
-## Aanpassen
-
-### Kleuren en globale instellingen
-
-De belangrijkste kleuren en afmetingen staan bovenaan [`styles.css`](styles.css) als CSS-variabelen:
-
-```css
-:root {
-  --orange: #ff4f18;
-  --orange-2: #ff7a22;
-  --black: #00101f;
-  --blue: #001d3f;
-  --container: 1180px;
-}
-```
-
-De kennismakingspagina heeft eigen variabelen in [`kennismaking/kennismaking.css`](kennismaking/kennismaking.css).
-
-### Navigatie naar de kennismakingspagina
-
-De knop op de hoofdpagina hoort naar deze nette route te verwijzen:
-
-```html
-<a class="nav-cta" href="/kennismaking/">Plan kennismaking</a>
-```
-
-### Beweging
-
-De split-logo-intro en cursorinteracties staan in:
-
-- de sectie `Cinematic 3D landing experience` in `styles.css`;
-- het blok met `data-landing-intro` in `script.js`.
-
-Houd nieuwe beweging subtiel en bied altijd een rustige fallback via `prefers-reduced-motion`.
-
-## Bekende beperkingen
-
-- GitHub Pages verwerkt geen formulieren op de server; daarvoor is een externe formulierdienst of eigen backend nodig.
-- Het contactformulier gebruikt zonder endpoint het lokale e-mailprogramma van de bezoeker.
-- De statische website bevat standaard geen CMS of beheerdersomgeving.
-- Formulierdata in `sessionStorage` blijft alleen binnen de huidige browsertab beschikbaar.
-- Wijzigingen op de productiebranch worden na een geslaagde Pages-deployment direct zichtbaar.
+- Geen interne prijsbanden, verkooptargets of pilotquota.
+- Geen fictieve cases, testimonials of resultaten.
+- Geen garantie op ISO/IEC 42001-certificering.
+- Meterwise wordt niet als certificerende instelling gepositioneerd.
+- ISO/IEC 42001 is een managementsysteemkader en mogelijke readiness-route wanneer dat zakelijk relevant is.
+- De Ai Act-pagina biedt praktische oriëntatie en is expliciet geen juridisch advies.
+- Wettelijke termijnen worden alleen met links naar officiële bronnen gepubliceerd en moeten periodiek opnieuw worden gecontroleerd.
 
 ## Contact
 
-Website: [meterwise.nl](https://meterwise.nl/)  
-E-mail: [meterwise@outlook.com](mailto:meterwise@outlook.com)
+- Website: [meterwise.nl](https://meterwise.nl/)
+- E-mail: [meterwise@outlook.com](mailto:meterwise@outlook.com)
 
----
-
-© MeterWise. Alle rechten voorbehouden. Er is momenteel geen opensourcelicentie aan deze repository toegevoegd.
+© Meterwise. Alle rechten voorbehouden.
