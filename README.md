@@ -15,6 +15,8 @@ De publieke inhoud vertaalt het interne koersdocument naar een commerciële klan
 | `/ai-act/` | Praktische uitleg, actuele hoofdtijdlijn, eerste maatregelen en de relatie met ISO/IEC 42001 |
 | `/contact/` | Rechtstreekse contactgegevens voor korte en concrete vragen |
 | `/kennismaking/` | Afzonderlijke intake in drie stappen voor een inhoudelijke kennismaking |
+| `/algemene-voorwaarden/` | Algemene voorwaarden voor zakelijke opdrachten en dienstverlening |
+| `/privacyverklaring/` | Uitleg over persoonsgegevens, bewaartermijnen, beveiliging en privacyrechten |
 
 De hoofdnavigatie is op alle inhoudspagina’s gelijk. “Over Meterwise” verwijst naar `/`, waardoor de hoofdpagina niet onnodig op een tweede URL wordt gedupliceerd.
 
@@ -190,6 +192,31 @@ De kaarten op de hoofdpagina zijn bewust compact. Verdiepende uitleg hoort op de
 | Contactgegevens | Derde `.form-step` |
 | Formspree-endpoint | `data-endpoint` op het formulier |
 | In-page verzending en statussen | `kennismaking/kennismaking.js` |
+
+### Juridische pagina's
+
+| Pagina | Inhoud en beheer |
+|---|---|
+| `algemene-voorwaarden/index.html` | De 22 artikelen met de zakelijke afspraken van Meterwise |
+| `privacyverklaring/index.html` | De 18 onderdelen over gegevensverwerking, beveiliging, cookies en privacyrechten |
+| `legal.css` | De gedeelde vormgeving van beide juridische pagina's |
+
+De footer van iedere openbare pagina bevat afzonderlijke links naar **Algemene voorwaarden** en **Privacyverklaring**.
+
+## Nog invullen en periodiek controleren
+
+De juridische pagina's zijn gepubliceerd zonder zichtbare placeholders. Vul onderstaande gegevens aan zodra ze beschikbaar zijn en laat de teksten bij voorkeur juridisch controleren voordat Meterwise betaalde opdrachten aangaat.
+
+- **KvK-nummer:** voeg dit in `algemene-voorwaarden/index.html` toe bij de definitie van Meterwise en in het contactblok onderaan. Voeg het ook toe onder **Wie is verantwoordelijk?** in `privacyverklaring/index.html`.
+- **Btw-id:** voeg dit toe aan de contactblokken van beide juridische pagina's zodra het nummer bekend is.
+- **Volledig vestigings- of postadres:** de pagina's vermelden nu alleen Appingedam, Nederland. Vervang of vul dit aan als een volledig zakelijk correspondentieadres gepubliceerd moet worden.
+- **Leveranciers:** controleer de privacyverklaring wanneer hosting, e-mail, Formspree, cloudopslag, boekhouding, planning, analytics of andere verwerkers wijzigen. Benoem waar nodig de concrete leverancier en sluit een verwerkersovereenkomst.
+- **Doorgifte buiten de EER:** controleer voor Formspree en toekomstige clouddiensten waar gegevens worden verwerkt en welke doorgiftewaarborgen gelden.
+- **Cookies en analytics:** de huidige tekst gaat uit van functionele cookies en van toestemming wanneer later tracking wordt toegevoegd. Voeg een cookie-banner en apart cookiebeleid toe voordat niet-noodzakelijke tracking actief wordt.
+- **Bewaartermijnen:** controleer of de genoemde termijnen van 2 en 5 jaar aansluiten op de uiteindelijke werkprocessen. Financiële administratie moet de toepasselijke fiscale bewaartermijn volgen.
+- **Verzekering en aansprakelijkheid:** stem artikel 16 af op de daadwerkelijk afgesloten beroeps- en/of bedrijfsaansprakelijkheidsverzekering.
+- **Versiedatum:** pas bij iedere inhoudelijke wijziging `Versie augustus 2026` op beide pagina's aan.
+- **Periodieke controle:** beoordeel beide documenten minimaal jaarlijks en wanneer dienstverlening, leveranciers of wetgeving veranderen.
 
 ## Vormgeving en interactie aanpassen
 

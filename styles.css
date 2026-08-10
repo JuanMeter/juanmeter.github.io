@@ -680,9 +680,20 @@ h3 {
   justify-self: end;
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 20px;
   color: var(--muted);
   font-weight: 700;
+}
+
+.footer-links a[href="/algemene-voorwaarden/"],
+.footer-links a[href="/privacyverklaring/"] {
+  color: #465564;
+  font-size: 0.86rem;
+}
+
+.footer-links a:hover {
+  color: var(--orange);
 }
 
 .js .reveal {
@@ -756,6 +767,7 @@ h3 {
 
   .footer-links {
     justify-self: start;
+    justify-content: flex-start;
   }
 }
 
