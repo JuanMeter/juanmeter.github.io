@@ -39,7 +39,7 @@ De hoofdnavigatie is op alle inhoudspagina’s gelijk. “Over Meterwise” verw
 - Responsive sticky navigatie met mobiel menu.
 - Duidelijke primaire en secundaire acties.
 - Contact en kennismaking zijn twee afzonderlijke routes: direct mailen voor een korte vraag, een gestructureerde intake voor een organisatievraagstuk.
-- Het hoofdvenster is een **Governance Snapshot**: een rustige, niet-bedienbare visualisatie van het Ai-landschap, de prioriteiten en de 30/60/90-dagenactieroute.
+- Het hoofdvenster is een kosmische merkvisual met fotorealistische steenfragmenten. Tijdens het scrollen komen de losse delen samen als visuele metafoor voor richting en samenhang.
 - De homepage bevat een herkenningsblok, een eenvoudige Ai Act-uitleg, drie redenen om nu te beginnen, een persoonlijk Meterwise-profiel en veelgestelde vragen.
 - In het oprichtersblok staat de aangeleverde portretfoto van Juan Meter.
 - De Ai Governance Scan is zichtbaar het kernproduct; QuickScan, implementatie en readiness zijn aanvullende routes.
@@ -120,7 +120,7 @@ Gebruik bij voorkeur geen `file://`, omdat absolute routes dan niet hetzelfde we
 |---|---|---|
 | Landingintro | `.landing-copy` | Merkregel, grote introductietekst en korte belofte |
 | Hoofdpropositie | `section.hero` | Hoofdkop, uitleg, CTA’s en drie vertrouwenspunten |
-| Governance Snapshot | `.governance-snapshot` | Statische uitleg van Ai-landschap, prioriteiten en 30/60/90-dagenactieroute |
+| Kosmische merkvisual | `[data-cosmic-assembly]` | Fotorealistische steenfragmenten die tijdens het scrollen samenkomen rond een heldere koers |
 | Herkenbare situaties | `#herkenbaar` | Zes signalen van Ai-gebruik zonder volledig overzicht of duidelijke afspraken |
 | Waarom nu | `#waarom-nu` | Eenvoudige Ai Act-uitleg en drie redenen om tijdig te beginnen |
 | Dienstenoverzicht | `#diensten` | Korte samenvatting van de drie belangrijkste routes |
@@ -222,6 +222,7 @@ De juridische pagina's zijn gepubliceerd zonder zichtbare placeholders. Vul onde
 ## Vormgeving en interactie aanpassen
 
 - Globale kleuren, typografie, homepage en landingintro: `styles.css`.
+- De ronde CTA's gebruiken de oorspronkelijke, compacte knopstijl. De globale varianten staan bij `.button`, `.nav-cta` en `.back-to-top` in `styles.css`; de formulierknoppen staan bij `.button` in `kennismaking/kennismaking.css`.
 - Gedeelde paginaonderdelen én de vier afzonderlijke visuele thema's van Diensten, Aanpak, Voor wie en Ai Act: `pages.css`.
 - De bodyclasses `.page-diensten`, `.page-aanpak`, `.page-voor-wie` en `.page-ai-act` bepalen per pagina de kleurwereld, headerillustratie en thematische kaartaccenten.
 - De codegebouwde illustraties staan onder `/* Distinct visual chapters */` in `pages.css`; ze gebruiken uitsluitend HTML en CSS en zijn dus vrij van stocklicenties.
@@ -246,6 +247,20 @@ De particle-grid wordt zonder externe bibliotheken getekend op het canvas `[data
 De visuele compositie van tekst, horizon en het logo-signaal staat onder `/* 2026-08-10: flowing particle-grid landing */` in `styles.css`. De mobiele aanpassingen staan daar direct onder in de mediaqueries voor `940px` en `640px`.
 
 De cursorreactie blijft beperkt tot `.landing-title`. JavaScript luistert uitsluitend naar pointerbeweging boven die titel en alleen bij een fijne muisaanwijzer. De grid en het logo reageren niet op de cursor.
+
+### Kosmische merkvisual
+
+De hero bevat een scrollgestuurde compositie met fotorealistische steenfragmenten. De HTML staat in `index.html` bij `[data-cosmic-assembly]`, de vormgeving onder `/* 2026-08-10: cosmic alignment hero */` en `/* 2026-08-10: layered cosmic slogan */` in `styles.css`, en de scrollberekening staat in `script.js` bij dezelfde selector. De grote slogan ligt bewust achter een deel van de stenen om visuele diepte te maken.
+
+De transparante PNG-assets staan in `assets/cosmic/`:
+
+- `rock-01-hd.png`: groot, onregelmatig hoofdfragment met extra microdetail;
+- `rock-02-hd.png`: langwerpige, gelaagde steen met extra microdetail;
+- `rock-03-hd.png`: hoekig fragment met diepe mineraalstructuur en extra microdetail.
+
+De eerdere `rock-01.png`, `rock-02.png` en `rock-03.png` blijven als lichtere bronversies bewaard. Meerdere formaten en rotaties worden met dezelfde drie HD-beelden opgebouwd. De startbeweging van ieder fragment staat als `data-from-x`, `data-from-y`, `data-from-r`, `data-to-r` en `data-from-scale` direct op het betreffende `.cosmic-rock`-element. Zo kan de animatie worden aangepast zonder nieuwe beelden te maken. De slogan en ondersteunende regel staan in `.cosmic-slogan` en `.cosmic-caption` in `index.html`.
+
+De browser ontvangt waar mogelijk de geoptimaliseerde `rock-01-hd.webp`, `rock-02-hd.webp` en `rock-03-hd.webp`. De HD-PNG's blijven als verliesvrije fallback beschikbaar. Dit houdt de zichtbare details hoog zonder de mobiele pagina onnodig met meerdere megabytes per afbeelding te belasten.
 
 ## Formspree instellen voor verzenden vanaf GitHub Pages
 

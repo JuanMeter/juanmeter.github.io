@@ -136,6 +136,52 @@ if (hero && finePointer.matches && !reducedMotion.matches) {
   });
 }
 
+const cosmicAssembly = document.querySelector("[data-cosmic-assembly]");
+
+if (cosmicAssembly) {
+  const cosmicRocks = [...cosmicAssembly.querySelectorAll(".cosmic-rock")];
+  let cosmicFrame = 0;
+
+  const updateCosmicAssembly = () => {
+    const bounds = cosmicAssembly.getBoundingClientRect();
+    const start = window.innerHeight * 0.96;
+    const finish = window.innerHeight * 0.18;
+    const scrollProgress = Math.min(1, Math.max(0, (start - bounds.top) / Math.max(1, start - finish)));
+    const progress = reducedMotion.matches ? 1 : scrollProgress;
+    const easedProgress = progress * progress * (3 - 2 * progress);
+    const travelScale = Math.min(1, Math.max(0.46, window.innerWidth / 920));
+
+    cosmicAssembly.style.setProperty("--cosmic-progress", easedProgress.toFixed(4));
+    cosmicAssembly.classList.toggle("is-aligned", progress > 0.9);
+
+    cosmicRocks.forEach((rock) => {
+      const fromX = Number(rock.dataset.fromX || 0) * travelScale;
+      const fromY = Number(rock.dataset.fromY || 0) * travelScale;
+      const fromRotation = Number(rock.dataset.fromR || 0);
+      const toRotation = Number(rock.dataset.toR || 0);
+      const fromScale = Number(rock.dataset.fromScale || 1);
+      const remaining = 1 - easedProgress;
+      const x = fromX * remaining;
+      const y = fromY * remaining;
+      const rotation = fromRotation + (toRotation - fromRotation) * easedProgress;
+      const scale = fromScale + (1 - fromScale) * easedProgress;
+
+      rock.style.transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0) rotate(${rotation.toFixed(2)}deg) scale(${scale.toFixed(3)})`;
+    });
+
+    cosmicFrame = 0;
+  };
+
+  const requestCosmicUpdate = () => {
+    if (cosmicFrame) return;
+    cosmicFrame = window.requestAnimationFrame(updateCosmicAssembly);
+  };
+
+  updateCosmicAssembly();
+  window.addEventListener("scroll", requestCosmicUpdate, { passive: true });
+  window.addEventListener("resize", requestCosmicUpdate);
+}
+
 const progressBar = document.querySelector(".scroll-progress span");
 const backToTop = document.querySelector("[data-back-to-top]");
 
