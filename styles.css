@@ -4251,6 +4251,26 @@ body.nav-open {
   }
 }
 
+/*
+ * iOS Safari can rasterize chained drop-shadows as the rectangular image
+ * layer while the large rock is being transformed. Keep the desktop depth,
+ * but use one composited alpha shadow for that rock on small WebKit screens.
+ */
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 640px) {
+    .rock-a {
+      will-change: auto;
+    }
+
+    .rock-a img {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-filter: drop-shadow(0 17px 15px rgba(0, 0, 0, 0.4));
+      filter: drop-shadow(0 17px 15px rgba(0, 0, 0, 0.4));
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .cosmic-assembly {
     --cosmic-progress: 1;
