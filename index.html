@@ -54,7 +54,6 @@
           <img class="landing-signal-body" src="assets/landing-mark-body.svg" alt="">
           <img class="landing-signal-eyes" src="assets/landing-mark-eyes.svg" alt="">
         </span>
-        <span class="landing-signal-caption">Controlled intelligence</span>
       </div>
 
       <div class="landing-index" aria-hidden="true">
@@ -154,7 +153,13 @@
       </div>
     </section>
 
-    <section class="section recognition" id="herkenbaar">
+    <section class="section recognition" id="herkenbaar" data-recognition-orbit>
+      <div class="recognition-cosmos" aria-hidden="true">
+        <i class="recognition-moon moon-alpha" data-recognition-moon data-y="0.18" data-speed="1.02" data-phase="0.1"><picture><source srcset="assets/cosmic/moon-01.webp" type="image/webp"><img src="assets/cosmic/moon-01.png" alt="" width="1254" height="1254"></picture></i>
+        <i class="recognition-moon moon-beta" data-recognition-moon data-y="0.62" data-speed="0.82" data-phase="1.8"><picture><source srcset="assets/cosmic/rock-02-hd.webp" type="image/webp"><img src="assets/cosmic/rock-02-hd.png" alt="" width="1537" height="1023"></picture></i>
+        <i class="recognition-moon moon-gamma" data-recognition-moon data-y="0.38" data-speed="1.24" data-phase="3.4"><picture><source srcset="assets/cosmic/rock-03-hd.webp" type="image/webp"><img src="assets/cosmic/rock-03-hd.png" alt="" width="1406" height="1119"></picture></i>
+        <i class="recognition-moon moon-delta" data-recognition-moon data-y="0.78" data-speed="0.95" data-phase="4.7"><picture><source srcset="assets/cosmic/rock-01-hd.webp" type="image/webp"><img src="assets/cosmic/rock-01-hd.png" alt="" width="1254" height="1254"></picture></i>
+      </div>
       <div class="container">
         <div class="section-heading centered reveal">
           <p class="eyebrow">Herkent je organisatie dit?</p>
@@ -180,7 +185,8 @@
 
     <section class="section urgency" id="waarom-nu">
       <div class="container urgency-grid">
-        <article class="act-explainer reveal">
+        <article class="act-explainer reveal" data-act-grid>
+          <canvas class="act-grid-canvas" data-act-grid-canvas aria-hidden="true"></canvas>
           <p class="eyebrow">De Ai Act eenvoudig uitgelegd</p>
           <h2>De regels raken meer dan alleen technologiebedrijven.</h2>
           <p>
@@ -203,7 +209,8 @@
       </div>
     </section>
 
-    <section class="section services" id="diensten">
+    <section class="section services" id="diensten" data-services-spiral>
+      <canvas class="services-spiral-canvas" data-services-spiral-canvas aria-hidden="true"></canvas>
       <div class="container">
         <div class="section-heading centered reveal">
           <p class="eyebrow">Eén duidelijke hoofdroute</p>
@@ -438,6 +445,9 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260810-cosmic-depth"></script>
+  <script src="script.js?v=20260811-performance"></script>
+  <script src="gridflow.js?v=20260811-performance"></script>
+  <script src="recognition-orbit.js?v=20260811-performance"></script>
+  <script src="services-spiral.js?v=20260811-services-spiral"></script>
 </body>
 </html>
