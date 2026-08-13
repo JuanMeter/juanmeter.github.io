@@ -1,0 +1,7 @@
+# Internal source material must never be published through GitHub Pages.
+koersdocumenten/
+*.docx
+
+# Local operating-system files.
+.DS_Store
+Thumbs.db

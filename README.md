@@ -2,7 +2,7 @@
 
 Statische, responsieve bedrijfswebsite voor **Meterwise**. De website begint bij het herkenbare klantprobleem — groeiend Ai-gebruik zonder volledig overzicht — en positioneert de Ai Governance Scan als centrale eerste stap.
 
-De publieke inhoud vertaalt het interne koersdocument naar een commerciële klantreis, zonder interne prijs- en verkoophypotheses, fictieve cases of certificeringsgaranties te publiceren.
+Deze repository bevat uitsluitend bestanden die nodig zijn om de publieke website te tonen. Interne koersdocumenten, prijsinformatie en verkoophypotheses horen niet in deze repository.
 
 ## Paginastructuur
 
@@ -24,15 +24,10 @@ De hoofdnavigatie is op alle inhoudspagina’s gelijk. “Over Meterwise” verw
 
 ### Landingintro
 
-- Schermvullende, futuristische merkintro met een bewegende 3D particle-grid.
-- De grid vormt een vloeiend landschap dat continu naar de bezoeker beweegt en tijdens het scrollen subtiel versnelt.
-- Witte, blauwe en oranje particles mengen de Meterwise-kleuren zonder de tekst te overheersen.
-- Het MW-logo zweeft als een helder signaalpunt boven de horizon, met rustige dataringen en een zachte gloed.
-- Er is geen cursorreactie op het logo, de particle-grid of de gloed.
-- Alleen de tekst **“Intelligentie. Met controle.”** reageert subtiel op een fijne muisaanwijzer.
-- Op mobiele apparaten worden minder punten en een lagere renderresolutie gebruikt voor een vloeiende ervaring.
-- De technische prototype-labels zijn verwijderd; rechtsboven staan nu relevante vakgebieden.
-- `prefers-reduced-motion` krijgt een statisch gerenderde particle-grid zonder doorlopende animaties.
+- Schermvullende ruimtecompositie met een vrijstaande aarde en een afzonderlijk maanoppervlak.
+- Tijdens het scrollen verschuift het perspectief in één beweging van de aarde naar het maanlandschap.
+- De volledige tekstcompositie reageert subtiel op een fijne muisaanwijzer; op touchapparaten blijft deze stil.
+- `prefers-reduced-motion` beperkt de beweging zonder de inhoud of leesbaarheid te veranderen.
 
 ### Algemene website
 
@@ -44,7 +39,7 @@ De hoofdnavigatie is op alle inhoudspagina’s gelijk. “Over Meterwise” verw
 - In het oprichtersblok staat de aangeleverde portretfoto van Juan Meter.
 - De Ai Governance Scan is zichtbaar het kernproduct; QuickScan, implementatie en readiness zijn aanvullende routes.
 - De aparte Ai Act-pagina verwijst voor actuele termijnen naar officiële bronnen van de Europese Commissie en Autoriteit Persoonsgegevens.
-- Diensten, Aanpak, Voor wie en Ai Act hebben ieder een eigen kleurwereld en een eigen codegebouwde illustratie in de paginaheader.
+- Diensten, Aanpak, Voor wie en Ai Act hebben ieder een eigen kleurwereld en een infographic met een lokale volle-bleed SVG-achtergrond.
 - Scroll-progressindicator en terug-naar-bovenknop.
 - Toegankelijke reveal-animaties met reduced-motionfallback.
 - Unieke titels, descriptions en Open Graph-metadata per route.
@@ -71,11 +66,12 @@ CTA's kunnen het gespreksonderwerp vooraf selecteren met `?onderwerp=governance-
 ├── README.md
 ├── assets/
 │   ├── favicon.svg
-│   ├── landing-mark-body.svg
-│   ├── landing-mark-eyes.svg
-│   ├── meterwise-banner.png
 │   ├── juan-meter.png
-│   └── og-image.jpg
+│   ├── og-image.jpg
+│   ├── landing-space/
+│   ├── cosmic/
+│   ├── cosmic-panels/
+│   └── footer-space/
 ├── diensten/
 │   └── index.html
 ├── aanpak/
@@ -242,11 +238,9 @@ De belangrijkste globale variabelen staan bovenaan `styles.css`:
 
 ### Landinganimatie
 
-De particle-grid wordt zonder externe bibliotheken getekend op het canvas `[data-landing-wave]`. De perspectiefprojectie, golfvorm, kleurmenging, snelheid en mobiele puntdichtheid staan in het landinggedeelte van `script.js`.
+De landing gebruikt drie losse beeldlagen uit `assets/landing-space/`: een uitgesneden aarde, een mobiele maanlaag en een grotere maanlaag voor brede schermen. De scrollvoortgang wordt in `script.js` vertaald naar schaal, positie en transparantie, zodat de overgang als één camerabeweging aanvoelt.
 
-De visuele compositie van tekst, horizon en het logo-signaal staat onder `/* 2026-08-10: flowing particle-grid landing */` in `styles.css`. De mobiele aanpassingen staan daar direct onder in de mediaqueries voor `940px` en `640px`.
-
-De cursorreactie blijft beperkt tot `.landing-title`. JavaScript luistert uitsluitend naar pointerbeweging boven die titel en alleen bij een fijne muisaanwijzer. De grid en het logo reageren niet op de cursor.
+De tekst staat in `.landing-copy`. De cursorreactie geldt alleen bij een fijne muisaanwijzer; touchapparaten krijgen geen pointeranimatie.
 
 ### Kosmische merkvisual
 
@@ -258,7 +252,7 @@ De transparante PNG-assets staan in `assets/cosmic/`:
 - `rock-02-hd.png`: langwerpige, gelaagde steen met extra microdetail;
 - `rock-03-hd.png`: hoekig fragment met diepe mineraalstructuur en extra microdetail.
 
-De eerdere `rock-01.png`, `rock-02.png` en `rock-03.png` blijven als lichtere bronversies bewaard. Meerdere formaten en rotaties worden met dezelfde drie HD-beelden opgebouwd. De startbeweging van ieder fragment staat als `data-from-x`, `data-from-y`, `data-from-r`, `data-to-r` en `data-from-scale` direct op het betreffende `.cosmic-rock`-element. Zo kan de animatie worden aangepast zonder nieuwe beelden te maken. De slogan en ondersteunende regel staan in `.cosmic-slogan` en `.cosmic-caption` in `index.html`.
+Meerdere formaten en rotaties worden met dezelfde drie HD-beelden opgebouwd. De startbeweging van ieder fragment staat als `data-from-x`, `data-from-y`, `data-from-r`, `data-to-r` en `data-from-scale` direct op het betreffende `.cosmic-rock`-element. Zo kan de animatie worden aangepast zonder nieuwe beelden te maken. De slogan en ondersteunende regel staan in `.cosmic-slogan` en `.cosmic-caption` in `index.html`.
 
 De browser ontvangt waar mogelijk de geoptimaliseerde `rock-01-hd.webp`, `rock-02-hd.webp` en `rock-03-hd.webp`. De HD-PNG's blijven als verliesvrije fallback beschikbaar. Dit houdt de zichtbare details hoog zonder de mobiele pagina onnodig met meerdere megabytes per afbeelding te belasten.
 
@@ -311,7 +305,8 @@ feature branch → preview → pull request → merge → GitHub Pages
 - Geen cursorlisteners op touchapparaten.
 - Decoratieve mobiele landinganimaties zijn beperkt.
 - De oprichtersfoto gebruikt het originele, door Juan aangeleverde PNG-bestand uit `assets/juan-meter.png`.
-- De nieuwe paginaillustraties zijn origineel en codegebouwd; er zijn geen externe stockfoto's of illustraties toegevoegd.
+- De infographicpanelen gebruiken lokale SVG-assets uit `assets/cosmic-panels/`.
+- De ruimtebeelden voor landing en footer worden lokaal geladen; er zijn tijdens het bezoeken geen externe beeldverzoeken nodig.
 - Geen zware externe JavaScriptbibliotheek.
 
 ## Bewuste inhoudelijke grenzen

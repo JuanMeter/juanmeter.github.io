@@ -689,7 +689,7 @@ h3 {
 .footer-links a[href="/algemene-voorwaarden/"],
 .footer-links a[href="/privacyverklaring/"] {
   color: #465564;
-  font-size: 0.86rem;
+  font-size: inherit;
 }
 
 .footer-links a:hover {
@@ -4624,5 +4624,481 @@ body.nav-open {
 
   .cosmic-rock {
     z-index: 2;
+  }
+}
+
+/* Final cascade: one-shot Earth-to-Moon camera landing */
+.landing-intro {
+  height: 215vh;
+  min-height: 1320px;
+  background: #020a11;
+}
+
+.landing-stage {
+  --landing-progress: 0;
+  --landing-exit: 0;
+  --landing-pointer-x: 0;
+  --landing-pointer-y: 0;
+  height: 100svh;
+  min-height: 640px;
+  overflow: hidden;
+  background: #020a11;
+  opacity: 1;
+}
+
+.landing-stage::before,
+.landing-stage::after {
+  display: none;
+}
+
+.landing-space,
+.landing-earth,
+.landing-moon,
+.landing-vignette {
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+}
+
+.landing-space {
+  z-index: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 66% 44%, rgba(11, 31, 45, 0.66) 0%, rgba(4, 15, 25, 0.42) 25%, transparent 58%),
+    #020a11;
+  perspective: 1280px;
+  perspective-origin: 50% calc(42% + var(--landing-progress) * 20%);
+  transform-style: preserve-3d;
+}
+
+.landing-earth {
+  z-index: 1;
+  inset: 50% auto auto 63%;
+  width: clamp(520px, 47vw, 760px);
+  height: auto;
+  aspect-ratio: 1;
+  transform: translate3d(
+      calc(-50% + var(--landing-progress) * 8vw),
+      calc(-50% - var(--landing-progress) * 37vh),
+      calc(var(--landing-progress) * -420px)
+    )
+    rotateZ(calc(var(--landing-progress) * -1.35deg))
+    scale(calc(1 - var(--landing-progress) * 0.12));
+  transform-origin: 50% 50%;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.landing-earth::before {
+  content: "";
+  position: absolute;
+  inset: 24%;
+  z-index: -1;
+  border-radius: 50%;
+  background: rgba(66, 139, 190, 0.3);
+  filter: blur(62px);
+  transform: scale(1.18);
+  opacity: calc(0.82 - var(--landing-progress) * 0.28);
+}
+
+.landing-earth img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  filter: none;
+  image-rendering: auto;
+}
+
+.landing-moon {
+  z-index: 2;
+  inset: auto auto -28vh 50%;
+  width: max(118vw, 1680px);
+  height: auto;
+  aspect-ratio: 3600 / 1263;
+  opacity: 1;
+  transform: translate3d(
+      -50%,
+      calc(74vh - var(--landing-progress) * 86vh),
+      calc(-590px + var(--landing-progress) * 590px)
+    )
+    rotateX(calc(69deg - var(--landing-progress) * 65deg))
+    scale(calc(0.98 + var(--landing-progress) * 0.1));
+  transform-origin: 50% 100%;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.landing-moon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: none;
+  image-rendering: auto;
+}
+
+.landing-vignette {
+  z-index: 3;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.54), transparent 47%, rgba(0, 0, 0, 0.12)),
+    radial-gradient(ellipse at 50% 45%, transparent 28%, rgba(0, 0, 0, 0.11) 66%, rgba(0, 0, 0, 0.58) 118%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.12), transparent 28%, rgba(0, 0, 0, 0.18));
+}
+
+.landing-copy {
+  left: max(28px, calc((100vw - var(--container)) / 2));
+  top: 47%;
+  z-index: 5;
+  width: min(73vw, 920px);
+  transform:
+    perspective(900px)
+    translate3d(
+      calc(var(--landing-pointer-x) * 8px),
+      calc(-50% - var(--landing-progress) * 2.5vh + var(--landing-pointer-y) * 5px),
+      0
+    )
+    rotateX(calc(var(--landing-pointer-y) * -0.55deg))
+    rotateY(calc(var(--landing-pointer-x) * 0.7deg));
+  transform-origin: 44% 52%;
+  transition: transform 190ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: transform;
+  opacity: calc(1 - var(--landing-exit) * 0.72);
+}
+
+.landing-copy::before {
+  content: "";
+  position: absolute;
+  inset: -70px -110px -80px -90px;
+  z-index: -1;
+  background: radial-gradient(ellipse at 34% 48%, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.38) 48%, transparent 76%);
+  pointer-events: none;
+}
+
+.landing-kicker {
+  margin-bottom: 23px;
+  color: rgba(255, 255, 255, 0.72);
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.95);
+}
+
+.landing-title {
+  max-width: 920px;
+  color: #fff;
+  font-size: clamp(4.1rem, 9.4vw, 9.9rem);
+  line-height: 0.82;
+  text-shadow:
+    0 5px 8px rgba(0, 0, 0, 0.92),
+    0 18px 55px rgba(0, 0, 0, 0.82);
+  transform: none;
+  transition: none;
+  will-change: auto;
+}
+
+.landing-title span:last-child {
+  color: rgba(255, 255, 255, 0.93);
+  -webkit-text-stroke: 0;
+  text-shadow:
+    0 5px 8px rgba(0, 0, 0, 0.92),
+    0 18px 55px rgba(0, 0, 0, 0.82);
+}
+
+.landing-lead {
+  color: rgba(255, 255, 255, 0.72);
+  text-shadow: 0 3px 22px rgba(0, 0, 0, 0.98);
+}
+
+.landing-index,
+.landing-scroll {
+  z-index: 6;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.94);
+}
+
+.landing-index {
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.landing-scroll {
+  opacity: calc(1 - var(--landing-progress) * 1.6);
+}
+
+@media (max-width: 940px) {
+  .landing-intro {
+    height: 195vh;
+    min-height: 1100px;
+  }
+
+  .landing-moon {
+    inset: auto auto -18vh 50%;
+    width: max(186vw, 1480px);
+    transform: translate3d(
+        -50%,
+        calc(80vh - var(--landing-progress) * 93vh),
+        calc(-560px + var(--landing-progress) * 560px)
+      )
+      rotateX(calc(71deg - var(--landing-progress) * 67deg))
+      scale(calc(0.98 + var(--landing-progress) * 0.1));
+  }
+
+  .landing-copy {
+    width: calc(100% - 56px);
+  }
+}
+
+@media (max-width: 640px) {
+  .landing-intro {
+    height: 190vh;
+    min-height: 980px;
+  }
+
+  .landing-stage {
+    min-height: 560px;
+  }
+
+  .landing-earth {
+    inset: 46% auto auto 66%;
+    width: clamp(430px, 118vw, 590px);
+    transform: translate3d(
+        calc(-50% + var(--landing-progress) * 9vw),
+        calc(-50% - var(--landing-progress) * 58vh),
+        calc(var(--landing-progress) * -390px)
+      )
+      rotateZ(calc(var(--landing-progress) * -1deg))
+      scale(calc(1 - var(--landing-progress) * 0.18));
+  }
+
+  .landing-moon {
+    inset: auto auto -6vh 50%;
+    width: max(248vw, 1120px);
+    transform: translate3d(
+        -50%,
+        calc(72vh - var(--landing-progress) * 87vh),
+        calc(-470px + var(--landing-progress) * 470px)
+      )
+      rotateX(calc(72deg - var(--landing-progress) * 68deg))
+      scale(calc(1 + var(--landing-progress) * 0.08));
+  }
+
+  .landing-copy {
+    left: 20px;
+    top: 44%;
+    width: calc(100% - 40px);
+    transform: translate3d(0, calc(-50% - var(--landing-progress) * 1.5vh), 0);
+  }
+
+  .landing-copy::before {
+    inset: -48px -30px -58px -36px;
+  }
+
+  .landing-title {
+    max-width: 100%;
+    font-size: clamp(3.25rem, 16.2vw, 5.9rem);
+    line-height: 0.84;
+  }
+
+  .landing-lead {
+    max-width: 92%;
+  }
+
+  .landing-index {
+    top: 20px;
+    right: 20px;
+  }
+
+  .landing-scroll {
+    left: 20px;
+    bottom: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-earth {
+    transform: translate3d(-50%, calc(-50% - 8vh), -120px) scale(0.95);
+  }
+
+  .landing-moon {
+    transform: translate3d(-50%, -5vh, 0) rotateX(7deg) scale(1.05);
+  }
+
+  .landing-copy {
+    transform: translate3d(0, -50%, 0);
+    transition: none;
+  }
+
+  .landing-title {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Final cascade: one continuous NASA scene beneath FAQ, contact and footer */
+.space-footer-scene {
+  position: relative;
+  isolation: isolate;
+  background-color: #02070d;
+  background-image:
+    linear-gradient(180deg, rgba(2, 10, 17, 0.98) 0%, rgba(2, 9, 15, 0.76) 13%, rgba(1, 6, 11, 0.46) 43%, rgba(1, 5, 9, 0.72) 100%),
+    linear-gradient(90deg, rgba(1, 7, 12, 0.52), transparent 54%, rgba(1, 6, 11, 0.3)),
+    url("assets/footer-space/nasa-earthset-original.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 38%;
+}
+
+.space-footer-scene {
+  overflow: hidden;
+}
+
+.space-footer-scene::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 14% 28%, rgba(255, 79, 24, 0.1), transparent 24rem),
+    linear-gradient(180deg, rgba(2, 10, 17, 0.18), transparent 32%, rgba(0, 4, 8, 0.28));
+}
+
+.space-footer-scene .faq-section,
+.space-footer-scene .cta-section {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+.space-footer-scene .faq-section {
+  padding-top: clamp(110px, 11vw, 176px);
+  padding-bottom: clamp(86px, 9vw, 144px);
+}
+
+.space-footer-scene .faq-section .section-heading h2 {
+  color: #fff;
+  text-shadow: 0 8px 34px rgba(0, 0, 0, 0.72);
+}
+
+.space-footer-scene .faq-section .section-text {
+  color: rgba(226, 235, 242, 0.72);
+}
+
+.space-footer-scene .faq-list details {
+  border-color: rgba(255, 255, 255, 0.56);
+  background: #fff;
+  box-shadow:
+    0 22px 70px rgba(0, 5, 10, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.94);
+  opacity: 1;
+  filter: none;
+}
+
+.space-footer-scene .cta-section {
+  padding-top: 18px;
+  padding-bottom: clamp(92px, 10vw, 152px);
+}
+
+.space-footer-scene .cta-card {
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  background:
+    radial-gradient(circle at 8% 18%, rgba(255, 119, 35, 0.34), transparent 24rem),
+    linear-gradient(135deg, rgba(255, 79, 24, 0.92), rgba(209, 55, 13, 0.82));
+  box-shadow: 0 30px 90px rgba(0, 3, 7, 0.38);
+  -webkit-backdrop-filter: blur(18px) saturate(1.12);
+  backdrop-filter: blur(18px) saturate(1.12);
+}
+
+.space-footer-scene .cta-card .cta-actions .button {
+  opacity: 1;
+  filter: none;
+  border: 1px solid transparent;
+  box-shadow: 0 15px 34px rgba(0, 8, 16, 0.24);
+}
+
+.space-footer-scene .cta-card .cta-actions .button.primary.dark {
+  color: #fff;
+  background: #00101f;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.space-footer-scene .cta-card .cta-actions .button.secondary {
+  color: #00101f;
+  background: #fff;
+  border-color: #fff;
+  box-shadow: 0 15px 34px rgba(0, 8, 16, 0.2);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .space-footer-scene .cta-card .cta-actions .button.primary.dark:hover {
+    color: #00101f;
+    background: #fff;
+    border-color: #fff;
+  }
+
+  .space-footer-scene .cta-card .cta-actions .button.secondary:hover {
+    color: #fff;
+    background: var(--orange);
+    border-color: var(--orange);
+    box-shadow: 0 17px 38px rgba(255, 79, 24, 0.38);
+  }
+}
+
+.site-footer {
+  position: relative;
+  z-index: 1;
+  padding: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+}
+
+.footer-glass {
+  padding: 34px 0;
+  background: linear-gradient(105deg, rgba(219, 235, 244, 0.1), rgba(131, 157, 174, 0.035));
+  border-top: 1px solid rgba(255, 255, 255, 0.38);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.36),
+    0 -18px 56px rgba(0, 4, 9, 0.2);
+  -webkit-backdrop-filter: blur(5px) saturate(1.22);
+  backdrop-filter: blur(5px) saturate(1.22);
+}
+
+.site-footer .footer-grid p,
+.site-footer .footer-links {
+  color: rgba(246, 250, 252, 0.9);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.76);
+}
+
+.site-footer .footer-brand > span {
+  color: #fff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.76);
+}
+
+.site-footer .footer-brand > span span {
+  color: var(--orange);
+}
+
+.site-footer .footer-links a[href="/algemene-voorwaarden/"],
+.site-footer .footer-links a[href="/privacyverklaring/"] {
+  color: rgba(246, 250, 252, 0.86);
+}
+
+@media (max-width: 760px) {
+  .space-footer-scene {
+    background-position: 58% center;
+  }
+
+  .space-footer-scene .faq-section {
+    padding-top: 92px;
+  }
+
+  .space-footer-scene .faq-list details {
+    background: #fff;
+  }
+
+  .footer-glass {
+    padding: 30px 0;
+    background: linear-gradient(120deg, rgba(221, 236, 244, 0.11), rgba(113, 139, 157, 0.04));
+    -webkit-backdrop-filter: blur(5px) saturate(1.22);
+    backdrop-filter: blur(5px) saturate(1.22);
   }
 }
