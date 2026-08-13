@@ -1610,6 +1610,161 @@
   }
 }
 
+/* Cosmic infographic panels: supplied Meterwise artwork with editorial text overlays. */
+.cosmic-infographic {
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 0;
+  padding: clamp(30px, 4vw, 48px);
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 38px;
+  background-color: #0a1420;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.26);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.cosmic-infographic::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(3, 10, 17, 0.1) 0%, rgba(3, 9, 15, 0.14) 37%, rgba(2, 8, 14, 0.9) 100%),
+    radial-gradient(circle at 15% 74%, rgba(0, 0, 0, 0.5), transparent 54%);
+}
+
+.cosmic-infographic::after {
+  content: "";
+  position: absolute;
+  inset: 20px;
+  z-index: 1;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+}
+
+.cosmic-coral {
+  background-image: url("assets/cosmic-panels/variant-b-zacht-koraal.svg?v=20260813-fullbleed");
+  background-position: center 43%;
+}
+
+.cosmic-moonlight {
+  background-image: url("assets/cosmic-panels/variant-a-maanlicht.svg?v=20260813-fullbleed");
+  background-position: center 38%;
+}
+
+.cosmic-moonlight-shift {
+  background-position: 58% 48%;
+}
+
+.cosmic-dawn {
+  color: #10202e;
+  border-color: rgba(0, 16, 31, 0.1);
+  background-color: #f3e3d8;
+  background-image: url("assets/cosmic-panels/variant-c-dageraad.svg?v=20260813-fullbleed");
+  background-position: center 42%;
+  box-shadow: 0 34px 90px rgba(61, 39, 26, 0.2);
+}
+
+.cosmic-dawn::before {
+  background:
+    linear-gradient(180deg, rgba(255, 250, 246, 0.03) 0%, rgba(247, 230, 218, 0.05) 35%, rgba(236, 210, 191, 0.9) 100%),
+    radial-gradient(circle at 15% 76%, rgba(255, 246, 239, 0.48), transparent 55%);
+}
+
+.cosmic-dawn::after {
+  border-color: rgba(0, 16, 31, 0.09);
+}
+
+.cosmic-infographic .signal-label,
+.cosmic-infographic .signal-value,
+.cosmic-infographic .signal-meta {
+  position: relative;
+  z-index: 3;
+  grid-area: auto;
+  max-width: min(100%, 410px);
+  text-shadow: 0 3px 22px rgba(0, 0, 0, 0.92), 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.cosmic-infographic .signal-label {
+  margin-bottom: 18px;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.cosmic-infographic .signal-value {
+  align-self: auto;
+  margin: 0 0 22px;
+  color: #fff;
+  font-size: clamp(2.6rem, 4.8vw, 4.8rem);
+  line-height: 0.94;
+  letter-spacing: -0.07em;
+}
+
+.cosmic-infographic .signal-meta {
+  display: grid;
+  gap: 8px;
+  color: rgba(237, 244, 248, 0.8);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.cosmic-dawn .signal-label,
+.cosmic-dawn .signal-value,
+.cosmic-dawn .signal-meta {
+  color: #10202e;
+  text-shadow: 0 2px 20px rgba(255, 249, 244, 0.96), 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.cosmic-dawn .signal-label::before {
+  background: var(--orange);
+  box-shadow: 0 0 0 7px rgba(255, 79, 24, 0.13);
+}
+
+@media (max-width: 940px) {
+  .cosmic-infographic {
+    min-height: 460px;
+  }
+}
+
+@media (max-width: 640px) {
+  .cosmic-infographic {
+    min-height: 430px;
+    padding: 30px 28px;
+    border-radius: 30px;
+    background-size: cover;
+    background-position: center 40%;
+  }
+
+  .cosmic-moonlight-shift {
+    background-position: 58% 44%;
+  }
+
+  .cosmic-infographic::after {
+    inset: 14px;
+    border-radius: 20px;
+  }
+
+  .cosmic-infographic .signal-label {
+    margin-bottom: 15px;
+  }
+
+  .cosmic-infographic .signal-value {
+    max-width: 310px;
+    margin: 0 0 18px;
+    font-size: clamp(2.4rem, 12vw, 3.35rem);
+  }
+}
+
 /* Contact: a direct channel and a separate, structured introduction route */
 .page-contact {
   background:
