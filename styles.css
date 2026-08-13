@@ -4710,6 +4710,15 @@ body.nav-open {
   object-position: 50% 50%;
   filter: none;
   image-rendering: auto;
+  transform-origin: 50% 50%;
+  animation: landing-earth-rotation 300s linear infinite;
+  will-change: transform;
+}
+
+@keyframes landing-earth-rotation {
+  to {
+    transform: rotate(1turn);
+  }
 }
 
 .landing-moon {
@@ -4915,6 +4924,10 @@ body.nav-open {
 @media (prefers-reduced-motion: reduce) {
   .landing-earth {
     transform: translate3d(-50%, calc(-50% - 8vh), -120px) scale(0.95);
+  }
+
+  .landing-earth img {
+    animation: none;
   }
 
   .landing-moon {
