@@ -4740,7 +4740,34 @@ body.nav-open {
   backface-visibility: hidden;
 }
 
+.landing-moon::before,
+.landing-moon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  width: 22%;
+  background-image: url("assets/landing-space/apollo17-surface-cutout-3600.png");
+  background-repeat: no-repeat;
+  background-size: 454.55% 100%;
+  pointer-events: none;
+  transform: scaleX(-1);
+}
+
+.landing-moon::before {
+  left: calc(-22% + 1px);
+  background-position: left center;
+}
+
+.landing-moon::after {
+  right: calc(-22% + 1px);
+  background-position: right center;
+}
+
 .landing-moon img {
+  position: relative;
+  z-index: 1;
   display: block;
   width: 100%;
   height: 100%;
@@ -4878,7 +4905,7 @@ body.nav-open {
   }
 
   .landing-moon {
-    inset: auto auto -6vh 50%;
+    inset: auto auto -22vh 50%;
     width: max(248vw, 1120px);
     transform: translate3d(
         -50%,
@@ -4887,6 +4914,11 @@ body.nav-open {
       )
       rotateX(calc(72deg - var(--landing-progress) * 68deg))
       scale(calc(1 + var(--landing-progress) * 0.08));
+  }
+
+  .landing-moon::before,
+  .landing-moon::after {
+    background-image: url("assets/landing-space/apollo17-surface-cutout-1800.png");
   }
 
   .landing-copy {
