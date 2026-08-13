@@ -725,7 +725,7 @@
   text-transform: none;
 }
 
-/* Ai Act page */
+/* AI Act page */
 .ai-timeline .step-detail {
   align-items: center;
 }
@@ -1156,7 +1156,7 @@
   box-shadow: 0 20px 55px rgba(44, 34, 73, 0.06);
 }
 
-/* Ai Act: editorial, weighty and time-led */
+/* AI Act: editorial, weighty and time-led */
 .page-ai-act {
   background: linear-gradient(180deg, #fbf8f3 0%, #ffffff 46%, #f8f3eb 100%);
 }

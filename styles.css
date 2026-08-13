@@ -1656,7 +1656,7 @@ body::after {
   }
 }
 
-/* Preserve the requested “Ai” casing in labels that were formerly forced uppercase. */
+/* Preserve the requested “AI” casing in labels that were formerly forced uppercase. */
 .landing-kicker,
 .landing-index,
 .eyebrow {
@@ -1747,7 +1747,7 @@ body::after {
   }
 }
 
-/* Customer-led positioning and Ai Act content */
+/* Customer-led positioning and AI Act content */
 .recognition {
   position: relative;
   isolation: isolate;
