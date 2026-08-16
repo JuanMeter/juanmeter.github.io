@@ -163,8 +163,9 @@ const applySubjectFromQuery = () => {
   const subjectMap = {
     "governance-scan": "AI Governance Scan",
     quickscan: "AI QuickScan",
-    implementatie: "Governance implementatie",
-    "iso-readiness": "ISO/IEC 42001-readiness"
+    "governance-program": "AI Governance Program",
+    implementatie: "AI Governance Program",
+    "iso-readiness": "AI Governance Program"
   };
   const subject = subjectMap[requestedSubject];
   if (!subject) return;

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Aanpak | Meterwise</title>
   <meta name="description" content="Bekijk hoe Meterwise AI-gebruik inventariseert, governance en risico’s onderzoekt en bevindingen vertaalt naar een concrete 90-dagenroadmap.">
-  <meta name="theme-color" content="#00101F">
+  <meta name="theme-color" content="#06131f">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="nl_NL">
   <meta property="og:site_name" content="Meterwise">
@@ -19,10 +19,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css?v=20260810-cosmic">
   <link rel="stylesheet" href="../pages.css?v=20260813-fullbleed-panels">
+  <link rel="stylesheet" href="aanpak.css?v=20260816-journey-v1">
   <script>document.documentElement.classList.replace("no-js", "js");</script>
 </head>
 
-<body class="detail-page page-aanpak">
+<body class="detail-page page-aanpak approach-journey-page">
   <a class="skip-link" href="#main-content">Ga naar hoofdinhoud</a>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
   <div class="site-grain" aria-hidden="true"></div>
@@ -46,178 +47,266 @@
     </nav>
   </header>
 
-  <main id="main-content">
-    <section class="page-hero">
-      <div class="container page-hero-grid">
-        <div class="reveal">
-          <div class="breadcrumb"><a href="/">Over Meterwise</a><span>/</span><span>Aanpak</span></div>
-          <p class="eyebrow">Onderzoeken wat werkelijk werkt</p>
-          <h1>Van losse signalen naar bestuurbare AI.</h1>
-          <p class="page-hero-lead">
+  <main id="main-content" class="approach-main">
+    <section class="approach-hero" id="intro" aria-labelledby="approach-title">
+      <div class="approach-hero-grid" aria-hidden="true"></div>
+      <div class="approach-aurora" aria-hidden="true"></div>
+      <div class="container approach-hero-inner">
+        <div class="approach-hero-copy reveal">
+          <p class="approach-kicker"><span aria-hidden="true"></span> De Meterwise-aanpak</p>
+          <h1 id="approach-title">Van losse signalen naar <em>bestuurbare AI.</em></h1>
+          <p class="approach-lead">
             Meterwise verbindt systemen, mensen, beleid, leveranciers en bewijs. Zo ontstaat geen theoretisch
             rapport, maar een onderbouwd beeld waarmee management kan prioriteren en eigenaars kunnen handelen.
           </p>
-          <div class="page-hero-actions">
-            <a class="button primary" href="/kennismaking/">Bespreek je vraagstuk</a>
-            <a class="button secondary" href="#werkwijze">Bekijk de werkwijze</a>
+          <div class="approach-actions">
+            <a class="approach-button approach-button-primary" href="/kennismaking/">Bespreek je vraagstuk <span aria-hidden="true">↗</span></a>
+            <a class="approach-text-link" href="#principes">Ontdek de aanpak <span aria-hidden="true">↓</span></a>
           </div>
         </div>
-        <aside class="page-signal route-portal cosmic-infographic cosmic-moonlight reveal" aria-label="Kern van de aanpak">
-          <span class="signal-label">Evidence based governance</span>
-          <strong class="signal-value">Feiten boven aannames.</strong>
-          <div class="signal-meta">
-            <span>7 beoordelingsdomeinen</span>
-            <span>4 niveaus van aantoonbaarheid</span>
+
+        <div class="approach-orbit-wrap reveal" data-approach-orbit aria-label="Van context via beoordeling naar aantoonbare actie">
+          <div class="orbit-glow" aria-hidden="true"></div>
+          <div class="approach-orbit">
+            <svg viewBox="0 0 620 620" aria-hidden="true">
+              <defs>
+                <linearGradient id="orbitStroke" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#ff4f18"/>
+                  <stop offset="0.55" stop-color="#ff9a70"/>
+                  <stop offset="1" stop-color="#ffffff" stop-opacity=".2"/>
+                </linearGradient>
+                <filter id="orbitGlow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+              <circle class="orbit-ring orbit-ring-one" cx="310" cy="310" r="244"/>
+              <circle class="orbit-ring orbit-ring-two" cx="310" cy="310" r="188"/>
+              <circle class="orbit-ring orbit-ring-three" cx="310" cy="310" r="126"/>
+              <path class="orbit-route" d="M112 188 C225 45 437 92 491 233 C548 382 410 535 252 500 C110 468 65 303 142 205"/>
+              <path class="orbit-route-active" d="M112 188 C225 45 437 92 491 233 C548 382 410 535 252 500 C110 468 65 303 142 205"/>
+              <circle class="orbit-signal" cx="112" cy="188" r="7"/>
+            </svg>
+            <div class="orbit-core">
+              <img src="../assets/favicon.svg" alt="" aria-hidden="true">
+              <small>Uitkomst</small>
+              <strong>Bestuurbare AI</strong>
+              <span><i></i> Aantoonbaar</span>
+            </div>
+            <span class="orbit-label orbit-label-context"><b>01</b> Context</span>
+            <span class="orbit-label orbit-label-risk"><b>02</b> Risico</span>
+            <span class="orbit-label orbit-label-proof"><b>03</b> Bewijs</span>
+            <span class="orbit-label orbit-label-action"><b>04</b> Actie</span>
           </div>
-        </aside>
+        </div>
+      </div>
+
+      <div class="container approach-hero-route reveal" aria-label="De aanpak in vier bewegingen">
+        <div><span>01</span><p><small>Richting</small><strong>Scope bepalen</strong></p></div>
+        <div><span>02</span><p><small>Zicht</small><strong>Inventariseren</strong></p></div>
+        <div><span>03</span><p><small>Duiding</small><strong>Beoordelen</strong></p></div>
+        <div><span>04</span><p><small>Beweging</small><strong>Activeren</strong></p></div>
       </div>
     </section>
 
-    <nav class="page-nav" aria-label="Op deze pagina">
-      <div class="container page-nav-inner">
-        <a href="#principes">Principes</a>
-        <a href="#werkwijze">Werkwijze</a>
-        <a href="#domeinen">Domeinen</a>
-        <a href="#bewijs">Bewijsniveaus</a>
-        <a href="#resultaat">Resultaat</a>
+    <nav class="approach-story-nav" aria-label="Op deze pagina">
+      <div class="container">
+        <a href="#principes" data-approach-link><span>01</span> Principes</a>
+        <a href="#werkwijze" data-approach-link><span>02</span> Werkwijze</a>
+        <a href="#domeinen" data-approach-link><span>03</span> Domeinen</a>
+        <a href="#bewijs" data-approach-link><span>04</span> Bewijs</a>
+        <a href="#resultaat" data-approach-link><span>05</span> Resultaat</a>
       </div>
     </nav>
 
-    <section class="section" id="principes">
+    <section class="approach-section approach-principles" id="principes" data-approach-section>
       <div class="container">
-        <div class="page-intro">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Werkbare governance</p>
-            <h2>Grondig waar het moet. Praktisch waar het kan.</h2>
+        <div class="approach-heading approach-heading-split reveal">
+          <div>
+            <p class="approach-kicker approach-kicker-dark"><span aria-hidden="true"></span> Werkbare governance</p>
+            <h2>Grondig waar het moet.<br><em>Praktisch waar het kan.</em></h2>
           </div>
-          <p class="section-text reveal">
+          <p>
             De aanpak is proportioneel aan het gebruik en de impact van AI. We combineren interviews,
             documentatie en systeeminformatie, kijken over functies heen en maken steeds onderscheid tussen
             wat is bedacht, wat is toegewezen, wat daadwerkelijk gebeurt en wat aantoonbaar is.
           </p>
         </div>
 
-        <div class="feature-grid">
-          <article class="feature-card reveal">
-            <strong>01 / Context</strong>
+        <div class="principle-stage" data-principle-stage>
+          <article class="principle-card reveal">
+            <div class="principle-card-top"><span>01</span><small>Context</small></div>
+            <div class="principle-symbol" aria-hidden="true"><i></i><i></i><b>→</b></div>
             <h3>Zakelijke waarde eerst</h3>
             <p>Governance ondersteunt het doel van AI en maakt bewuste besluitvorming mogelijk, zonder innovatie onnodig te vertragen.</p>
+            <div class="principle-meter"><span></span><small>Doel → besluit</small></div>
           </article>
-          <article class="feature-card reveal">
-            <strong>02 / Proportie</strong>
+          <article class="principle-card principle-card-dark reveal">
+            <div class="principle-card-top"><span>02</span><small>Proportie</small></div>
+            <div class="principle-rings" aria-hidden="true"><i></i><i></i><i></i></div>
             <h3>Risico bepaalt diepgang</h3>
             <p>Een interne schrijftool vraagt een andere beheersing dan AI die mensen beoordeelt, klanten raakt of kritieke processen stuurt.</p>
+            <div class="principle-meter"><span></span><small>Impact → diepgang</small></div>
           </article>
-          <article class="feature-card reveal">
-            <strong>03 / Bewijs</strong>
+          <article class="principle-card principle-card-orange reveal">
+            <div class="principle-card-top"><span>03</span><small>Bewijs</small></div>
+            <div class="principle-proof-mark" aria-hidden="true"><span>✓</span><i></i></div>
             <h3>Aantoonbaar boven aangenomen</h3>
             <p>Een beleidsdocument telt pas echt wanneer eigenaarschap, toepassing en controle ook in de praktijk zichtbaar zijn.</p>
+            <div class="principle-meter"><span></span><small>Afspraak → werking</small></div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section services" id="werkwijze">
-      <div class="container">
-        <div class="section-heading centered reveal">
-          <p class="eyebrow">De scan in vier fasen</p>
-          <h2>Een helder proces met een concreet eindpunt.</h2>
-          <p class="section-text">De precieze invulling wordt afgestemd op omvang, AI-landschap en urgentie.</p>
+    <section class="approach-section approach-process" id="werkwijze" data-approach-section>
+      <div class="process-stars" aria-hidden="true"></div>
+      <div class="container process-intro reveal">
+        <p class="approach-kicker"><span aria-hidden="true"></span> De scan in vier fasen</p>
+        <h2>Stap voor stap naar een beeld dat <em>standhoudt.</em></h2>
+        <p>De precieze invulling wordt afgestemd op omvang, AI-landschap en urgentie. Scroll door de vier fasen.</p>
+      </div>
+
+      <div class="container process-story" data-process-story>
+        <div class="process-visual-wrap">
+          <div class="process-visual" data-process-visual data-stage="0">
+            <div class="process-visual-top"><span>Meterwise / methode</span><small><i></i> Proces actief</small></div>
+            <div class="process-display">
+              <svg viewBox="0 0 560 640" aria-hidden="true">
+                <defs>
+                  <linearGradient id="processLine" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ff9c78"/><stop offset="1" stop-color="#ff4f18"/></linearGradient>
+                </defs>
+                <path class="process-track" d="M280 72 C120 122 130 260 280 304 C430 348 436 482 280 566"/>
+                <path class="process-track-active" d="M280 72 C120 122 130 260 280 304 C430 348 436 482 280 566"/>
+              </svg>
+              <div class="process-node process-node-1"><b>01</b><span>Richting</span></div>
+              <div class="process-node process-node-2"><b>02</b><span>Zicht</span></div>
+              <div class="process-node process-node-3"><b>03</b><span>Duiding</span></div>
+              <div class="process-node process-node-4"><b>04</b><span>Beweging</span></div>
+              <div class="process-core">
+                <small>Actieve fase</small>
+                <strong data-process-label>Richting</strong>
+                <span data-process-count>01 / 04</span>
+              </div>
+            </div>
+            <div class="process-visual-foot"><span>Vraagstuk</span><i></i><span data-process-output>Heldere scope</span></div>
+          </div>
         </div>
 
-        <div class="process-steps">
-          <article class="step-detail reveal">
-            <span>01</span>
-            <h3>Intake & scope</h3>
+        <div class="process-chapters">
+          <article class="process-chapter reveal" data-process-stage="0" data-label="Richting" data-output="Heldere scope en beslisvraag">
+            <span class="process-number">01</span>
+            <p class="process-tag">Intake &amp; scope</p>
+            <h3>We beginnen met de vraag achter de vraag.</h3>
             <p>We bepalen de aanleiding, beslisvraag, relevante bedrijfsonderdelen en belangrijkste AI-toepassingen. Een gerichte self-assessment versnelt de inventarisatie.</p>
+            <div><small>Uitkomst</small><strong>Heldere scope en beslisvraag</strong></div>
           </article>
-          <article class="step-detail reveal">
-            <span>02</span>
-            <h3>Inventarisatie & interviews</h3>
+          <article class="process-chapter reveal" data-process-stage="1" data-label="Zicht" data-output="Feitelijk beeld van gebruik en context">
+            <span class="process-number">02</span>
+            <p class="process-tag">Inventarisatie &amp; interviews</p>
+            <h3>We brengen praktijk en papier bij elkaar.</h3>
             <p>We verzamelen documentatie, leveranciersinformatie en procescontext en spreken de functies die AI kiezen, gebruiken, beheren of controleren.</p>
+            <div><small>Uitkomst</small><strong>Feitelijk beeld van gebruik en context</strong></div>
           </article>
-          <article class="step-detail reveal">
-            <span>03</span>
-            <h3>Beoordeling & validatie</h3>
+          <article class="process-chapter reveal" data-process-stage="2" data-label="Duiding" data-output="Gevalideerde risico’s en prioriteiten">
+            <span class="process-number">03</span>
+            <p class="process-tag">Beoordeling &amp; validatie</p>
+            <h3>We maken scherp wat aandacht verdient.</h3>
             <p>AI-toepassingen, risico’s, volwassenheid en bewijs worden per domein beoordeeld. Bevindingen worden gevalideerd voordat prioriteiten worden vastgesteld.</p>
+            <div><small>Uitkomst</small><strong>Gevalideerde risico’s en prioriteiten</strong></div>
           </article>
-          <article class="step-detail reveal">
-            <span>04</span>
-            <h3>Rapportage & activatie</h3>
+          <article class="process-chapter reveal" data-process-stage="3" data-label="Beweging" data-output="Eigenaarschap en uitvoerbare roadmap">
+            <span class="process-number">04</span>
+            <p class="process-tag">Rapportage &amp; activatie</p>
+            <h3>We vertalen inzicht naar beweging.</h3>
             <p>Management krijgt een scherp totaalbeeld. Eigenaars ontvangen concrete acties, prioriteiten en een 30-, 60- en 90-dagenroute om direct te starten.</p>
+            <div><small>Uitkomst</small><strong>Eigenaarschap en uitvoerbare roadmap</strong></div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="domeinen">
+    <section class="approach-section approach-domains" id="domeinen" data-approach-section>
       <div class="container">
-        <div class="page-intro">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Zeven beoordelingsdomeinen</p>
-            <h2>AI-governance is een samenhangend systeem.</h2>
+        <div class="approach-heading approach-heading-split reveal">
+          <div>
+            <p class="approach-kicker approach-kicker-dark"><span aria-hidden="true"></span> Zeven beoordelingsdomeinen</p>
+            <h2>Eén systeem.<br><em>Zeven perspectieven.</em></h2>
           </div>
-          <p class="section-text reveal">
-            Een sterk beleid compenseert geen onzichtbaar AI-gebruik. Een goed register compenseert geen onduidelijk
-            eigenaarschap. Daarom beoordelen we zeven gebieden in samenhang en verbinden we bevindingen aan concrete toepassingen.
-          </p>
+          <p>Een sterk beleid compenseert geen onzichtbaar AI-gebruik. Een goed register compenseert geen onduidelijk eigenaarschap. Daarom beoordelen we zeven gebieden in samenhang en verbinden we bevindingen aan concrete toepassingen.</p>
         </div>
 
-        <div class="domain-grid">
-          <article class="domain-card reveal"><span>01</span><h3>AI-inventaris</h3><p>Toepassingen, doelen, gebruikers, data, modellen, leveranciers en eigenaarschap.</p></article>
-          <article class="domain-card reveal"><span>02</span><h3>Governance</h3><p>Besluitvorming, rollen, mandaten, beleid, escalatie en managementtoezicht.</p></article>
-          <article class="domain-card reveal"><span>03</span><h3>Data & privacy</h3><p>Databronnen, persoonsgegevens, toegang, kwaliteit, doelbinding en bewaartermijnen.</p></article>
-          <article class="domain-card reveal"><span>04</span><h3>Risico & impact</h3><p>Effect op mensen, klanten, processen, reputatie, veiligheid en bedrijfscontinuïteit.</p></article>
-          <article class="domain-card reveal"><span>05</span><h3>Menselijk toezicht</h3><p>Bevoegdheden, controlepunten, uitzonderingen, uitlegbaarheid en interventiemogelijkheden.</p></article>
-          <article class="domain-card reveal"><span>06</span><h3>Leveranciers & lifecycle</h3><p>Selectie, contracten, wijzigingen, monitoring, incidenten en uitfasering.</p></article>
-          <article class="domain-card reveal"><span>07</span><h3>Kennis & bewijs</h3><p>Training, communicatie, beleidstoepassing en bewijs dat beheersmaatregelen daadwerkelijk functioneren.</p></article>
+        <div class="domain-map reveal" data-domain-map>
+          <svg class="domain-connections" viewBox="0 0 1200 760" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M600 380 L182 132 M600 380 L552 96 M600 380 L1018 132 M600 380 L1060 382 M600 380 L975 650 M600 380 L510 670 M600 380 L154 570"/>
+          </svg>
+          <div class="domain-core">
+            <div class="domain-core-ring"></div>
+            <img src="../assets/favicon.svg" alt="" aria-hidden="true">
+            <small>Samenhang</small>
+            <strong>AI als systeem</strong>
+            <span>Organisatie ↔ technologie</span>
+          </div>
+          <article class="domain-node domain-node-1"><span>01</span><div><h3>AI-inventaris</h3><p>Toepassingen, doelen, gebruikers, data, modellen, leveranciers en eigenaarschap.</p></div></article>
+          <article class="domain-node domain-node-2"><span>02</span><div><h3>Governance</h3><p>Besluitvorming, rollen, mandaten, beleid, escalatie en managementtoezicht.</p></div></article>
+          <article class="domain-node domain-node-3"><span>03</span><div><h3>Data &amp; privacy</h3><p>Databronnen, persoonsgegevens, toegang, kwaliteit, doelbinding en bewaartermijnen.</p></div></article>
+          <article class="domain-node domain-node-4"><span>04</span><div><h3>Risico &amp; impact</h3><p>Effect op mensen, klanten, processen, reputatie, veiligheid en bedrijfscontinuïteit.</p></div></article>
+          <article class="domain-node domain-node-5"><span>05</span><div><h3>Menselijk toezicht</h3><p>Bevoegdheden, controlepunten, uitzonderingen, uitlegbaarheid en interventiemogelijkheden.</p></div></article>
+          <article class="domain-node domain-node-6"><span>06</span><div><h3>Leveranciers &amp; lifecycle</h3><p>Selectie, contracten, wijzigingen, monitoring, incidenten en uitfasering.</p></div></article>
+          <article class="domain-node domain-node-7"><span>07</span><div><h3>Kennis &amp; bewijs</h3><p>Training, communicatie, beleidstoepassing en bewijs dat beheersmaatregelen daadwerkelijk functioneren.</p></div></article>
         </div>
       </div>
     </section>
 
-    <section class="section dark-section" id="bewijs">
-      <div class="container">
-        <div class="page-intro">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Vier bewijsniveaus</p>
-            <h2>Een maatregel is pas sterk als hij standhoudt.</h2>
-          </div>
-          <p class="section-text reveal">
-            Deze vier vragen voorkomen dat governance alleen een verzameling documenten wordt. Ze maken zichtbaar
-            waar een maatregel nog moet worden ontworpen, toegewezen, ingebed of bewezen.
-          </p>
+    <section class="approach-section approach-evidence" id="bewijs" data-approach-section>
+      <div class="container evidence-story" data-evidence-story>
+        <div class="evidence-intro reveal">
+          <p class="approach-kicker"><span aria-hidden="true"></span> Vier bewijsniveaus</p>
+          <h2>Een maatregel is pas sterk als hij <em>standhoudt.</em></h2>
+          <p>Deze vier vragen voorkomen dat governance alleen een verzameling documenten wordt. Ze maken zichtbaar waar een maatregel nog moet worden ontworpen, toegewezen, ingebed of bewezen.</p>
+          <div class="evidence-scale" aria-hidden="true"><span data-evidence-fill></span><i></i><i></i><i></i><i></i></div>
+          <div class="evidence-scale-labels"><span>Ontwerp</span><span>Werking</span><span>Bewijs</span></div>
         </div>
 
-        <div class="evidence-grid">
-          <article class="evidence-card reveal"><span>01</span><h3>Bestaat het?</h3><p>Is de afspraak, maatregel of controle herkenbaar vastgelegd?</p></article>
-          <article class="evidence-card reveal"><span>02</span><h3>Is het toegewezen?</h3><p>Is duidelijk wie eigenaar is, uitvoert, controleert en escaleert?</p></article>
-          <article class="evidence-card reveal"><span>03</span><h3>Werkt het?</h3><p>Wordt de maatregel in de dagelijkse praktijk consequent toegepast?</p></article>
-          <article class="evidence-card reveal"><span>04</span><h3>Is het aantoonbaar?</h3><p>Kan de organisatie met actueel bewijs laten zien dat de beheersing werkt?</p></article>
+        <div class="evidence-levels">
+          <article class="evidence-level reveal" data-evidence-level="0">
+            <span>01</span><small>Fundament · 25%</small><h3>Bestaat het?</h3><p>Is de afspraak, maatregel of controle herkenbaar vastgelegd?</p><b aria-hidden="true">25</b>
+          </article>
+          <article class="evidence-level reveal" data-evidence-level="1">
+            <span>02</span><small>Eigenaarschap · 50%</small><h3>Is het toegewezen?</h3><p>Is duidelijk wie eigenaar is, uitvoert, controleert en escaleert?</p><b aria-hidden="true">50</b>
+          </article>
+          <article class="evidence-level reveal" data-evidence-level="2">
+            <span>03</span><small>Praktijk · 75%</small><h3>Werkt het?</h3><p>Wordt de maatregel in de dagelijkse praktijk consequent toegepast?</p><b aria-hidden="true">75</b>
+          </article>
+          <article class="evidence-level reveal" data-evidence-level="3">
+            <span>04</span><small>Aantoonbaarheid · 100%</small><h3>Is het aantoonbaar?</h3><p>Kan de organisatie met actueel bewijs laten zien dat de beheersing werkt?</p><b aria-hidden="true">100</b>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="resultaat">
+    <section class="approach-section approach-roadmap" id="resultaat" data-approach-section>
       <div class="container">
-        <div class="section-heading centered reveal">
-          <p class="eyebrow">Van inzicht naar beweging</p>
-          <h2>Een roadmap die morgen kan beginnen.</h2>
-          <p class="section-text">Acties worden geordend op urgentie, afhankelijkheden, impact en uitvoerbaarheid.</p>
+        <div class="roadmap-heading reveal">
+          <p class="approach-kicker approach-kicker-dark"><span aria-hidden="true"></span> Van inzicht naar beweging</p>
+          <h2>Een roadmap die <em>morgen</em> kan beginnen.</h2>
+          <p>Acties worden geordend op urgentie, afhankelijkheden, impact en uitvoerbaarheid.</p>
         </div>
 
-        <div class="roadmap">
-          <article class="roadmap-card reveal" data-days="30">
-            <span>Eerste 30 dagen</span>
+        <div class="roadmap-stage" data-roadmap-stage>
+          <div class="roadmap-horizon" aria-hidden="true"><span data-roadmap-fill></span><i></i></div>
+          <article class="roadmap-card reveal">
+            <div class="roadmap-time"><strong>30</strong><span>dagen</span></div>
+            <small>Eerste 30 dagen</small>
             <h3>Stabiliseren</h3>
             <p>Directe risico’s begrenzen, eigenaars benoemen, ontbrekende kerninformatie verzamelen en kritieke besluiten expliciet maken.</p>
           </article>
-          <article class="roadmap-card reveal" data-days="60">
-            <span>Tot 60 dagen</span>
+          <article class="roadmap-card reveal">
+            <div class="roadmap-time"><strong>60</strong><span>dagen</span></div>
+            <small>Tot 60 dagen</small>
             <h3>Inrichten</h3>
             <p>Beleid, beoordelingsprocessen, leverancierscontroles en menselijk toezicht praktisch organiseren en invoeren.</p>
           </article>
-          <article class="roadmap-card reveal" data-days="90">
-            <span>Tot 90 dagen</span>
+          <article class="roadmap-card reveal">
+            <div class="roadmap-time"><strong>90</strong><span>dagen</span></div>
+            <small>Tot 90 dagen</small>
             <h3>Aantonen</h3>
             <p>Werking toetsen, bewijs structureren, managementinformatie opbouwen en besluiten over de volgende volwassenheidsstap.</p>
           </article>
@@ -225,15 +314,16 @@
       </div>
     </section>
 
-    <section class="section page-cta">
+    <section class="approach-closing">
       <div class="container">
-        <div class="cta-card reveal">
+        <div class="approach-closing-card reveal">
+          <div class="closing-signal" aria-hidden="true"><i></i><i></i><span></span></div>
           <div>
-            <p class="eyebrow">Een scherpe nulmeting</p>
+            <p class="approach-kicker"><span aria-hidden="true"></span> Volgende stap</p>
             <h2>Maak zichtbaar wat al werkt en wat nu aandacht vraagt.</h2>
             <p>Plan een vrijblijvende kennismaking om scope, urgentie en een passende eerste stap te bespreken.</p>
           </div>
-          <a class="button primary dark" href="/kennismaking/">Plan kennismaking</a>
+          <a class="approach-closing-button" href="/kennismaking/"><span>Plan kennismaking</span><b aria-hidden="true">↗</b></a>
         </div>
       </div>
     </section>
@@ -241,7 +331,7 @@
 
   <button class="back-to-top" type="button" aria-label="Terug naar boven" data-back-to-top><span aria-hidden="true">↑</span></button>
 
-  <footer class="site-footer">
+  <footer class="site-footer approach-footer">
     <div class="container footer-grid">
       <a class="brand footer-brand" href="/"><img src="../assets/favicon.svg" alt="" class="brand-mark"><span>Meter<span>wise</span></span></a>
       <p>© <span id="year"></span> Meterwise. Alle rechten voorbehouden.</p>
@@ -258,5 +348,6 @@
   </footer>
 
   <script src="../script.js?v=20260810-cosmic"></script>
+  <script src="aanpak.js?v=20260816-journey-v1"></script>
 </body>
 </html>
