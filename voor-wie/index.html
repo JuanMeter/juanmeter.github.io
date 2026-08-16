@@ -19,10 +19,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css?v=20260810-cosmic">
   <link rel="stylesheet" href="../pages.css?v=20260813-fullbleed-panels">
+  <link rel="stylesheet" href="voor-wie.css?v=20260815-fluid-v2">
   <script>document.documentElement.classList.replace("no-js", "js");</script>
 </head>
 
-<body class="detail-page page-voor-wie">
+<body class="detail-page page-voor-wie audience-journey-page">
   <a class="skip-link" href="#main-content">Ga naar hoofdinhoud</a>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
   <div class="site-grain" aria-hidden="true"></div>
@@ -46,196 +47,192 @@
     </nav>
   </header>
 
-  <main id="main-content">
-    <section class="page-hero">
-      <div class="container page-hero-grid">
-        <div class="reveal">
-          <div class="breadcrumb"><a href="/">Over Meterwise</a><span>/</span><span>Voor wie</span></div>
-          <p class="eyebrow">Wanneer AI zakelijk relevant wordt</p>
-          <h1>Voor organisaties waar AI er echt toe doet.</h1>
-          <p class="page-hero-lead">
+  <main id="main-content" class="audience-main">
+    <div class="audience-fluid-stage" aria-hidden="true">
+      <canvas data-audience-fluid></canvas>
+      <div class="audience-space-dust"></div>
+      <div class="audience-vignette"></div>
+    </div>
+
+    <nav class="audience-rail" aria-label="Onderdelen van deze pagina">
+      <a href="#intro" data-rail-link="0"><span>01</span><em>Intro</em></a>
+      <a href="#signalen" data-rail-link="1"><span>02</span><em>Signalen</em></a>
+      <a href="#sectoren" data-rail-link="2"><span>03</span><em>Omgevingen</em></a>
+      <a href="#fit" data-rail-link="3"><span>04</span><em>Fit</em></a>
+      <a href="#vragen" data-rail-link="4"><span>05</span><em>Zelfcheck</em></a>
+    </nav>
+
+    <section class="audience-hero" id="intro" data-fluid-stage="0" aria-labelledby="audience-title">
+      <div class="container audience-hero-inner">
+        <div class="audience-hero-copy reveal">
+          <p class="audience-kicker"><span aria-hidden="true"></span> Voor wie</p>
+          <h1 id="audience-title">Voor organisaties waar AI er echt toe doet.</h1>
+          <p>
             Vooral wanneer AI klanten, medewerkers, persoonsgegevens, producten of kritieke processen raakt.
             Dan is weten wat er gebeurt geen administratieve luxe, maar een voorwaarde voor vertrouwen en groei.
           </p>
-          <div class="page-hero-actions">
+          <div class="audience-actions">
             <a class="button primary" href="/kennismaking/">Toets de fit</a>
-            <a class="button secondary" href="#signalen">Herken de signalen</a>
+            <a class="audience-text-link" href="#signalen">Herken de signalen <span aria-hidden="true">↓</span></a>
           </div>
         </div>
-        <aside class="page-signal audience-portal cosmic-infographic cosmic-dawn reveal" aria-label="Wanneer governance waarde toevoegt">
-          <span class="signal-label">Wanneer governance waarde toevoegt</span>
-          <strong class="signal-value">AI groeit sneller dan de grip erop.</strong>
-          <div class="signal-meta">
-            <span>Meerdere tools of één toepassing met grote impact</span>
-            <span>Managementvragen over risico en verantwoordelijkheid</span>
-          </div>
+
+        <aside class="audience-float-card audience-float-card-left reveal" aria-label="Groeiende werkelijkheid">
+          <small>Groeiende werkelijkheid</small>
+          <strong>AI groeit sneller dan de grip erop.</strong>
+          <span><i></i> Gebruik beweegt</span>
         </aside>
+        <aside class="audience-float-card audience-float-card-right reveal" aria-label="Zakelijke impact">
+          <small>Zakelijke impact</small>
+          <strong>Klanten · mensen · processen</strong>
+          <span><i></i> Governance wordt relevant</span>
+        </aside>
+
+        <a class="audience-scroll-cue" href="#signalen">
+          <span>Scroll om de context te verkennen</span>
+          <i aria-hidden="true"></i>
+        </a>
       </div>
     </section>
 
-    <nav class="page-nav" aria-label="Op deze pagina">
-      <div class="container page-nav-inner">
-        <a href="#signalen">Signalen</a>
-        <a href="#sectoren">Sectoren</a>
-        <a href="#fit">Goede fit</a>
-        <a href="#vragen">Startvragen</a>
-      </div>
-    </nav>
-
-    <section class="section" id="signalen">
+    <section class="audience-section audience-signals" id="signalen" data-fluid-stage="1" aria-labelledby="signals-title">
       <div class="container">
-        <div class="page-intro">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Herkenbare aanleidingen</p>
-            <h2>De behoefte aan governance begint vaak vóór een audit.</h2>
+        <div class="audience-section-heading reveal">
+          <div>
+            <p class="audience-kicker"><span aria-hidden="true"></span> Herkenbare aanleidingen</p>
+            <h2 id="signals-title">Governance begint meestal niet bij regels.</h2>
           </div>
-          <p class="section-text reveal">
-            Organisaties schakelen Meterwise meestal niet in omdat ze “meer beleid” willen. Ze zoeken overzicht,
-            een verdedigbaar antwoord aan klanten of management, duidelijk eigenaarschap of zekerheid voordat
-            AI verder wordt opgeschaald.
+          <p>
+            Organisaties zoeken geen extra beleidslaag. Ze zoeken overzicht, een verdedigbaar antwoord,
+            duidelijk eigenaarschap en zekerheid voordat AI verder wordt opgeschaald.
           </p>
         </div>
 
-        <div class="feature-grid">
-          <article class="feature-card reveal">
-            <strong>Commercieel</strong>
-            <h3>Klanten stellen scherpere vragen</h3>
-            <p>Sales, securityvragenlijsten of contracten vragen om concrete uitleg over AI, data, risico en toezicht.</p>
+        <div class="signal-bento">
+          <article class="audience-info-card signal-wide reveal">
+            <span>01 · Commercieel</span>
+            <h3>Klanten stellen scherpere vragen.</h3>
+            <p>Sales, securityvragenlijsten en contracten vragen om concrete uitleg over AI, data, risico en toezicht.</p>
           </article>
-          <article class="feature-card reveal">
-            <strong>Bestuurlijk</strong>
-            <h3>Eigenaarschap is versnipperd</h3>
-            <p>IT, privacy, security, legal en business raken AI, maar niemand heeft een volledig beeld of duidelijk mandaat.</p>
+          <article class="audience-info-card signal-tall reveal">
+            <span>02 · Bestuurlijk</span>
+            <h3>Eigenaarschap is versnipperd.</h3>
+            <p>IT, privacy, security, legal en business raken AI, maar niemand heeft het volledige beeld of een duidelijk mandaat.</p>
           </article>
-          <article class="feature-card reveal">
-            <strong>Operationeel</strong>
-            <h3>Gebruik groeit buiten beeld</h3>
-            <p>Teams introduceren tools en functies sneller dan processen, leverancierscontroles en besluitvorming kunnen volgen.</p>
+          <article class="audience-info-card reveal">
+            <span>03 · Operationeel</span>
+            <h3>Gebruik groeit buiten beeld.</h3>
+            <p>Teams introduceren tools sneller dan processen en leverancierscontroles kunnen volgen.</p>
           </article>
-          <article class="feature-card reveal">
-            <strong>Strategisch</strong>
-            <h3>Opschalen vraagt zekerheid</h3>
-            <p>De organisatie wil meer waarde uit AI halen, maar management wil eerst weten welke randvoorwaarden nodig zijn.</p>
+          <article class="audience-info-card reveal">
+            <span>04 · Strategisch</span>
+            <h3>Opschalen vraagt zekerheid.</h3>
+            <p>Management wil weten welke randvoorwaarden nodig zijn voordat AI breder wordt ingezet.</p>
           </article>
-          <article class="feature-card reveal">
-            <strong>Risico</strong>
-            <h3>AI beïnvloedt mensen of processen</h3>
+          <article class="audience-info-card reveal">
+            <span>05 · Risico</span>
+            <h3>AI beïnvloedt mensen of processen.</h3>
             <p>Uitkomsten raken medewerkers, klanten, kwaliteit, planning of andere beslissingen met merkbare impact.</p>
           </article>
-          <article class="feature-card reveal">
-            <strong>Aantoonbaarheid</strong>
-            <h3>ISO-readiness komt in beeld</h3>
-            <p>De organisatie wil weten of een managementsysteem logisch is en welke basis eerst aantoonbaar op orde moet zijn.</p>
+          <article class="audience-info-card signal-wide reveal">
+            <span>06 · Aantoonbaarheid</span>
+            <h3>Structurele borging wordt relevant.</h3>
+            <p>De organisatie wil governance blijvend inrichten en aantoonbaar maken als onderdeel van de dagelijkse bedrijfsvoering.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section services" id="sectoren">
+    <section class="audience-section audience-sectors" id="sectoren" data-fluid-stage="2" aria-labelledby="sectors-title">
       <div class="container">
-        <div class="section-heading centered reveal">
-          <p class="eyebrow">Relevante omgevingen</p>
-          <h2>Sectoren waar grip direct waarde creëert.</h2>
-          <p class="section-text">Niet de sector alleen, maar de combinatie van AI-gebruik, impact en zakelijke druk bepaalt de relevantie.</p>
+        <div class="audience-section-heading is-centered reveal">
+          <div>
+            <p class="audience-kicker"><span aria-hidden="true"></span> Relevante omgevingen</p>
+            <h2 id="sectors-title">Niet de sector, maar de impact bepaalt de urgentie.</h2>
+          </div>
+          <p>Waar AI-gebruik, zakelijke druk en merkbare gevolgen samenkomen, creëert grip direct waarde.</p>
         </div>
 
-        <div class="sector-grid">
-          <article class="sector-card reveal">
-            <span class="sector-icon">SW</span>
-            <h3>SaaS & software</h3>
-            <p>AI zit in producten, ontwikkelprocessen of klantfunctionaliteit en wordt onderdeel van verkoop, security en productverantwoordelijkheid.</p>
-          </article>
-          <article class="sector-card reveal">
-            <span class="sector-icon">IT</span>
-            <h3>IT & managed services</h3>
-            <p>AI wordt intern én voor klanten ingezet, waardoor leverancierskeuzes, afspraken en gedeelde verantwoordelijkheid extra belangrijk zijn.</p>
-          </article>
-          <article class="sector-card reveal">
-            <span class="sector-icon">HR</span>
-            <h3>HR-tech & recruitment</h3>
-            <p>Toepassingen verwerken persoonsgegevens of ondersteunen beslissingen over mensen, met hoge eisen aan toezicht en uitlegbaarheid.</p>
-          </article>
-          <article class="sector-card reveal">
-            <span class="sector-icon">ZT</span>
-            <h3>Zorgtechnologie</h3>
-            <p>Datakwaliteit, privacy, professionele verantwoordelijkheid en impact op gebruikers vragen om aantoonbare beheersing.</p>
-          </article>
-          <article class="sector-card reveal">
-            <span class="sector-icon">MI</span>
-            <h3>Maakindustrie</h3>
-            <p>AI beïnvloedt kwaliteit, onderhoud, planning of veiligheid en raakt daarmee de betrouwbaarheid van operationele processen.</p>
-          </article>
-          <article class="sector-card reveal">
-            <span class="sector-icon">ZD</span>
-            <h3>Zakelijke dienstverlening</h3>
-            <p>AI ondersteunt analyse, advies, content of besluitvorming, terwijl klanten blijven rekenen op professionele zorgvuldigheid.</p>
-          </article>
+        <div class="sector-universe reveal">
+          <div class="sector-core">
+            <span>De gemene deler</span>
+            <strong>AI raakt de kern van het werk.</strong>
+          </div>
+          <article class="sector-orbit-card"><span>SW</span><div><h3>SaaS & software</h3><p>AI in producten, ontwikkeling en klantfunctionaliteit.</p></div></article>
+          <article class="sector-orbit-card"><span>IT</span><div><h3>IT & managed services</h3><p>Intern én klantgericht gebruik met gedeelde verantwoordelijkheid.</p></div></article>
+          <article class="sector-orbit-card"><span>HR</span><div><h3>HR-tech & recruitment</h3><p>Persoonsgegevens en beslissingen over mensen.</p></div></article>
+          <article class="sector-orbit-card"><span>ZT</span><div><h3>Zorgtechnologie</h3><p>Datakwaliteit, privacy en professionele verantwoordelijkheid.</p></div></article>
+          <article class="sector-orbit-card"><span>MI</span><div><h3>Maakindustrie</h3><p>Kwaliteit, onderhoud, planning en veiligheid.</p></div></article>
+          <article class="sector-orbit-card"><span>ZD</span><div><h3>Zakelijke dienstverlening</h3><p>Analyse, advies, content en professionele zorgvuldigheid.</p></div></article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="fit">
+    <section class="audience-section audience-fit" id="fit" data-fluid-stage="3" aria-labelledby="fit-title">
       <div class="container">
-        <div class="section-heading centered reveal">
-          <p class="eyebrow">De beste samenwerking</p>
-          <h2>Wanneer Meterwise veel waarde kan toevoegen.</h2>
+        <div class="audience-section-heading reveal">
+          <div>
+            <p class="audience-kicker"><span aria-hidden="true"></span> De beste samenwerking</p>
+            <h2 id="fit-title">Wanneer Meterwise veel waarde kan toevoegen.</h2>
+          </div>
+          <p>Een goede fit ontstaat wanneer urgentie samengaat met eigenaarschap en de bereidheid om verbeteringen echt te laten landen.</p>
         </div>
 
-        <div class="fit-grid">
-          <article class="fit-card is-dark reveal">
-            <p class="eyebrow">Sterke fit</p>
-            <h2>Er is urgentie én bereidheid om te handelen.</h2>
-            <ul class="plain-list">
-              <li>De organisatie heeft meerdere AI-tools of één toepassing met merkbare impact.</li>
-              <li>Klanten, management, privacy of security stellen vragen die feitelijk beantwoord moeten worden.</li>
-              <li>Er is een interne eigenaar die besluiten kan organiseren en acties kan laten landen.</li>
-              <li>De organisatie wil pragmatisch verbeteren, zonder governance tot papieren exercitie te maken.</li>
-              <li>Bestaande ISO-, security- of privacyprocessen kunnen als stevige basis dienen.</li>
+        <div class="fit-contrast">
+          <article class="fit-panel fit-panel-primary reveal">
+            <div class="fit-panel-top"><span>01</span><em>Sterke fit</em></div>
+            <h3>Er is urgentie én bereidheid om te handelen.</h3>
+            <ul>
+              <li>Meerdere AI-tools of één toepassing met merkbare impact.</li>
+              <li>Klanten, management, privacy of security stellen feitelijke vragen.</li>
+              <li>Een interne eigenaar kan besluiten organiseren en acties laten landen.</li>
+              <li>De organisatie wil pragmatisch verbeteren, zonder papieren exercitie.</li>
+              <li>ISO-, security- of privacyprocessen bieden mogelijk al een stevige basis.</li>
             </ul>
           </article>
-          <article class="fit-card reveal">
-            <p class="eyebrow">Eerst een andere stap</p>
-            <h2>Soms is een volledige scan nog niet proportioneel.</h2>
-            <ul class="plain-list">
-              <li>Er is nog geen concreet AI-gebruik of beslisvraag om te onderzoeken.</li>
-              <li>De organisatie zoekt uitsluitend een certificeringsgarantie of een externe goedkeuring.</li>
-              <li>Er is geen beschikbaar eigenaarschap om informatie te leveren of vervolgacties te dragen.</li>
-              <li>De vraag is alleen technisch en raakt geen governance, risico of verantwoordelijkheid.</li>
-              <li>Een compacte QuickScan kan dan een betere eerste stap zijn.</li>
+          <article class="fit-panel fit-panel-secondary reveal">
+            <div class="fit-panel-top"><span>02</span><em>Eerst een andere stap</em></div>
+            <h3>Soms is een volledige scan nog niet proportioneel.</h3>
+            <ul>
+              <li>Er is nog geen concreet AI-gebruik of beslisvraag.</li>
+              <li>De vraag gaat uitsluitend over certificeringsgarantie of externe goedkeuring.</li>
+              <li>Er is nog geen eigenaar om informatie en vervolgacties te dragen.</li>
+              <li>De vraag is alleen technisch en raakt geen risico of verantwoordelijkheid.</li>
+              <li>Een compacte AI QuickScan kan dan een betere eerste stap zijn.</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section dark-section" id="vragen">
-      <div class="container">
-        <div class="question-panel reveal">
-          <div>
-            <p class="eyebrow">Snelle zelfcheck</p>
-            <h2>Kun je deze vragen vandaag overtuigend beantwoorden?</h2>
-            <p>Als meerdere antwoorden onduidelijk zijn, is dat vaak een sterker startpunt dan een directe certificeringsambitie.</p>
-          </div>
-          <ol class="question-list">
-            <li>Waar wordt AI gebruikt, inclusief tools buiten de formele IT-omgeving?</li>
-            <li>Wie is eigenaar van waarde, risico, data en dagelijks toezicht?</li>
-            <li>Welke toepassingen hebben de grootste impact op mensen, klanten of kritieke processen?</li>
-            <li>Welke leveranciers en modellen zijn betrokken en hoe worden wijzigingen gevolgd?</li>
-            <li>Kun je aantonen dat belangrijke maatregelen niet alleen bestaan, maar ook werken?</li>
-          </ol>
+    <section class="audience-section audience-questions" id="vragen" data-fluid-stage="4" aria-labelledby="questions-title">
+      <div class="container question-journey">
+        <div class="question-copy reveal">
+          <p class="audience-kicker"><span aria-hidden="true"></span> Snelle zelfcheck</p>
+          <h2 id="questions-title">Kun je dit vandaag overtuigend beantwoorden?</h2>
+          <p>Meerdere onduidelijke antwoorden zijn vaak een sterker startpunt dan een directe certificeringsambitie.</p>
+          <a class="audience-text-link" href="/diensten/">Bekijk de drie diensten <span aria-hidden="true">↗</span></a>
         </div>
+        <ol class="question-stack">
+          <li class="reveal"><span>01</span><p>Waar wordt AI gebruikt, inclusief tools buiten de formele IT-omgeving?</p></li>
+          <li class="reveal"><span>02</span><p>Wie is eigenaar van waarde, risico, data en dagelijks toezicht?</p></li>
+          <li class="reveal"><span>03</span><p>Welke toepassingen hebben de grootste impact op mensen, klanten of kritieke processen?</p></li>
+          <li class="reveal"><span>04</span><p>Welke leveranciers en modellen zijn betrokken en hoe worden wijzigingen gevolgd?</p></li>
+          <li class="reveal"><span>05</span><p>Kun je aantonen dat belangrijke maatregelen niet alleen bestaan, maar ook werken?</p></li>
+        </ol>
       </div>
     </section>
 
-    <section class="section page-cta">
+    <section class="audience-closing" id="advies" data-fluid-stage="5">
       <div class="container">
-        <div class="cta-card reveal">
-          <div>
-            <p class="eyebrow">Twijfel je over de fit?</p>
-            <h2>Leg je context voor. Je krijgt een eerlijk eerste advies.</h2>
-            <p>We bespreken de aanleiding, de impact van AI en of een QuickScan, Governance Scan of andere route logisch is.</p>
+        <div class="audience-closing-card reveal">
+          <p class="audience-kicker"><span aria-hidden="true"></span> Twijfel je over de fit?</p>
+          <h2>Leg je context voor. Je krijgt een eerlijk eerste advies.</h2>
+          <p>We bespreken de aanleiding, de impact van AI en of de AI QuickScan, AI Governance Scan of het AI Governance Program logisch is.</p>
+          <div class="audience-actions">
+            <a class="button primary" href="/kennismaking/">Plan kennismaking</a>
+            <a class="audience-text-link" href="/contact/">Neem eerst contact op <span aria-hidden="true">↗</span></a>
           </div>
-          <a class="button primary dark" href="/kennismaking/">Plan kennismaking</a>
         </div>
       </div>
     </section>
@@ -260,5 +257,6 @@
   </footer>
 
   <script src="../script.js?v=20260810-cosmic"></script>
+  <script src="voor-wie.js?v=20260815-fluid-v1"></script>
 </body>
 </html>

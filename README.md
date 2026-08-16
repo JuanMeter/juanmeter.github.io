@@ -1,6 +1,6 @@
 # Meterwise website
 
-Statische, responsieve bedrijfswebsite voor **Meterwise**. De website begint bij het herkenbare klantprobleem — groeiend AI-gebruik zonder volledig overzicht — en positioneert de AI Governance Scan als centrale eerste stap.
+Statische, responsieve bedrijfswebsite voor **Meterwise**. De website begint bij het herkenbare klantprobleem — groeiend AI-gebruik zonder volledig overzicht — en presenteert drie duidelijke productroutes: AI QuickScan, AI Governance Scan en AI Governance Program.
 
 Deze repository bevat uitsluitend bestanden die nodig zijn om de publieke website te tonen. Interne koersdocumenten, prijsinformatie en verkoophypotheses horen niet in deze repository.
 
@@ -9,9 +9,9 @@ Deze repository bevat uitsluitend bestanden die nodig zijn om de publieke websit
 | Route | Functie |
 |---|---|
 | `/` | **Over Meterwise**: brede hoofdpagina met merkintro, kernpropositie, samenvattingen en doorverwijzingen |
-| `/diensten/` | Verdieping van de QuickScan, Governance Scan, implementatie, ISO-readiness en continuïteit |
+| `/diensten/` | SaaS-achtige productpagina voor de AI QuickScan, AI Governance Scan en het AI Governance Program |
 | `/aanpak/` | Werkwijze, zeven beoordelingsdomeinen, vier bewijsniveaus en 30/60/90-dagenroadmap |
-| `/voor-wie/` | Koopsignalen, relevante sectoren, fitcriteria en een korte zelfcheck |
+| `/voor-wie/` | Scrollgestuurde ruimtereis met koopsignalen, relevante omgevingen, fitcriteria en een zelfcheck |
 | `/ai-act/` | Praktische uitleg, actuele hoofdtijdlijn, eerste maatregelen en de relatie met ISO/IEC 42001 |
 | `/contact/` | Rechtstreekse contactgegevens voor korte en concrete vragen |
 | `/kennismaking/` | Afzonderlijke intake in drie stappen voor een inhoudelijke kennismaking |
@@ -37,7 +37,7 @@ De hoofdnavigatie is op alle inhoudspagina’s gelijk. “Over Meterwise” verw
 - Het hoofdvenster is een kosmische merkvisual met fotorealistische steenfragmenten. Tijdens het scrollen komen de losse delen samen als visuele metafoor voor richting en samenhang.
 - De homepage bevat een herkenningsblok, een eenvoudige AI Act-uitleg, drie redenen om nu te beginnen, een persoonlijk Meterwise-profiel en veelgestelde vragen.
 - In het oprichtersblok staat de aangeleverde portretfoto van Juan Meter.
-- De AI Governance Scan is zichtbaar het kernproduct; QuickScan, implementatie en readiness zijn aanvullende routes.
+- De productlijn bestaat uit de AI QuickScan en AI Governance Scan als vaste pakketten en het AI Governance Program als maatwerkroute.
 - De aparte AI Act-pagina verwijst voor actuele termijnen naar officiële bronnen van de Europese Commissie en Autoriteit Persoonsgegevens.
 - Diensten, Aanpak, Voor wie en AI Act hebben ieder een eigen kleurwereld en een infographic met een lokale volle-bleed SVG-achtergrond.
 - Scroll-progressindicator en terug-naar-bovenknop.
@@ -53,7 +53,7 @@ De hoofdnavigatie is op alle inhoudspagina’s gelijk. “Over Meterwise” verw
 
 Met een geldig Formspree-endpoint verzendt het formulier met JavaScript rechtstreeks vanaf de website. De bezoeker blijft op de pagina en ziet daar de laad-, fout- en successtatus. Zonder endpoint wordt niets verstuurd en verschijnt een duidelijke melding met een link naar de contactpagina; er wordt geen e-mailprogramma meer geopend.
 
-CTA's kunnen het gespreksonderwerp vooraf selecteren met `?onderwerp=governance-scan`, `quickscan`, `implementatie` of `iso-readiness`.
+CTA's kunnen het gespreksonderwerp vooraf selecteren met `?onderwerp=quickscan`, `governance-scan` of `governance-program`. De oude parameters `implementatie` en `iso-readiness` blijven technisch als doorverwijzing naar het AI Governance Program werken.
 
 ## Projectstructuur
 
@@ -73,11 +73,16 @@ CTA's kunnen het gespreksonderwerp vooraf selecteren met `?onderwerp=governance-
 │   ├── cosmic-panels/
 │   └── footer-space/
 ├── diensten/
-│   └── index.html
+│   ├── index.html
+│   └── diensten.css
 ├── aanpak/
-│   └── index.html
+│   ├── index.html
+│   ├── aanpak.css
+│   └── aanpak.js
 ├── voor-wie/
-│   └── index.html
+│   ├── index.html
+│   ├── voor-wie.css
+│   └── voor-wie.js
 ├── ai-act/
 │   └── index.html
 ├── contact/
@@ -134,12 +139,11 @@ De kaarten op de hoofdpagina zijn bewust compact. Verdiepende uitleg hoort op de
 
 | Anker | Inhoud |
 |---|---|
-| `#dienstenoverzicht` | Productlijn van oriënteren naar verankeren |
 | `#quickscan` | Doel en opbrengst van de AI QuickScan |
-| `#governance-scan` | Kernproduct, belofte en concrete deliverables |
-| `#implementatie` | Inrichting van rollen, beleid, processen en bewijs |
-| ISO/IEC 42001-blok | Readinesspositie en afbakening ten opzichte van certificering |
-| `#continuiteit` | Periodieke herbeoordeling en onderhoud |
+| `#governance-scan` | Doel en positionering van de AI Governance Scan |
+| `#governance-program` | Maatwerkroute voor inrichting en structurele verankering |
+| `.product-path` | Visuele route van oriënteren naar verankeren |
+| `.product-compare` | Compacte vergelijking van vorm en beste startpunt |
 
 ### AI Act — `ai-act/index.html`
 
@@ -161,6 +165,8 @@ De kaarten op de hoofdpagina zijn bewust compact. Verdiepende uitleg hoort op de
 | `#bewijs` | Bestaat, toegewezen, werkt en aantoonbaar |
 | `#resultaat` | Acties voor de eerste 30, 60 en 90 dagen |
 
+De Aanpak-pagina is vormgegeven als een lichte **evidence blueprint**. De hero visualiseert de route van scope naar aantoonbare beheersing, de vier fasen vormen een scrollgestuurde werkroute en de roadmap bouwt visueel op van 30 naar 90 dagen. Alle teksten blijven rechtstreeks in `aanpak/index.html` aanpasbaar. De paginaspecifieke vormgeving staat in `aanpak/aanpak.css`; de subtiele schema-, proces- en roadmapinteractie staat in `aanpak/aanpak.js`.
+
 ### Voor wie — `voor-wie/index.html`
 
 | Anker | Inhoud |
@@ -169,6 +175,7 @@ De kaarten op de hoofdpagina zijn bewust compact. Verdiepende uitleg hoort op de
 | `#sectoren` | Zes relevante sectoromgevingen |
 | `#fit` | Sterke fit en situaties waarin een andere eerste stap beter is |
 | `#vragen` | Vijf diagnostische vragen voor bezoekers |
+| `#advies` | Afsluitend eerlijk eerste advies en twee contactroutes |
 
 ### Contact — `contact/index.html`
 
@@ -219,8 +226,11 @@ De juridische pagina's zijn gepubliceerd zonder zichtbare placeholders. Vul onde
 
 - Globale kleuren, typografie, homepage en landingintro: `styles.css`.
 - De ronde CTA's gebruiken de oorspronkelijke, compacte knopstijl. De globale varianten staan bij `.button`, `.nav-cta` en `.back-to-top` in `styles.css`; de formulierknoppen staan bij `.button` in `kennismaking/kennismaking.css`.
-- Gedeelde paginaonderdelen én de vier afzonderlijke visuele thema's van Diensten, Aanpak, Voor wie en AI Act: `pages.css`.
-- De bodyclasses `.page-diensten`, `.page-aanpak`, `.page-voor-wie` en `.page-ai-act` bepalen per pagina de kleurwereld, headerillustratie en thematische kaartaccenten.
+- Gedeelde paginaonderdelen en de basisthema's van de subpagina's: `pages.css`.
+- De dienstenpagina gebruikt aanvullend `diensten/diensten.css`; de lichte evidence-blueprint van Aanpak staat in `aanpak/aanpak.css`; de scrollende Voor wie-ervaring staat in `voor-wie/voor-wie.css`.
+- De procesvoortgang, actieve hoofdstukken en subtiele blueprintinteractie op Aanpak worden lokaal aangestuurd door `aanpak/aanpak.js`.
+- De vloeiende vorm en scrollgestuurde hoofdstukwisselingen van Voor wie worden lokaal getekend door `voor-wie/voor-wie.js`; er wordt geen externe video geladen.
+- De bodyclasses `.page-diensten`, `.page-aanpak`, `.page-voor-wie` en `.page-ai-act` blijven de pagina's afbakenen voor gerichte stijlen.
 - De codegebouwde illustraties staan onder `/* Distinct visual chapters */` in `pages.css`; ze gebruiken uitsluitend HTML en CSS en zijn dus vrij van stocklicenties.
 - Scroll-, navigatie-, reveal- en landinglogica: `script.js`.
 - Kennismakingspagina: `kennismaking/kennismaking.css` en `kennismaking/kennismaking.js`.
@@ -315,7 +325,7 @@ feature branch → preview → pull request → merge → GitHub Pages
 - Geen fictieve cases, testimonials of resultaten.
 - Geen garantie op ISO/IEC 42001-certificering.
 - Meterwise wordt niet als certificerende instelling gepositioneerd.
-- ISO/IEC 42001 is een managementsysteemkader en mogelijke readiness-route wanneer dat zakelijk relevant is.
+- ISO/IEC 42001 blijft een relevant managementsysteemkader, maar wordt niet als afzonderlijk Meterwise-product gepresenteerd.
 - De AI Act-pagina biedt praktische oriëntatie en is expliciet geen juridisch advies.
 - Wettelijke termijnen worden alleen met links naar officiële bronnen gepubliceerd en moeten periodiek opnieuw worden gecontroleerd.
 
