@@ -4977,6 +4977,45 @@ body.nav-open {
   }
 }
 
+/* Keep the desktop hero title inside its own column. */
+@media (min-width: 941px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 0.95fr) minmax(500px, 1.05fr);
+    gap: clamp(64px, 6vw, 96px);
+  }
+
+  .hero-copy {
+    min-width: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-copy .hero-title {
+    width: 100%;
+    max-width: 100%;
+    font-size: clamp(3.15rem, 4.2vw, 4.15rem);
+    line-height: 0.94;
+    letter-spacing: -0.068em;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .hero-title span {
+    display: block;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 940px) {
+  .hero-title span {
+    display: inline;
+  }
+
+  .hero-title span:not(:last-child)::after {
+    content: " ";
+  }
+}
+
 /* Final cascade: one continuous NASA scene beneath FAQ, contact and footer */
 .space-footer-scene {
   position: relative;
